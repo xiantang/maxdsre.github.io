@@ -3,7 +3,35 @@
   
   <url>
     <loc>https://vim0.com/en/post/</loc>
-    <lastmod>2023-10-08T21:02:03+08:00</lastmod>
+    <lastmod>2024-07-08T23:09:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://vim0.com/en/tags/</loc>
+    <lastmod>2024-07-08T23:09:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://vim0.com/en/</loc>
+    <lastmod>2024-07-08T23:09:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://vim0.com/en/tags/yabai/</loc>
+    <lastmod>2024-07-08T23:09:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://vim0.com/en/post/yabai_window_sometime_in_the_below/</loc>
+    <lastmod>2024-07-08T23:09:42+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -11,13 +39,6 @@
   <url>
     <loc>https://vim0.com/en/post/2022/</loc>
     <lastmod>2023-10-08T20:52:20+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://vim0.com/en/</loc>
-    <lastmod>2023-10-08T21:02:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -38,13 +59,6 @@
   
   <url>
     <loc>https://vim0.com/en/categories/neovim/</loc>
-    <lastmod>2023-10-08T21:02:03+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://vim0.com/en/tags/</loc>
     <lastmod>2023-10-08T21:02:03+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

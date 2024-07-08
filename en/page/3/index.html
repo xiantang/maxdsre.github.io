@@ -180,6 +180,31 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/en/post/how_to_fix_big_interface/">Golang: How to Handle Growing Interfaces</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-02-13 </span>
+      <div class="post-category">
+          <a href="/en/categories/golang/"> Golang </a>
+          </div>
+        <span class="more-meta"> 1249 words </span>
+        <span class="more-meta"> 6 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      The bigger the interface, the weaker the abstraction. Go Proverbs
+ Let&rsquo;s start with the conclusion. If your Golang interface has too many functions that make it difficult for you to expand horizontally, then split it into multiple interfaces according to its responsibilities, and then use embed to combine them.
+Problem Encountered Recently, when refactoring a component that manages configurations, we have an interface and more than 5 structs implement this interface.
+    </div>
+    <div class="read-more">
+      <a href="/en/post/how_to_fix_big_interface/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/en/post/pomodoro_todo/">Using the Pomodoro Technique to Better Utilize Your Time</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-02-03 </span>
@@ -274,29 +299,6 @@ What is unit testing? Characteristics of unit testing Unit testing is a very imp
     </div>
     <div class="read-more">
       <a href="/en/post/golang/use_mock_to_test/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/en/post/golang/about_slice/">Some Details About Golang Slice</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-12-21 </span>
-      <div class="post-category">
-          <a href="/en/categories/golang/"> Golang </a>
-          </div>
-        <span class="more-meta"> 996 words </span>
-        <span class="more-meta"> 2 mins read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Some Details About Golang Slice In Golang, there are two types of data: One is an array with a fixed length, called Array, and the other is an array with an unlimited length, called Slice. Distinguish Between Array and Slice The difference between Array and Slice is: Array is of fixed length, and the length of Array is part of the type, so the length of Array cannot be changed,
-    </div>
-    <div class="read-more">
-      <a href="/en/post/golang/about_slice/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
