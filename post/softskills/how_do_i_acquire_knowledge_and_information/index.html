@@ -250,6 +250,11 @@
 </nav>
   </div>
 </div>
+  <div class="post-outdated">
+    <div class="warn">
+      <p>[NOTE] Updated <span class="timeago" datetime="2023-10-08T20:52:20" title="October 8, 2023">October 8, 2023</span>. This article may have outdated content or subject matter.</p>
+    </div>
+  </div>
     <div class="post-content">
       <p>​      &ldquo;<strong>We are all hunters in the wilderness of the information age, surviving in the vast wilderness of information.</strong>&rdquo; - &ldquo;Why Become an Information Predator&rdquo;</p>
 <p>​      In the era of mobile internet with information explosion, every internet giant is trying to build their own &ldquo;information cocoon&rdquo;, trying to recommend you some things you are interested in, and gradually your life will be shackled in a cocoon-like cage. As a <a href="https://blog.biezhi.me/2018/11/how-to-become-a-hacker.html#%E4%B8%BA%E4%BD%95%E4%BC%9A%E6%9C%89%E8%BF%99%E7%AF%87%E6%96%87%E6%A1%A3">[hacker]</a> who yearns for freedom, naturally, he cannot be restricted by such a cage. This article will introduce some ways or methods to obtain high-quality information.</p>
@@ -422,6 +427,13 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
+  <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
+    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    timeago().render(document.querySelectorAll('.timeago'), languageCode);
+    timeago.cancel();  
+  </script>
 
 
 
