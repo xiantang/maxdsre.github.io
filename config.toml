@@ -1,6 +1,6 @@
 baseURL = "https://vim0.com/"
-languageCode = "zh-cn"
-defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
+languageCode = "en"
+defaultContentLanguage = "en"                             # en / zh-cn / ... (This field determines which i18n file to use)
 theme = "even"
 
 preserveTaxonomyNames = true
@@ -43,27 +43,27 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   name = "首页"
   weight = 10
   identifier = "home"
-  url = "/"
+  url = "/zh-cn"
 [[languages.zh-cn.menu.main]]
   name = "归档"
   weight = 20
   identifier = "archives"
-  url = "/post/"
+  url = "/zh-cn/post/"
 [[languages.zh-cn.menu.main]]
   name = "标签"
   weight = 30
   identifier = "tags"
-  url = "/tags/"
+  url = "/zh-cn/tags/"
 [[languages.zh-cn.menu.main]]
   name = "分类"
   weight = 40
   identifier = "categories"
-  url = "/categories/"
+  url = "/zh-cn/categories/"
 [[languages.zh-cn.menu.main]]
   name = "关于我"
   weight = 50
   identifier = "aboutme"
-  url = "/post/about/about_me/"
+  url = "/zh-cn/post/about/about_me/"
 [[languages.zh-cn.menu.main]]
   name= "搜索"
   weight = 60
