@@ -180,6 +180,30 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/en/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/">Implementing an AtomicInteger</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2020-04-06 </span>
+      <div class="post-category">
+          <a href="/en/categories/english/"> English </a>
+          <a href="/en/categories/java/"> java </a>
+          </div>
+        <span class="more-meta"> 447 words </span>
+        <span class="more-meta"> 1 min read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      What is AtomicInteger As the name suggests, AtomicInteger is an Integer with atomic operations. The difference between AtomicInteger and a regular Integer is that AtomicInteger uses a CAS method to make Integer&rsquo;s increment and other operations atomic. Knowledge needed before implementation First, let&rsquo;s look at the increment operation of AtomicInteger: 1 2 3 4 5 6 7 8 public final int incrementAndGet() { for (;;) { int current = get();
+    </div>
+    <div class="read-more">
+      <a href="/en/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/en/post/jvm/full_gc/">What is Minor GC/Major GC</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2020-04-06 </span>
@@ -274,30 +298,6 @@ Characteristics of GC Root  Objects that are alive at the current moment!
     </div>
     <div class="read-more">
       <a href="/en/post/interview/5%E5%A4%A9%E5%88%B7%E5%AE%8C%E5%89%91%E6%8C%87/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/en/post/interview/%E6%89%8B%E5%86%99%E5%8D%95%E4%BE%8B/">Singleton Pattern</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-04-03 </span>
-      <div class="post-category">
-          <a href="/en/categories/english/"> English </a>
-          <a href="/en/categories/design-patterns/"> Design Patterns </a>
-          </div>
-        <span class="more-meta"> 467 words </span>
-        <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      What is the Singleton Pattern? The Singleton Pattern, also known as the Singleton, is a commonly used software design pattern and is one of the creational patterns. In this design pattern, the class of the singleton object must ensure that only one instance exists. Pros and Cons Pros: There is only one instance in memory, reducing memory overhead. Cons: It violates the Single Responsibility Principle, and there is no interface,
-    </div>
-    <div class="read-more">
-      <a href="/en/post/interview/%E6%89%8B%E5%86%99%E5%8D%95%E4%BE%8B/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>

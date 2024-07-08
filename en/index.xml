@@ -6,7 +6,17 @@
     <description>Recent content on xiantang - Self-discipline set me free.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 01 Jul 2024 23:08:16 +0800</lastBuildDate><atom:link href="https://vim0.com/en/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Jul 2024 23:42:39 +0800</lastBuildDate><atom:link href="https://vim0.com/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nixos use old version software</title>
+      <link>https://vim0.com/en/post/nix_use_old_version/</link>
+      <pubDate>Mon, 08 Jul 2024 23:42:39 +0800</pubDate>
+      
+      <guid>https://vim0.com/en/post/nix_use_old_version/</guid>
+      <description>I think this is a common problem for Nixos users, because the latest version of the software may have some problems, but in Nixos channel you can only find the fixed version of the software, so how to use the old version of the software?
+According to the blog post How to use old versions of software in NixOS, you can use the following method to use the old version of the software:</description>
+    </item>
+    
     <item>
       <title>Yabai Sometimes Puts Windows Below Other Windows</title>
       <link>https://vim0.com/en/post/yabai_window_sometime_in_the_below/</link>

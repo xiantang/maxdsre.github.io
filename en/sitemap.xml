@@ -2,21 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://vim0.com/en/post/</loc>
-    <lastmod>2024-07-08T23:14:55+08:00</lastmod>
+    <loc>https://vim0.com/en/post/nix_use_old_version/</loc>
+    <lastmod>2024-07-09T00:06:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://vim0.com/en/tags/</loc>
-    <lastmod>2024-07-08T23:14:55+08:00</lastmod>
+    <loc>https://vim0.com/en/post/</loc>
+    <lastmod>2024-07-09T00:06:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://vim0.com/en/</loc>
+    <lastmod>2024-07-09T00:06:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://vim0.com/en/tags/</loc>
     <lastmod>2024-07-08T23:14:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
