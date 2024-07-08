@@ -13,8 +13,9 @@
       <pubDate>Mon, 08 Jul 2024 23:42:39 +0800</pubDate>
       
       <guid>https://vim0.com/en/post/nix_use_old_version/</guid>
-      <description>I think this is a common problem for Nixos users, because the latest version of the software may have some problems, but in Nixos channel you can only find the fixed version of the software, so how to use the old version of the software?
-According to the blog post How to use old versions of software in NixOS, you can use the following method to use the old version of the software:</description>
+      <description>NixOS users often face situations where the latest software versions have issues, but the NixOS channel only offers the fixed versions. Here&amp;rsquo;s how to use an older version of software:
+According to the blog post How to use old versions of software in NixOS, you can follow these steps to use an older software version:
+Search for the old version of the software Use https://lazamar.co.uk/nix-versions/ to search for old packages.</description>
     </item>
     
     <item>
