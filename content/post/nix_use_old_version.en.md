@@ -11,59 +11,51 @@ description:
 draft: false
 ---
 
-I think this is a common problem for Nixos users, because the latest version of the software may have some problems, but in Nixos channel you can only find the fixed version of the software, so how to use the old version of the software?
+NixOS users often face situations where the latest software versions have issues, but the NixOS channel only offers the fixed versions. Here's how to use an older version of software:
 
+According to the blog post [How to use old versions of software in NixOS](https://lazamar.github.io/download-specific-package-version-with-nix/), you can follow these steps to use an older software version:
 
-According to the blog post [How to use old versions of software in NixOS](https://lazamar.github.io/download-specific-package-version-with-nix/), you can use the following method to use the old version of the software:
+### Search for the old version of the software
 
+Use `https://lazamar.co.uk/nix-versions/` to search for old packages.
 
-### search for the old version of the software
-
-You now can search old package at `https://lazamar.co.uk/nix-versions/`
-
-For example if you wanna install `hugo` with version `v0.60.0`, you can search `hugo` and find the version you want, which is [here](https://lazamar.co.uk/nix-versions/?package=hugo&version=0.60.0&fullName=hugo-0.60.0&keyName=hugo&revision=ee355d50a38e489e722fcbc7a7e6e45f7c74ce95&channel=nixpkgs-unstable#instructions).
+For example, to install `hugo` version `v0.60.0`, search for `hugo` and find the desired version, which is [here](https://lazamar.co.uk/nix-versions/?package=hugo&version=0.60.0&fullName=hugo-0.60.0&keyName=hugo&revision=ee355d50a38e489e722fcbc7a7e6e45f7c74ce95&channel=nixpkgs-unstable#instructions).
 
 ```nix
-
 let
-    pkgs = import (builtins.fetchTarball {
-        url = "https://github.com/NixOS/nixpkgs/archive/ee355d50a38e489e722fcbc7a7e6e45f7c74ce95.tar.gz";
-    }) {};
+  pkgs = import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/ee355d50a38e489e722fcbc7a7e6e45f7c74ce95.tar.gz";
+  }) {};
 
-    myPkg = pkgs.hugo;
+  myPkg = pkgs.hugo;
 in
 ```
 
-
-Put above code in your `configuration.nix` as below:
+Add the above code to your `configuration.nix`:
 
 ```nix
 # { modulesPath, config, pkgs, lib, helix, ... }:
 # with lib;
 let
   pkgs = import (builtins.fetchTarball {
-    url =
-      "https://github.com/NixOS/nixpkgs/archive/ee355d50a38e489e722fcbc7a7e6e45f7c74ce95.tar.gz";
-  }) { };
+    url = "https://github.com/NixOS/nixpkgs/archive/ee355d50a38e489e722fcbc7a7e6e45f7c74ce95.tar.gz";
+  }) {};
 
   hugo = pkgs.hugo;
-in 
+in
 # let unstable = import <unstable> { };
 #
 # in {
-
 ```
 
-
-Then refer to the `myPkg` in `environment.systemPackages` of `configuration.nix`:
+Then refer to `myPkg` in `environment.systemPackages` of `configuration.nix`:
 
 ```nix
 environment.systemPackages = with pkgs; [
-# ...
+  # ...
   myPkg
-# ...
+  # ...
 ];
 ```
 
-
-Then run `nixos-rebuild switch` to apply the changes.
+Run `nixos-rebuild switch` to apply the changes.
