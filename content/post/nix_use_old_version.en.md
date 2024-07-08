@@ -3,8 +3,8 @@ title: "Nixos use old version software"
 date: 2024-07-08T23:42:39+08:00
 author: "xiantang"
 # lastmod: 
-# tags: []
-# categories: []
+tags: ["NixOS"]
+categories: ["NixOS"]
 # images:
 #   - ./post/golang/cover.png
 description:
