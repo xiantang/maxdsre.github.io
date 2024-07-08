@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>concurrency on 咸糖 - 自律者自由</title>
+    <title>concurrency on xiantang - Self-discipline set me free.</title>
     <link>https://vim0.com/tags/concurrency/</link>
-    <description>Recent content in concurrency on 咸糖 - 自律者自由</description>
+    <description>Recent content in concurrency on xiantang - Self-discipline set me free.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Mon, 06 Apr 2020 16:33:34 +0800</lastBuildDate><atom:link href="https://vim0.com/tags/concurrency/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>实现一个AtomicInteger</title>
+      <title>Implementing an AtomicInteger</title>
       <link>https://vim0.com/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/</link>
       <pubDate>Mon, 06 Apr 2020 16:33:34 +0800</pubDate>
       
       <guid>https://vim0.com/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/</guid>
-      <description>什么是 AtomicInteger AtomicInteger 顾名思义是一个具有原子化操作的 Integer，与普通的 Integer 的区别是 AtomicInteger 采用一个 CAS 的方式使 Integer 的自增等操作变成原子化操作。 实现的之前需要了</description>
+      <description>What is AtomicInteger As the name suggests, AtomicInteger is an Integer with atomic operations. The difference between AtomicInteger and a regular Integer is that AtomicInteger uses a CAS method to make Integer&amp;rsquo;s increment and other operations atomic. Knowledge needed before implementation First, let&amp;rsquo;s look at the increment operation of AtomicInteger: 1 2 3 4 5 6 7 8 public final int incrementAndGet() { for (;;) { int current = get();</description>
     </item>
     
   </channel>

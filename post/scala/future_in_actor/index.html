@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Actor 如何处理阻塞消息 - 咸糖 - 自律者自由</title>
+  <title>How Actor Handles Blocking Messages - xiantang - Self-discipline set me free.</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,12 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="xiantang" /><meta name="description" content="观察了一下业务的代码中发现在 Actor 中采用了很多 import scala.concurrent.ExecutionContext.Implicits.global 来作为 Actor 内部的执行 Future 的线程池，之前觉得好像也没啥问题。 但是在看完 akka 源码后发现好像有些不妥。 简单" />
+<meta name="author" content="xiantang" /><meta name="description" content="I noticed in the business code that a lot of
+import scala.concurrent.ExecutionContext.Implicits.global
+is used as the thread pool for executing Future inside the Actor. I didn&amp;rsquo;t think there was a problem before. But after reading the akka source code, it seems a bit inappropriate.
+Let&amp;rsquo;s briefly talk about the architecture of Actor
+When an Actor sends a message to another Actor, it sends this message to the recipient&amp;rsquo;s mailbox
+The mailbox is a class that implements Runnable, so it can be executed by a thread pool." />
 
 
 
@@ -39,22 +44,37 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Actor 如何处理阻塞消息" />
-<meta property="og:description" content="观察了一下业务的代码中发现在 Actor 中采用了很多 import scala.concurrent.ExecutionContext.Implicits.global 来作为 Actor 内部的执行 Future 的线程池，之前觉得好像也没啥问题。 但是在看完 akka 源码后发现好像有些不妥。 简单" />
+<meta property="og:title" content="How Actor Handles Blocking Messages" />
+<meta property="og:description" content="I noticed in the business code that a lot of
+import scala.concurrent.ExecutionContext.Implicits.global
+is used as the thread pool for executing Future inside the Actor. I didn&rsquo;t think there was a problem before. But after reading the akka source code, it seems a bit inappropriate.
+Let&rsquo;s briefly talk about the architecture of Actor
+When an Actor sends a message to another Actor, it sends this message to the recipient&rsquo;s mailbox
+The mailbox is a class that implements Runnable, so it can be executed by a thread pool." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vim0.com/post/scala/future_in_actor/" /><meta property="og:image" content="https://vim0.com/post/main_cover.png"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-01-15T17:51:36+08:00" />
-<meta property="article:modified_time" content="2020-01-15T18:47:22+08:00" /><meta property="og:site_name" content="咸糖 - 自律者自由" />
+<meta property="article:modified_time" content="2023-10-08T21:02:03+08:00" /><meta property="og:site_name" content="xiantang - Self-discipline set me free." />
 
-<meta itemprop="name" content="Actor 如何处理阻塞消息">
-<meta itemprop="description" content="观察了一下业务的代码中发现在 Actor 中采用了很多 import scala.concurrent.ExecutionContext.Implicits.global 来作为 Actor 内部的执行 Future 的线程池，之前觉得好像也没啥问题。 但是在看完 akka 源码后发现好像有些不妥。 简单"><meta itemprop="datePublished" content="2020-01-15T17:51:36+08:00" />
-<meta itemprop="dateModified" content="2020-01-15T18:47:22+08:00" />
-<meta itemprop="wordCount" content="597"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
+<meta itemprop="name" content="How Actor Handles Blocking Messages">
+<meta itemprop="description" content="I noticed in the business code that a lot of
+import scala.concurrent.ExecutionContext.Implicits.global
+is used as the thread pool for executing Future inside the Actor. I didn&rsquo;t think there was a problem before. But after reading the akka source code, it seems a bit inappropriate.
+Let&rsquo;s briefly talk about the architecture of Actor
+When an Actor sends a message to another Actor, it sends this message to the recipient&rsquo;s mailbox
+The mailbox is a class that implements Runnable, so it can be executed by a thread pool."><meta itemprop="datePublished" content="2020-01-15T17:51:36+08:00" />
+<meta itemprop="dateModified" content="2023-10-08T21:02:03+08:00" />
+<meta itemprop="wordCount" content="367"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
 <meta itemprop="keywords" content="scala," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://vim0.com/post/main_cover.png"/>
 
-<meta name="twitter:title" content="Actor 如何处理阻塞消息"/>
-<meta name="twitter:description" content="观察了一下业务的代码中发现在 Actor 中采用了很多 import scala.concurrent.ExecutionContext.Implicits.global 来作为 Actor 内部的执行 Future 的线程池，之前觉得好像也没啥问题。 但是在看完 akka 源码后发现好像有些不妥。 简单"/>
+<meta name="twitter:title" content="How Actor Handles Blocking Messages"/>
+<meta name="twitter:description" content="I noticed in the business code that a lot of
+import scala.concurrent.ExecutionContext.Implicits.global
+is used as the thread pool for executing Future inside the Actor. I didn&rsquo;t think there was a problem before. But after reading the akka source code, it seems a bit inappropriate.
+Let&rsquo;s briefly talk about the architecture of Actor
+When an Actor sends a message to another Actor, it sends this message to the recipient&rsquo;s mailbox
+The mailbox is a class that implements Runnable, so it can be executed by a thread pool."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -79,18 +99,18 @@
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/post/about/about_me/">
-        <li class="mobile-menu-item">关于我</li>
+    <a href="/en">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/en/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/en/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/en/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/en/post/about/about_me/">
+        <li class="mobile-menu-item">AboutMe</li>
       </a><a href="https://www.google.com/search?q=site%3Avim0.com">
-        <li class="mobile-menu-item">搜索</li>
+        <li class="mobile-menu-item">Search</li>
       </a>
   </ul>
 
@@ -102,18 +122,18 @@
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/scala/future_in_actor/">zh-cn</a>
+            <a href="https://vim0.com/zh-cn/post/scala/future_in_actor/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/en/post/scala/future_in_actor/">en</a>
+            <a href="https://vim0.com/post/scala/future_in_actor/">en</a>
           
         </li>
       
@@ -137,18 +157,18 @@
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/scala/future_in_actor/">zh-cn</a>
+            <a href="https://vim0.com/zh-cn/post/scala/future_in_actor/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/en/post/scala/future_in_actor/">en</a>
+            <a href="https://vim0.com/post/scala/future_in_actor/">en</a>
           
         </li>
       
@@ -160,17 +180,17 @@
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
+        <a class="menu-item-link" href="/en">Home</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
+        <a class="menu-item-link" href="/en/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
+        <a class="menu-item-link" href="/en/tags/">Tags</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
+        <a class="menu-item-link" href="/en/categories/">Categories</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/about/about_me/">关于我</a>
+        <a class="menu-item-link" href="/en/post/about/about_me/">AboutMe</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">搜索</a>
+        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">Search</a>
       </li>
   </ul>
 </nav>
@@ -183,44 +203,44 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Actor 如何处理阻塞消息</h1>
+      <h1 class="post-title">How Actor Handles Blocking Messages</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2020-01-15 </span>
         <div class="post-category">
-            <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
+            <a href="/categories/chinese/"> Chinese </a>
             <a href="/categories/scala/"> scala </a>
             <a href="/categories/akka/"> akka </a>
             </div>
-          <span class="more-meta"> 约 597 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+          <span class="more-meta"> 367 words </span>
+          <span class="more-meta"> 2 mins read </span>
         
       </div>
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents"></nav>
   </div>
 </div>
     <div class="post-content">
-      <p>观察了一下业务的代码中发现在 Actor 中采用了很多</p>
+      <p>I noticed in the business code that a lot of</p>
 <p><code>import scala.concurrent.ExecutionContext.Implicits.global</code></p>
-<p>来作为 Actor 内部的执行 Future 的线程池，之前觉得好像也没啥问题。
-但是在看完 akka 源码后发现好像有些不妥。</p>
-<p>简单的讲一下 Actor 的架构吧</p>
-<p>当一个Actor 向另外一个 Actor 中发送信息会将这条信息发送到接受的Actor的 mailbox 中</p>
-<p>mailbox 是一个实现 Runnable 的类，所以可以用线程池执行，所以每当你向一个Actor 发送一条消息的时候
-其实是用 接受者的 Dispatcher 来执行这条消息的。</p>
-<p>但是问题是如果你的应用是 IO 密集型的应用</p>
-<p>那么无论你使用 Actor 的默认的 defaultDispather 或者 Future 的global 隐式转换方式，都会因为线程池的核心线程被阻塞任务限制，导致线程饥饿</p>
-<p>并且因为ForkJoinPool 的实现，是一个适合计算的线程池。</p>
-<p>所以这里给出两个方案</p>
+<p>is used as the thread pool for executing Future inside the Actor. I didn&rsquo;t think there was a problem before.
+But after reading the akka source code, it seems a bit inappropriate.</p>
+<p>Let&rsquo;s briefly talk about the architecture of Actor</p>
+<p>When an Actor sends a message to another Actor, it sends this message to the recipient&rsquo;s mailbox</p>
+<p>The mailbox is a class that implements Runnable, so it can be executed by a thread pool. So every time you send a message to an Actor
+In fact, it is the recipient&rsquo;s Dispatcher that executes this message.</p>
+<p>But the problem is if your application is IO intensive</p>
+<p>Then whether you use the Actor&rsquo;s default defaultDispather or the Future&rsquo;s global implicit conversion method, it will be limited by the blocking tasks of the core threads of the thread pool, causing thread starvation</p>
+<p>And because of the implementation of ForkJoinPool, it is a thread pool suitable for computation.</p>
+<p>So here are two solutions</p>
 <ol>
 <li>
-<p>对于 IO 密集型的任务可以采用自定义线程池的方式进行解决</p>
-<p>但是如果突发的请求很多，仍然会导致线程池中线程都在阻塞，无法立马响应请求的情况。</p>
+<p>For IO-intensive tasks, you can use a custom thread pool to solve the problem</p>
+<p>But if there are a lot of sudden requests, it will still cause all the threads in the thread pool to be blocked and unable to respond to requests immediately.</p>
 </li>
 </ol>
 <div class="highlight"><div class="chroma">
@@ -250,7 +270,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><ol start="2">
-<li>使用 <code>scala.concurrent.blocking对于阻塞时间较长的任务，可以使用这个函数来包裹你的任务 </code></li>
+<li>Use <code>scala.concurrent.blocking for tasks with long blocking time, you can use this function to wrap your tasks </code></li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -272,22 +292,22 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>在执行的时候会在 ForkJoinPool 会使用当前的线程作为拓展池中的线程，也就是超出最大线程数，再额外开出一个线程进行计算。
-是 ForkJoinPool 在面对阻塞的情况下使用的方案。
-blocking 函数其实在实现了 <code>ForkJoinPool.ManagedBlocker</code>  会给分配 Fork/Join Pool 给一个线程，执行阻塞的操作。与 ForkJoinPool 的传统方式不同，所以不会产生线程饥饿的现象。</p>
+</div><p>When executing, ForkJoinPool will use the current thread as a thread in the expansion pool, that is, it exceeds the maximum number of threads, and then opens an additional thread for calculation.
+It is the solution used by ForkJoinPool in the face of blocking situations.
+The blocking function actually implements <code>ForkJoinPool.ManagedBlocker</code> and will allocate a thread to the Fork/Join Pool to perform blocking operations. Different from the traditional way of ForkJoinPool, it will not cause thread starvation.</p>
 
     </div>
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title">Author</span>
     <span class="item-content">xiantang</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-01-15
-        <a href="https://github.com/xiantang/xiantang.github.io/commit/ac8d3248bb428a03f2da79023985cb6beaef04ea" title="release not">(ac8d324)</a>
+        2023-10-08
+        <a href="https://github.com/xiantang/xiantang.github.io/commit/049e9a9b902cc4103a27eb47305da3a164dab1c7" title="commit">(049e9a9)</a>
     </span>
   </p>
   
@@ -295,16 +315,16 @@ blocking 函数其实在实现了 <code>ForkJoinPool.ManagedBlocker</code>  会�
 </div>
 <div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
+  <label class="reward-button" for="reward">Reward</label>
   <div class="qr-code">
     
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b3bbmwj30ha0hbq5e.jpg">
-        <span>微信打赏</span>
+        <span>wechat</span>
       </label>
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b4s82aj30ib0igad3.jpg">
-        <span>支付宝打赏</span>
+        <span>alipay</span>
       </label>
   </div>
 </div><footer class="post-footer">
@@ -314,12 +334,12 @@ blocking 函数其实在实现了 <code>ForkJoinPool.ManagedBlocker</code>  会�
       <nav class="post-nav">
         <a class="prev" href="/post/network/tcp%E9%92%88%E5%AF%B9%E9%9D%A2%E8%AF%95%E5%AD%A6%E4%B9%A0/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">TCP 针对面试学习</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-default">TCP Study for Interviews</span>
+            <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="/post/scala/akka_source_code/">
-            <span class="next-text nav-default">Akka 源码解析</span>
-            <span class="next-text nav-mobile">下一篇</span>
+            <span class="next-text nav-default">Analysis of Akka Source Code</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -358,11 +378,11 @@ blocking 函数其实在实现了 <code>ForkJoinPool.ManagedBlocker</code>  会�
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+    Theme - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 

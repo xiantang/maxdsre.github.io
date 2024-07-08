@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 咸糖 - 自律者自由</title>
+    <title>Tags on xiantang - Self-discipline set me free.</title>
     <link>https://vim0.com/tags/</link>
-    <description>Recent content in Tags on 咸糖 - 自律者自由</description>
+    <description>Recent content in Tags on xiantang - Self-discipline set me free.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Sat, 29 Oct 2022 20:45:20 +0800</lastBuildDate><atom:link href="https://vim0.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Jul 2024 23:08:16 +0800</lastBuildDate><atom:link href="https://vim0.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>yabai</title>
+      <link>https://vim0.com/tags/yabai/</link>
+      <pubDate>Mon, 01 Jul 2024 23:08:16 +0800</pubDate>
+      
+      <guid>https://vim0.com/tags/yabai/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>neovim</title>
       <link>https://vim0.com/tags/neovim/</link>
@@ -26,27 +35,18 @@
     </item>
     
     <item>
-      <title>中文</title>
-      <link>https://vim0.com/tags/%E4%B8%AD%E6%96%87/</link>
+      <title>Chinese</title>
+      <link>https://vim0.com/tags/chinese/</link>
       <pubDate>Wed, 29 Jun 2022 22:14:09 +0800</pubDate>
       
-      <guid>https://vim0.com/tags/%E4%B8%AD%E6%96%87/</guid>
+      <guid>https://vim0.com/tags/chinese/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>软技能</title>
-      <link>https://vim0.com/tags/%E8%BD%AF%E6%8A%80%E8%83%BD/</link>
-      <pubDate>Wed, 29 Jun 2022 22:14:09 +0800</pubDate>
-      
-      <guid>https://vim0.com/tags/%E8%BD%AF%E6%8A%80%E8%83%BD/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>soft skills</title>
+      <title>Soft Skills</title>
       <link>https://vim0.com/tags/soft-skills/</link>
-      <pubDate>Sun, 12 Jun 2022 21:33:31 +0800</pubDate>
+      <pubDate>Wed, 29 Jun 2022 22:14:09 +0800</pubDate>
       
       <guid>https://vim0.com/tags/soft-skills/</guid>
       <description></description>
@@ -71,38 +71,38 @@
     </item>
     
     <item>
-      <title>双向链接</title>
-      <link>https://vim0.com/tags/%E5%8F%8C%E5%90%91%E9%93%BE%E6%8E%A5/</link>
+      <title>Bidirectional Links</title>
+      <link>https://vim0.com/tags/bidirectional-links/</link>
       <pubDate>Sun, 27 Feb 2022 23:15:45 +0800</pubDate>
       
-      <guid>https://vim0.com/tags/%E5%8F%8C%E5%90%91%E9%93%BE%E6%8E%A5/</guid>
+      <guid>https://vim0.com/tags/bidirectional-links/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>拖延症</title>
-      <link>https://vim0.com/tags/%E6%8B%96%E5%BB%B6%E7%97%87/</link>
+      <title>Anxiety</title>
+      <link>https://vim0.com/tags/anxiety/</link>
       <pubDate>Sun, 20 Feb 2022 21:17:20 +0800</pubDate>
       
-      <guid>https://vim0.com/tags/%E6%8B%96%E5%BB%B6%E7%97%87/</guid>
+      <guid>https://vim0.com/tags/anxiety/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>焦虑</title>
-      <link>https://vim0.com/tags/%E7%84%A6%E8%99%91/</link>
+      <title>Pomodoro Technique</title>
+      <link>https://vim0.com/tags/pomodoro-technique/</link>
       <pubDate>Sun, 20 Feb 2022 21:17:20 +0800</pubDate>
       
-      <guid>https://vim0.com/tags/%E7%84%A6%E8%99%91/</guid>
+      <guid>https://vim0.com/tags/pomodoro-technique/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>番茄工作法</title>
-      <link>https://vim0.com/tags/%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95/</link>
+      <title>Procrastination</title>
+      <link>https://vim0.com/tags/procrastination/</link>
       <pubDate>Sun, 20 Feb 2022 21:17:20 +0800</pubDate>
       
-      <guid>https://vim0.com/tags/%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95/</guid>
+      <guid>https://vim0.com/tags/procrastination/</guid>
       <description></description>
     </item>
     
@@ -116,11 +116,11 @@
     </item>
     
     <item>
-      <title>Refacotr</title>
-      <link>https://vim0.com/tags/refacotr/</link>
+      <title>Refactor</title>
+      <link>https://vim0.com/tags/refactor/</link>
       <pubDate>Sun, 13 Feb 2022 20:23:51 +0800</pubDate>
       
-      <guid>https://vim0.com/tags/refacotr/</guid>
+      <guid>https://vim0.com/tags/refactor/</guid>
       <description></description>
     </item>
     
@@ -134,11 +134,11 @@
     </item>
     
     <item>
-      <title>英语</title>
-      <link>https://vim0.com/tags/%E8%8B%B1%E8%AF%AD/</link>
+      <title>English</title>
+      <link>https://vim0.com/tags/english/</link>
       <pubDate>Thu, 14 Oct 2021 01:37:56 +0800</pubDate>
       
-      <guid>https://vim0.com/tags/%E8%8B%B1%E8%AF%AD/</guid>
+      <guid>https://vim0.com/tags/english/</guid>
       <description></description>
     </item>
     
@@ -152,11 +152,11 @@
     </item>
     
     <item>
-      <title>算法</title>
-      <link>https://vim0.com/tags/%E7%AE%97%E6%B3%95/</link>
+      <title>algorithm</title>
+      <link>https://vim0.com/tags/algorithm/</link>
       <pubDate>Thu, 09 Apr 2020 01:37:56 +0800</pubDate>
       
-      <guid>https://vim0.com/tags/%E7%AE%97%E6%B3%95/</guid>
+      <guid>https://vim0.com/tags/algorithm/</guid>
       <description></description>
     </item>
     
@@ -179,11 +179,11 @@
     </item>
     
     <item>
-      <title>设计模式</title>
-      <link>https://vim0.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <title>Design Patterns</title>
+      <link>https://vim0.com/tags/design-patterns/</link>
       <pubDate>Fri, 03 Apr 2020 01:37:56 +0800</pubDate>
       
-      <guid>https://vim0.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://vim0.com/tags/design-patterns/</guid>
       <description></description>
     </item>
     

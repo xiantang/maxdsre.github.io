@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>漏桶算法的设计与实现 - 咸糖 - 自律者自由</title>
+  <title>Design and Implementation of the Leaky Bucket Algorithm - xiantang - Self-discipline set me free.</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="xiantang" /><meta name="description" content="什么是漏斗算法？ 漏斗算法顾名思义采用一个漏斗来对流量进行限制。 因为漏斗下面有孔，所以会定时的漏水下去，然后我们可以将流量想象为从上边落入漏斗" />
+<meta name="author" content="xiantang" /><meta name="description" content="What is the Leaky Bucket Algorithm? As the name suggests, the Leaky Bucket algorithm uses a leaky bucket to limit traffic. Because there is a hole at the bottom of the bucket, it will leak water at regular intervals, and we can imagine the traffic as water falling into the bucket from above. This leads to two situations. If the speed at which traffic is injected into the bucket is" />
 
 
 
@@ -39,22 +39,22 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="漏桶算法的设计与实现" />
-<meta property="og:description" content="什么是漏斗算法？ 漏斗算法顾名思义采用一个漏斗来对流量进行限制。 因为漏斗下面有孔，所以会定时的漏水下去，然后我们可以将流量想象为从上边落入漏斗" />
+<meta property="og:title" content="Design and Implementation of the Leaky Bucket Algorithm" />
+<meta property="og:description" content="What is the Leaky Bucket Algorithm? As the name suggests, the Leaky Bucket algorithm uses a leaky bucket to limit traffic. Because there is a hole at the bottom of the bucket, it will leak water at regular intervals, and we can imagine the traffic as water falling into the bucket from above. This leads to two situations. If the speed at which traffic is injected into the bucket is" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vim0.com/post/interview/%E6%BC%8F%E6%A1%B6%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/" /><meta property="og:image" content="https://vim0.com/post/main_cover.png"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-04-05T01:37:56+08:00" />
-<meta property="article:modified_time" content="2020-04-05T01:37:56+08:00" /><meta property="og:site_name" content="咸糖 - 自律者自由" />
+<meta property="article:modified_time" content="2020-04-05T01:37:56+08:00" /><meta property="og:site_name" content="xiantang - Self-discipline set me free." />
 
-<meta itemprop="name" content="漏桶算法的设计与实现">
-<meta itemprop="description" content="什么是漏斗算法？ 漏斗算法顾名思义采用一个漏斗来对流量进行限制。 因为漏斗下面有孔，所以会定时的漏水下去，然后我们可以将流量想象为从上边落入漏斗"><meta itemprop="datePublished" content="2020-04-05T01:37:56+08:00" />
+<meta itemprop="name" content="Design and Implementation of the Leaky Bucket Algorithm">
+<meta itemprop="description" content="What is the Leaky Bucket Algorithm? As the name suggests, the Leaky Bucket algorithm uses a leaky bucket to limit traffic. Because there is a hole at the bottom of the bucket, it will leak water at regular intervals, and we can imagine the traffic as water falling into the bucket from above. This leads to two situations. If the speed at which traffic is injected into the bucket is"><meta itemprop="datePublished" content="2020-04-05T01:37:56+08:00" />
 <meta itemprop="dateModified" content="2020-04-05T01:37:56+08:00" />
-<meta itemprop="wordCount" content="712"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
-<meta itemprop="keywords" content="算法," /><meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="wordCount" content="551"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
+<meta itemprop="keywords" content="algorithm," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://vim0.com/post/main_cover.png"/>
 
-<meta name="twitter:title" content="漏桶算法的设计与实现"/>
-<meta name="twitter:description" content="什么是漏斗算法？ 漏斗算法顾名思义采用一个漏斗来对流量进行限制。 因为漏斗下面有孔，所以会定时的漏水下去，然后我们可以将流量想象为从上边落入漏斗"/>
+<meta name="twitter:title" content="Design and Implementation of the Leaky Bucket Algorithm"/>
+<meta name="twitter:description" content="What is the Leaky Bucket Algorithm? As the name suggests, the Leaky Bucket algorithm uses a leaky bucket to limit traffic. Because there is a hole at the bottom of the bucket, it will leak water at regular intervals, and we can imagine the traffic as water falling into the bucket from above. This leads to two situations. If the speed at which traffic is injected into the bucket is"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -79,18 +79,18 @@
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/post/about/about_me/">
-        <li class="mobile-menu-item">关于我</li>
+    <a href="/en">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/en/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/en/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/en/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/en/post/about/about_me/">
+        <li class="mobile-menu-item">AboutMe</li>
       </a><a href="https://www.google.com/search?q=site%3Avim0.com">
-        <li class="mobile-menu-item">搜索</li>
+        <li class="mobile-menu-item">Search</li>
       </a>
   </ul>
 
@@ -102,18 +102,18 @@
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/interview/%E6%BC%8F%E6%A1%B6%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/">zh-cn</a>
+            <a href="https://vim0.com/zh-cn/post/interview/%E6%BC%8F%E6%A1%B6%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/en/post/interview/%E6%BC%8F%E6%A1%B6%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/">en</a>
+            <a href="https://vim0.com/post/interview/%E6%BC%8F%E6%A1%B6%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/">en</a>
           
         </li>
       
@@ -137,18 +137,18 @@
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/interview/%E6%BC%8F%E6%A1%B6%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/">zh-cn</a>
+            <a href="https://vim0.com/zh-cn/post/interview/%E6%BC%8F%E6%A1%B6%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/en/post/interview/%E6%BC%8F%E6%A1%B6%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/">en</a>
+            <a href="https://vim0.com/post/interview/%E6%BC%8F%E6%A1%B6%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/">en</a>
           
         </li>
       
@@ -160,17 +160,17 @@
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
+        <a class="menu-item-link" href="/en">Home</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
+        <a class="menu-item-link" href="/en/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
+        <a class="menu-item-link" href="/en/tags/">Tags</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
+        <a class="menu-item-link" href="/en/categories/">Categories</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/about/about_me/">关于我</a>
+        <a class="menu-item-link" href="/en/post/about/about_me/">AboutMe</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">搜索</a>
+        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">Search</a>
       </li>
   </ul>
 </nav>
@@ -183,40 +183,40 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">漏桶算法的设计与实现</h1>
+      <h1 class="post-title">Design and Implementation of the Leaky Bucket Algorithm</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2020-04-05 </span>
         <div class="post-category">
-            <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
-            <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+            <a href="/categories/chinese/"> Chinese </a>
+            <a href="/categories/algorithm/"> algorithm </a>
             </div>
-          <span class="more-meta"> 约 712 字 </span>
-          <span class="more-meta"> 预计阅读 2 分钟 </span>
+          <span class="more-meta"> 551 words </span>
+          <span class="more-meta"> 2 mins read </span>
         
       </div>
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#什么是漏斗算法">什么是漏斗算法？</a></li>
-    <li><a href="#使用-java-实现">使用 Java 实现</a></li>
-    <li><a href="#与令牌桶的区别">与令牌桶的区别</a></li>
+    <li><a href="#what-is-the-leaky-bucket-algorithm">What is the Leaky Bucket Algorithm?</a></li>
+    <li><a href="#implementation-in-java">Implementation in Java</a></li>
+    <li><a href="#differences-from-the-token-bucket">Differences from the Token Bucket</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="什么是漏斗算法">什么是漏斗算法？</h2>
-<p>漏斗算法顾名思义采用一个漏斗来对流量进行限制。</p>
-<p>因为漏斗下面有孔，所以会定时的漏水下去，然后我们可以将流量想象为从上边落入漏斗的水。</p>
-<p>这样就会有两种情况，如果流量的注入漏斗的速度比漏斗的漏水的速度慢，漏斗就会处于一个空漏斗的状态，也就是没有超出负荷的状态。</p>
-<p>第二种情况就是，如果流量注入漏斗的速度比漏斗快，那么漏斗就会渐渐的超出最大的容量，对于溢出的流量，漏斗会采用拒绝的方式，防止流量继续进入。</p>
+      <h2 id="what-is-the-leaky-bucket-algorithm">What is the Leaky Bucket Algorithm?</h2>
+<p>As the name suggests, the Leaky Bucket algorithm uses a leaky bucket to limit traffic.</p>
+<p>Because there is a hole at the bottom of the bucket, it will leak water at regular intervals, and we can imagine the traffic as water falling into the bucket from above.</p>
+<p>This leads to two situations. If the speed at which traffic is injected into the bucket is slower than the speed at which the bucket leaks, the bucket will be in an empty state, that is, it is not overloaded.</p>
+<p>The second situation is that if the speed of traffic injection into the bucket is faster than the bucket, then the bucket will gradually exceed its maximum capacity. For the overflow traffic, the bucket will reject it to prevent further traffic from entering.</p>
 <p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gdjauntjbcj30sy0j840y.jpg" alt="image-20200405231856133"></p>
-<h2 id="使用-java-实现">使用 Java 实现</h2>
+<h2 id="implementation-in-java">Implementation in Java</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -332,15 +332,15 @@
 </code></pre></td></tr></table>
 </div>
 </div><p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gdjb0mojzyj30v80lygp8.jpg" alt="image-20200405232439711"></p>
-<p>我们这边定义了一个 empty capacity 的容量 表示腾出的空间。也可以通过以剩余的水来计算水占用的空间，这是两个角度来计算。但是我们使用的是empty capacity。</p>
-<p>对于新来的流量，我们要判断是否Empty Capacity 能够容纳这些流量，如果能够容纳，就减少Empty Capacity的大小，不能的话就拒绝。</p>
-<h2 id="与令牌桶的区别">与令牌桶的区别</h2>
+<p>Here we define an &ldquo;empty capacity&rdquo; to represent the freed space. It can also be calculated by the remaining water to calculate the space occupied by the water, which are two perspectives. But we use &ldquo;empty capacity&rdquo;.</p>
+<p>For the new traffic, we need to judge whether the Empty Capacity can accommodate these flows. If it can, reduce the size of the Empty Capacity. If it can&rsquo;t, reject it.</p>
+<h2 id="differences-from-the-token-bucket">Differences from the Token Bucket</h2>
 <ul>
 <li>
-<p>令牌桶是定时放入令牌，漏桶是定时流数据</p>
+<p>The token bucket puts tokens in at regular intervals, while the leaky bucket flows data at regular intervals.</p>
 </li>
 <li>
-<p>朴素的令牌桶实现是对于溢出的请求计算出能够处理的时间进行阻塞，而漏桶则是会将溢出的流量拒绝。</p>
+<p>The naive implementation of the token bucket calculates the time that can handle the overflow request and blocks it, while the leaky bucket will reject the overflow traffic.</p>
 </li>
 </ul>
 
@@ -348,11 +348,11 @@
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title">Author</span>
     <span class="item-content">xiantang</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title">LastMod</span>
     <span class="item-content">
         2020-04-05
         
@@ -363,31 +363,31 @@
 </div>
 <div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
+  <label class="reward-button" for="reward">Reward</label>
   <div class="qr-code">
     
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b3bbmwj30ha0hbq5e.jpg">
-        <span>微信打赏</span>
+        <span>wechat</span>
       </label>
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b4s82aj30ib0igad3.jpg">
-        <span>支付宝打赏</span>
+        <span>alipay</span>
       </label>
   </div>
 </div><footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+          <a href="/tags/algorithm/">algorithm</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/jvm/full_gc/">
+        <a class="prev" href="/post/jvm/gc_root/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">什么是 Minor GC/Major GC</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-default">Where is the GC root?</span>
+            <span class="prev-text nav-mobile">Prev</span>
           </a>
         <a class="next" href="/post/interview/5%E5%A4%A9%E5%88%B7%E5%AE%8C%E5%89%91%E6%8C%87/">
-            <span class="next-text nav-default">剑指offer</span>
-            <span class="next-text nav-mobile">下一篇</span>
+            <span class="next-text nav-default">Pointing to offer</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -426,11 +426,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+    Theme - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 

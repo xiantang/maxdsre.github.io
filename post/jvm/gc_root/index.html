@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>GC root 在哪里？ - 咸糖 - 自律者自由</title>
+  <title>Where is the GC root? - xiantang - Self-discipline set me free.</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,9 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="xiantang" /><meta name="description" content="什么是GC Root 首先我们知道标记算法，JVM 的标记算法我们可以了解为一个可达性算法，所以所有的可达性算法都会有起点，那么这个起点就是GC Root" />
+<meta name="author" content="xiantang" /><meta name="description" content="What is GC Root First of all, we know the marking algorithm, the JVM&amp;rsquo;s marking algorithm can be understood as a reachability algorithm, so all reachability algorithms will have a starting point, and this starting point is the GC Root.
+That is, it is necessary to find all living objects through the GC Root, and then all the remaining unmarked objects are the objects to be recycled.
+Characteristics of GC Root  Objects that are alive at the current moment!" />
 
 
 
@@ -39,22 +41,28 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="GC root 在哪里？" />
-<meta property="og:description" content="什么是GC Root 首先我们知道标记算法，JVM 的标记算法我们可以了解为一个可达性算法，所以所有的可达性算法都会有起点，那么这个起点就是GC Root" />
+<meta property="og:title" content="Where is the GC root?" />
+<meta property="og:description" content="What is GC Root First of all, we know the marking algorithm, the JVM&rsquo;s marking algorithm can be understood as a reachability algorithm, so all reachability algorithms will have a starting point, and this starting point is the GC Root.
+That is, it is necessary to find all living objects through the GC Root, and then all the remaining unmarked objects are the objects to be recycled.
+Characteristics of GC Root  Objects that are alive at the current moment!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vim0.com/post/jvm/gc_root/" /><meta property="og:image" content="https://vim0.com/post/main_cover.png"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-04-06T01:37:56+08:00" />
-<meta property="article:modified_time" content="2020-04-09T16:14:02+08:00" /><meta property="og:site_name" content="咸糖 - 自律者自由" />
+<meta property="article:modified_time" content="2023-10-08T20:52:20+08:00" /><meta property="og:site_name" content="xiantang - Self-discipline set me free." />
 
-<meta itemprop="name" content="GC root 在哪里？">
-<meta itemprop="description" content="什么是GC Root 首先我们知道标记算法，JVM 的标记算法我们可以了解为一个可达性算法，所以所有的可达性算法都会有起点，那么这个起点就是GC Root"><meta itemprop="datePublished" content="2020-04-06T01:37:56+08:00" />
-<meta itemprop="dateModified" content="2020-04-09T16:14:02+08:00" />
-<meta itemprop="wordCount" content="350"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
+<meta itemprop="name" content="Where is the GC root?">
+<meta itemprop="description" content="What is GC Root First of all, we know the marking algorithm, the JVM&rsquo;s marking algorithm can be understood as a reachability algorithm, so all reachability algorithms will have a starting point, and this starting point is the GC Root.
+That is, it is necessary to find all living objects through the GC Root, and then all the remaining unmarked objects are the objects to be recycled.
+Characteristics of GC Root  Objects that are alive at the current moment!"><meta itemprop="datePublished" content="2020-04-06T01:37:56+08:00" />
+<meta itemprop="dateModified" content="2023-10-08T20:52:20+08:00" />
+<meta itemprop="wordCount" content="208"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
 <meta itemprop="keywords" content="JVM," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://vim0.com/post/main_cover.png"/>
 
-<meta name="twitter:title" content="GC root 在哪里？"/>
-<meta name="twitter:description" content="什么是GC Root 首先我们知道标记算法，JVM 的标记算法我们可以了解为一个可达性算法，所以所有的可达性算法都会有起点，那么这个起点就是GC Root"/>
+<meta name="twitter:title" content="Where is the GC root?"/>
+<meta name="twitter:description" content="What is GC Root First of all, we know the marking algorithm, the JVM&rsquo;s marking algorithm can be understood as a reachability algorithm, so all reachability algorithms will have a starting point, and this starting point is the GC Root.
+That is, it is necessary to find all living objects through the GC Root, and then all the remaining unmarked objects are the objects to be recycled.
+Characteristics of GC Root  Objects that are alive at the current moment!"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -79,18 +87,18 @@
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/">
-        <li class="mobile-menu-item">首页</li>
-      </a><a href="/post/">
-        <li class="mobile-menu-item">归档</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">标签</li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">分类</li>
-      </a><a href="/post/about/about_me/">
-        <li class="mobile-menu-item">关于我</li>
+    <a href="/en">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/en/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/en/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/en/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/en/post/about/about_me/">
+        <li class="mobile-menu-item">AboutMe</li>
       </a><a href="https://www.google.com/search?q=site%3Avim0.com">
-        <li class="mobile-menu-item">搜索</li>
+        <li class="mobile-menu-item">Search</li>
       </a>
   </ul>
 
@@ -102,18 +110,18 @@
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/jvm/gc_root/">zh-cn</a>
+            <a href="https://vim0.com/zh-cn/post/jvm/gc_root/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/en/post/jvm/gc_root/">en</a>
+            <a href="https://vim0.com/post/jvm/gc_root/">en</a>
           
         </li>
       
@@ -137,18 +145,18 @@
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/jvm/gc_root/">zh-cn</a>
+            <a href="https://vim0.com/zh-cn/post/jvm/gc_root/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/en/post/jvm/gc_root/">en</a>
+            <a href="https://vim0.com/post/jvm/gc_root/">en</a>
           
         </li>
       
@@ -160,17 +168,17 @@
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/">首页</a>
+        <a class="menu-item-link" href="/en">Home</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">归档</a>
+        <a class="menu-item-link" href="/en/post/">Archives</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">标签</a>
+        <a class="menu-item-link" href="/en/tags/">Tags</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">分类</a>
+        <a class="menu-item-link" href="/en/categories/">Categories</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/about/about_me/">关于我</a>
+        <a class="menu-item-link" href="/en/post/about/about_me/">AboutMe</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">搜索</a>
+        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">Search</a>
       </li>
   </ul>
 </nav>
@@ -183,61 +191,61 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">GC root 在哪里？</h1>
+      <h1 class="post-title">Where is the GC root?</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2020-04-06 </span>
         <div class="post-category">
-            <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
+            <a href="/categories/english/"> English </a>
             <a href="/categories/jvm/"> JVM </a>
             </div>
-          <span class="more-meta"> 约 350 字 </span>
-          <span class="more-meta"> 预计阅读 1 分钟 </span>
+          <span class="more-meta"> 208 words </span>
+          <span class="more-meta"> 1 min read </span>
         
       </div>
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">文章目录</h2>
+  <h2 class="post-toc-title">Contents</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#什么是gc-root">什么是GC Root</a></li>
-    <li><a href="#gc-root-的特点">GC Root 的特点</a></li>
-    <li><a href="#gc-root-在哪里">GC Root 在哪里</a></li>
+    <li><a href="#what-is-gc-root">What is GC Root</a></li>
+    <li><a href="#characteristics-of-gc-root">Characteristics of GC Root</a></li>
+    <li><a href="#where-is-the-gc-root">Where is the GC Root</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="什么是gc-root">什么是GC Root</h2>
-<p>首先我们知道标记算法，JVM 的标记算法我们可以了解为一个可达性算法，所以所有的可达性算法都会有起点，那么这个起点就是GC Root。</p>
-<p>也就是需要通过GC Root 找出所有活的对象，那么剩下所有的没有标记的对象就是需要回收的对象。</p>
+      <h2 id="what-is-gc-root">What is GC Root</h2>
+<p>First of all, we know the marking algorithm, the JVM&rsquo;s marking algorithm can be understood as a reachability algorithm, so all reachability algorithms will have a starting point, and this starting point is the GC Root.</p>
+<p>That is, it is necessary to find all living objects through the GC Root, and then all the remaining unmarked objects are the objects to be recycled.</p>
 <p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gdjy7qsfg9j30w60cc47s.jpg" alt="image-20200406124709630"></p>
-<h2 id="gc-root-的特点">GC Root 的特点</h2>
+<h2 id="characteristics-of-gc-root">Characteristics of GC Root</h2>
 <ul>
-<li>当前时刻存活的对象！</li>
+<li>Objects that are alive at the current moment!</li>
 </ul>
-<h2 id="gc-root-在哪里">GC Root 在哪里</h2>
+<h2 id="where-is-the-gc-root">Where is the GC Root</h2>
 <ul>
-<li>所有Java线程当前活跃的栈帧里指向GC堆里的对象的引用；换句话说，当前所有正在被调用的方法的引用类型的参数/局部变量/临时值。</li>
-<li>VM的一些静态数据结构里指向GC堆里的对象的引用，例如说HotSpot VM里的Universe里有很多这样的引用。</li>
+<li>References to objects in the GC heap in the currently active stack frames of all Java threads; in other words, the reference type parameters/local variables/temporary values of all currently being called methods.</li>
+<li>References to objects in the GC heap in some static data structures of the VM, for example, there are many such references in the Universe in the HotSpot VM.</li>
 </ul>
-<p>这里有个问题? 为什么需要将GC root 设置为 所有Java线程当前活跃的栈帧里指向GC堆里的对象的引用?</p>
-<p>原因很简单，GC Root 需要确保引用所指的对象都是<code>活着的</code>,而当前线程 frame 中的对象，在这一时刻是存活的。</p>
+<p>Here is a question? Why do we need to set the GC root as the reference to the object in the GC heap in the currently active stack frame of all Java threads?</p>
+<p>The reason is simple, the GC Root needs to ensure that the objects referred to are <code>alive</code>, and the objects in the current thread frame are alive at this moment.</p>
 
     </div>
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">文章作者</span>
+    <span class="item-title">Author</span>
     <span class="item-content">xiantang</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">上次更新</span>
+    <span class="item-title">LastMod</span>
     <span class="item-content">
-        2020-04-09
-        <a href="https://github.com/xiantang/xiantang.github.io/commit/dc1759cc65aaf5147255fe78d438014152ca20b6" title="add token bucket">(dc1759c)</a>
+        2023-10-08
+        <a href="https://github.com/xiantang/xiantang.github.io/commit/05461cf5116804daddfccd754bde8183713e4e8c" title="use chatgpt to generate English version">(05461cf)</a>
     </span>
   </p>
   
@@ -245,16 +253,16 @@
 </div>
 <div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">赞赏支持</label>
+  <label class="reward-button" for="reward">Reward</label>
   <div class="qr-code">
     
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b3bbmwj30ha0hbq5e.jpg">
-        <span>微信打赏</span>
+        <span>wechat</span>
       </label>
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b4s82aj30ib0igad3.jpg">
-        <span>支付宝打赏</span>
+        <span>alipay</span>
       </label>
   </div>
 </div><footer class="post-footer">
@@ -262,14 +270,14 @@
           <a href="/tags/jvm/">JVM</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/">
+        <a class="prev" href="/post/jvm/full_gc/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">实现一个AtomicInteger</span>
-            <span class="prev-text nav-mobile">上一篇</span>
+            <span class="prev-text nav-default">What is Minor GC/Major GC</span>
+            <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/jvm/full_gc/">
-            <span class="next-text nav-default">什么是 Minor GC/Major GC</span>
-            <span class="next-text nav-mobile">下一篇</span>
+        <a class="next" href="/post/interview/%E6%BC%8F%E6%A1%B6%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/">
+            <span class="next-text nav-default">Design and Implementation of the Leaky Bucket Algorithm</span>
+            <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -308,11 +316,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    主题 - 
+    Theme - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 

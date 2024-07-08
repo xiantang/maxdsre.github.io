@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>scala on 咸糖 - 自律者自由</title>
+    <title>scala on xiantang - Self-discipline set me free.</title>
     <link>https://vim0.com/tags/scala/</link>
-    <description>Recent content in scala on 咸糖 - 自律者自由</description>
+    <description>Recent content in scala on xiantang - Self-discipline set me free.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Wed, 15 Jan 2020 17:51:36 +0800</lastBuildDate><atom:link href="https://vim0.com/tags/scala/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Actor 如何处理阻塞消息</title>
+      <title>How Actor Handles Blocking Messages</title>
       <link>https://vim0.com/post/scala/future_in_actor/</link>
       <pubDate>Wed, 15 Jan 2020 17:51:36 +0800</pubDate>
       
       <guid>https://vim0.com/post/scala/future_in_actor/</guid>
-      <description>观察了一下业务的代码中发现在 Actor 中采用了很多 import scala.concurrent.ExecutionContext.Implicits.global 来作为 Actor 内部的执行 Future 的线程池，之前觉得好像也没啥问题。 但是在看完 akka 源码后发现好像有些不妥。 简单</description>
+      <description>I noticed in the business code that a lot of
+import scala.concurrent.ExecutionContext.Implicits.global
+is used as the thread pool for executing Future inside the Actor. I didn&amp;rsquo;t think there was a problem before. But after reading the akka source code, it seems a bit inappropriate.
+Let&amp;rsquo;s briefly talk about the architecture of Actor
+When an Actor sends a message to another Actor, it sends this message to the recipient&amp;rsquo;s mailbox
+The mailbox is a class that implements Runnable, so it can be executed by a thread pool.</description>
     </item>
     
     <item>
-      <title>Akka 源码解析</title>
+      <title>Analysis of Akka Source Code</title>
       <link>https://vim0.com/post/scala/akka_source_code/</link>
       <pubDate>Wed, 15 Jan 2020 17:26:53 +0800</pubDate>
       
@@ -26,21 +31,23 @@
     </item>
     
     <item>
-      <title>How to learn scala</title>
+      <title>How to learn Scala</title>
       <link>https://vim0.com/post/scala/how_to_learn_scala/</link>
       <pubDate>Wed, 15 Jan 2020 16:33:34 +0800</pubDate>
       
       <guid>https://vim0.com/post/scala/how_to_learn_scala/</guid>
-      <description>背景: 刚来到以scala为技术栈的公司的时候，配置了半天环境，然后终于将项目起了起来，发现里面的代码很奇怪，没有任何循环，数据的操作是一个函</description>
+      <description>Background: When I first came to a company with Scala as its technology stack, I spent a long time setting up the environment. After finally getting the project up and running, I found the code inside to be very strange. There were no loops, and data operations were a function nested within another function. This was very puzzling. So, driven by business needs and curiosity, I began to learn about Scala.</description>
     </item>
     
     <item>
-      <title>AES 需要限制 SEED 长度</title>
+      <title>AES Requires Limiting SEED Length</title>
       <link>https://vim0.com/post/scala/aes_limit_length/</link>
       <pubDate>Sun, 20 Oct 2019 01:37:56 +0800</pubDate>
       
       <guid>https://vim0.com/post/scala/aes_limit_length/</guid>
-      <description>写了一个工具类用来加密解密数据库的 app 字段 本地环境运行单测什么都没有任何问题，但是一到生产环境就出现 BUG。 这个的原因是因为线上环境没有支持 AES</description>
+      <description>I wrote a utility class to encrypt and decrypt the app field in the database
+There are no problems running unit tests in the local environment, but bugs appear in the production environment.
+The reason for this is that the online environment does not support the AES algorithm Provider. It needs to be solved by adding a third-party package that supports it under the ext package or introducing a third-party library.</description>
     </item>
     
   </channel>

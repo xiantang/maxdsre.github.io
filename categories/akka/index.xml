@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>akka on 咸糖 - 自律者自由</title>
+    <title>akka on xiantang - Self-discipline set me free.</title>
     <link>https://vim0.com/categories/akka/</link>
-    <description>Recent content in akka on 咸糖 - 自律者自由</description>
+    <description>Recent content in akka on xiantang - Self-discipline set me free.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
+    <language>en</language>
     <lastBuildDate>Wed, 15 Jan 2020 17:51:36 +0800</lastBuildDate><atom:link href="https://vim0.com/categories/akka/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Actor 如何处理阻塞消息</title>
+      <title>How Actor Handles Blocking Messages</title>
       <link>https://vim0.com/post/scala/future_in_actor/</link>
       <pubDate>Wed, 15 Jan 2020 17:51:36 +0800</pubDate>
       
       <guid>https://vim0.com/post/scala/future_in_actor/</guid>
-      <description>观察了一下业务的代码中发现在 Actor 中采用了很多 import scala.concurrent.ExecutionContext.Implicits.global 来作为 Actor 内部的执行 Future 的线程池，之前觉得好像也没啥问题。 但是在看完 akka 源码后发现好像有些不妥。 简单</description>
+      <description>I noticed in the business code that a lot of
+import scala.concurrent.ExecutionContext.Implicits.global
+is used as the thread pool for executing Future inside the Actor. I didn&amp;rsquo;t think there was a problem before. But after reading the akka source code, it seems a bit inappropriate.
+Let&amp;rsquo;s briefly talk about the architecture of Actor
+When an Actor sends a message to another Actor, it sends this message to the recipient&amp;rsquo;s mailbox
+The mailbox is a class that implements Runnable, so it can be executed by a thread pool.</description>
     </item>
     
     <item>
-      <title>Akka 源码解析</title>
+      <title>Analysis of Akka Source Code</title>
       <link>https://vim0.com/post/scala/akka_source_code/</link>
       <pubDate>Wed, 15 Jan 2020 17:26:53 +0800</pubDate>
       
