@@ -1,6 +1,6 @@
 ---
 title: "Yabai Sometimes Puts Windows Below Other Windows"
-date: 2023-07-07T23:08:16+08:00
+date: 2024-07-01T23:08:16+08:00
 author: "xiantang"
 tags: ["yabai"]
 description:
