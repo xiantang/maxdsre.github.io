@@ -1,6 +1,6 @@
 ---
 title: "Yabai sometime let window layout as below"
-date: 2024-07-08T23:08:16+08:00
+date: 2024-07-07T23:08:16+08:00
 author: "xiantang"
 tags: ["yabai"]
 description:
