@@ -18,7 +18,7 @@
 
 <meta name="author" content="xiantang" /><meta name="description" content="When I use neovim treesitter incremental selection, it randomly crashes, but I cannot stable reproduce it. And I found some issues and complaints about this issue, but no solution. So I decide to write a blog post to record this issue and the solution.
 related issues:
- https://www.reddit.com/r/neovim/comments/10wwkft/comment/j7qla2q/?utm_source=share&amp;amp;utm_medium=web3x&amp;amp;utm_name=web3xcss&amp;amp;utm_term=1&amp;amp;utm_content=share_button https://github.com/neovim/neovim/issues/24336 https://www.reddit.com/r/neovim/comments/18dn4qt/treesitter_incremental_selection/  TL;DR paste this https://github.com/xiantang/nvim-conf/blob/7c0d6cbf6d9fd7b6a8960de887db1109332419bf/lua/plugins/treesitter.lua#L62-L132 into your neovim configuration file.
+ https://www.reddit.com/r/neovim/comments/10wwkft/comment/j7qla2q/?utm_source=share&amp;amp;utm_medium=web3x&amp;amp;utm_name=web3xcss&amp;amp;utm_term=1&amp;amp;utm_content=share_button https://github.com/neovim/neovim/issues/24336 https://github.com/neovim/neovim/issues/25254 https://www.reddit.com/r/neovim/comments/18dn4qt/treesitter_incremental_selection/  TL;DR paste this https://github.com/xiantang/nvim-conf/blob/7c0d6cbf6d9fd7b6a8960de887db1109332419bf/lua/plugins/treesitter.lua#L62-L132 into your neovim configuration file.
 this is my treesitter incremental selection configuration:
 1 2 3 4 5 6 7 8 9  incremental_selection = { enable = true, keymaps = { init_selection = true, node_incremental = &amp;#34;v&amp;#34;, node_decremental = &amp;#34;&amp;lt;BS&amp;gt;&amp;#34;, }, },   sometime when I use v to expand the selection, it crashes, and it&amp;rsquo;s a Segmentation fault, and I have the report:" />
 
@@ -46,29 +46,29 @@ this is my treesitter incremental selection configuration:
 <meta property="og:title" content="Neovim: No Crash Incremental Selection" />
 <meta property="og:description" content="When I use neovim treesitter incremental selection, it randomly crashes, but I cannot stable reproduce it. And I found some issues and complaints about this issue, but no solution. So I decide to write a blog post to record this issue and the solution.
 related issues:
- https://www.reddit.com/r/neovim/comments/10wwkft/comment/j7qla2q/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button https://github.com/neovim/neovim/issues/24336 https://www.reddit.com/r/neovim/comments/18dn4qt/treesitter_incremental_selection/  TL;DR paste this https://github.com/xiantang/nvim-conf/blob/7c0d6cbf6d9fd7b6a8960de887db1109332419bf/lua/plugins/treesitter.lua#L62-L132 into your neovim configuration file.
+ https://www.reddit.com/r/neovim/comments/10wwkft/comment/j7qla2q/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button https://github.com/neovim/neovim/issues/24336 https://github.com/neovim/neovim/issues/25254 https://www.reddit.com/r/neovim/comments/18dn4qt/treesitter_incremental_selection/  TL;DR paste this https://github.com/xiantang/nvim-conf/blob/7c0d6cbf6d9fd7b6a8960de887db1109332419bf/lua/plugins/treesitter.lua#L62-L132 into your neovim configuration file.
 this is my treesitter incremental selection configuration:
 1 2 3 4 5 6 7 8 9  incremental_selection = { enable = true, keymaps = { init_selection = true, node_incremental = &#34;v&#34;, node_decremental = &#34;&lt;BS&gt;&#34;, }, },   sometime when I use v to expand the selection, it crashes, and it&rsquo;s a Segmentation fault, and I have the report:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vim0.com/post/neovim_no_crash_incremental_selection/" /><meta property="og:image" content="https://vim0.com/post/main_cover.png"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2024-07-11T23:16:09+08:00" />
-<meta property="article:modified_time" content="2024-07-11T23:38:26+08:00" /><meta property="og:site_name" content="xiantang - Self-discipline set me free." />
+<meta property="article:modified_time" content="2024-07-11T23:55:44+08:00" /><meta property="og:site_name" content="xiantang - Self-discipline set me free." />
 
 <meta itemprop="name" content="Neovim: No Crash Incremental Selection">
 <meta itemprop="description" content="When I use neovim treesitter incremental selection, it randomly crashes, but I cannot stable reproduce it. And I found some issues and complaints about this issue, but no solution. So I decide to write a blog post to record this issue and the solution.
 related issues:
- https://www.reddit.com/r/neovim/comments/10wwkft/comment/j7qla2q/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button https://github.com/neovim/neovim/issues/24336 https://www.reddit.com/r/neovim/comments/18dn4qt/treesitter_incremental_selection/  TL;DR paste this https://github.com/xiantang/nvim-conf/blob/7c0d6cbf6d9fd7b6a8960de887db1109332419bf/lua/plugins/treesitter.lua#L62-L132 into your neovim configuration file.
+ https://www.reddit.com/r/neovim/comments/10wwkft/comment/j7qla2q/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button https://github.com/neovim/neovim/issues/24336 https://github.com/neovim/neovim/issues/25254 https://www.reddit.com/r/neovim/comments/18dn4qt/treesitter_incremental_selection/  TL;DR paste this https://github.com/xiantang/nvim-conf/blob/7c0d6cbf6d9fd7b6a8960de887db1109332419bf/lua/plugins/treesitter.lua#L62-L132 into your neovim configuration file.
 this is my treesitter incremental selection configuration:
 1 2 3 4 5 6 7 8 9  incremental_selection = { enable = true, keymaps = { init_selection = true, node_incremental = &#34;v&#34;, node_decremental = &#34;&lt;BS&gt;&#34;, }, },   sometime when I use v to expand the selection, it crashes, and it&rsquo;s a Segmentation fault, and I have the report:"><meta itemprop="datePublished" content="2024-07-11T23:16:09+08:00" />
-<meta itemprop="dateModified" content="2024-07-11T23:38:26+08:00" />
-<meta itemprop="wordCount" content="773"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
+<meta itemprop="dateModified" content="2024-07-11T23:55:44+08:00" />
+<meta itemprop="wordCount" content="774"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
 <meta itemprop="keywords" content="neovim," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://vim0.com/post/main_cover.png"/>
 
 <meta name="twitter:title" content="Neovim: No Crash Incremental Selection"/>
 <meta name="twitter:description" content="When I use neovim treesitter incremental selection, it randomly crashes, but I cannot stable reproduce it. And I found some issues and complaints about this issue, but no solution. So I decide to write a blog post to record this issue and the solution.
 related issues:
- https://www.reddit.com/r/neovim/comments/10wwkft/comment/j7qla2q/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button https://github.com/neovim/neovim/issues/24336 https://www.reddit.com/r/neovim/comments/18dn4qt/treesitter_incremental_selection/  TL;DR paste this https://github.com/xiantang/nvim-conf/blob/7c0d6cbf6d9fd7b6a8960de887db1109332419bf/lua/plugins/treesitter.lua#L62-L132 into your neovim configuration file.
+ https://www.reddit.com/r/neovim/comments/10wwkft/comment/j7qla2q/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button https://github.com/neovim/neovim/issues/24336 https://github.com/neovim/neovim/issues/25254 https://www.reddit.com/r/neovim/comments/18dn4qt/treesitter_incremental_selection/  TL;DR paste this https://github.com/xiantang/nvim-conf/blob/7c0d6cbf6d9fd7b6a8960de887db1109332419bf/lua/plugins/treesitter.lua#L62-L132 into your neovim configuration file.
 this is my treesitter incremental selection configuration:
 1 2 3 4 5 6 7 8 9  incremental_selection = { enable = true, keymaps = { init_selection = true, node_incremental = &#34;v&#34;, node_decremental = &#34;&lt;BS&gt;&#34;, }, },   sometime when I use v to expand the selection, it crashes, and it&rsquo;s a Segmentation fault, and I have the report:"/>
 
@@ -206,7 +206,7 @@ this is my treesitter incremental selection configuration:
         <div class="post-category">
             <a href="/categories/neovim/"> neovim </a>
             </div>
-          <span class="more-meta"> 773 words </span>
+          <span class="more-meta"> 774 words </span>
           <span class="more-meta"> 4 mins read </span>
         
       </div>
@@ -228,6 +228,7 @@ this is my treesitter incremental selection configuration:
 <ul>
 <li><a href="https://www.reddit.com/r/neovim/comments/10wwkft/comment/j7qla2q/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button">https://www.reddit.com/r/neovim/comments/10wwkft/comment/j7qla2q/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button</a></li>
 <li><a href="https://github.com/neovim/neovim/issues/24336">https://github.com/neovim/neovim/issues/24336</a></li>
+<li><a href="https://github.com/neovim/neovim/issues/25254">https://github.com/neovim/neovim/issues/25254</a></li>
 <li><a href="https://www.reddit.com/r/neovim/comments/18dn4qt/treesitter_incremental_selection/">https://www.reddit.com/r/neovim/comments/18dn4qt/treesitter_incremental_selection/</a></li>
 </ul>
 <h2 id="tldr">TL;DR</h2>
@@ -509,7 +510,7 @@ Core was generated by <span class="sb">`</span>nvim --embed render/src/lib.rs<sp
     <span class="item-title">LastMod</span>
     <span class="item-content">
         2024-07-11
-        <a href="https://github.com/xiantang/xiantang.github.io/commit/34e0412713da6c571946274a66c53db9f21013c6" title="commit">(34e04127)</a>
+        <a href="https://github.com/xiantang/xiantang.github.io/commit/de02bad63d3005724eae49d07345f3813d1e6bd1" title="add more github issue">(de02bad6)</a>
     </span>
   </p>
   
