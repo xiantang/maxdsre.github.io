@@ -180,6 +180,33 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/neovim_no_crash_incremental_selection/">Neovim: No Crash Incremental Selection</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2024-07-11 </span>
+      <div class="post-category">
+          <a href="/categories/neovim/"> neovim </a>
+          </div>
+        <span class="more-meta"> 773 words </span>
+        <span class="more-meta"> 4 mins read </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      When I use neovim treesitter incremental selection, it randomly crashes, but I cannot stable reproduce it. And I found some issues and complaints about this issue, but no solution. So I decide to write a blog post to record this issue and the solution.
+related issues:
+ https://www.reddit.com/r/neovim/comments/10wwkft/comment/j7qla2q/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button https://github.com/neovim/neovim/issues/24336 https://www.reddit.com/r/neovim/comments/18dn4qt/treesitter_incremental_selection/  TL;DR paste this https://github.com/xiantang/nvim-conf/blob/7c0d6cbf6d9fd7b6a8960de887db1109332419bf/lua/plugins/treesitter.lua#L62-L132 into your neovim configuration file.
+this is my treesitter incremental selection configuration:
+1 2 3 4 5 6 7 8 9  incremental_selection = { enable = true, keymaps = { init_selection = true, node_incremental = &#34;v&#34;, node_decremental = &#34;&lt;BS&gt;&#34;, }, },   sometime when I use v to expand the selection, it crashes, and it&rsquo;s a Segmentation fault, and I have the report:
+    </div>
+    <div class="read-more">
+      <a href="/post/neovim_no_crash_incremental_selection/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/nix_use_old_version/">Nixos use old version software</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2024-07-08 </span>
@@ -270,30 +297,6 @@ What is neovim Neovim is a branch of vim, vim is a text editor, neovim is a bran
     </div>
     <div class="read-more">
       <a href="/post/neovim/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/shell_is_useful_tool/">Shell is a good productivity tool</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2022-09-12 </span>
-      
-        <span class="more-meta"> 157 words </span>
-        <span class="more-meta"> 1 min read </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      If a sequence of three commands is executed twice in a row, it is recommended that you write it as a Shell script &ndash; blog.fleeto.us
- Recently, I increasingly realize that shell can replace python as the second language for devops engineers.
-Because daily work may be repetitive, many repetitive operations in work can be reduced by shell scripts to reduce mental burden.
-Let me give you an example:
-    </div>
-    <div class="read-more">
-      <a href="/post/shell_is_useful_tool/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
