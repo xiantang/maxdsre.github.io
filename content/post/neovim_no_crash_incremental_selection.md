@@ -17,6 +17,7 @@ When I use neovim treesitter incremental selection, it randomly crashes, but I c
 related issues:
 * https://www.reddit.com/r/neovim/comments/10wwkft/comment/j7qla2q/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 * https://github.com/neovim/neovim/issues/24336
+* https://github.com/neovim/neovim/issues/25254
 * https://www.reddit.com/r/neovim/comments/18dn4qt/treesitter_incremental_selection/
 
 ## TL;DR
