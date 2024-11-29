@@ -43,27 +43,27 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   name = "首页"
   weight = 10
   identifier = "home"
-  url = "/zh-cn"
+  url = "/"
 [[languages.zh-cn.menu.main]]
   name = "归档"
   weight = 20
   identifier = "archives"
-  url = "/zh-cn/post/"
+  url = "/post/"
 [[languages.zh-cn.menu.main]]
   name = "标签"
   weight = 30
   identifier = "tags"
-  url = "/zh-cn/tags/"
+  url = "/tags/"
 [[languages.zh-cn.menu.main]]
   name = "分类"
   weight = 40
   identifier = "categories"
-  url = "/zh-cn/categories/"
+  url = "/categories/"
 [[languages.zh-cn.menu.main]]
   name = "关于我"
   weight = 50
   identifier = "aboutme"
-  url = "/zh-cn/post/about/about_me/"
+  url = "/post/about/about_me/"
 [[languages.zh-cn.menu.main]]
   name= "搜索"
   weight = 60
@@ -74,27 +74,27 @@ copyright = ""            # default: author.name ↓        # 默认为下面配
   name = "Home"
   weight = 10
   identifier = "home"
-  url = "/"
+  url = "/en/"
 [[languages.en.menu.main]]
   name = "Archives"
   weight = 20
   identifier = "archives"
-  url = "/post/"
+  url = "/en/post/"
 [[languages.en.menu.main]]
   name = "Tags"
   weight = 30
   identifier = "tags"
-  url = "/tags/"
+  url = "/en/tags/"
 [[languages.en.menu.main]]
   name = "Categories"
   weight = 40
   identifier = "categories"
-  url = "/categories/"
+  url = "/en/categories/"
 [[languages.en.menu.main]]
   name = "AboutMe"
   weight = 50
   identifier = "aboutme"
-  url = "/post/about/about_me/"
+  url = "/en/post/about/about_me/"
 [[languages.en.menu.main]]
   name= "Search"
   weight = 60
