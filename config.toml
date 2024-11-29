@@ -1,6 +1,6 @@
 baseURL = "https://vim0.com/"
-languageCode = "en"
-defaultContentLanguage = "en"                             # en / zh-cn / ... (This field determines which i18n file to use)
+languageCode = "zh-cn"
+defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
 theme = "even"
 
 preserveTaxonomyNames = true
