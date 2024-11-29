@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Using the 80/20 Rule to Learn awk Effortlessly - xiantang - Self-discipline set me free.</title>
+  <title>使用二八法则省力地学习 awk - 咸糖 - 自律者自由</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,9 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="xiantang" /><meta name="description" content="The length only accounts for 20%, but the effectiveness reaches 80% - 80/20 Rule
- What can you learn from this article? In this article, we will learn how to use the 80/20 rule to effortlessly learn the linux text processing command awk. After reading this article, you will learn a fast learning method, and how to use awk to process text and stdout.
-Recently, while learning awk, I found that there are really many details." />
+<meta name="author" content="xiantang" /><meta name="description" content="篇幅只占20%、然而有效性却达到80% -二八法则 本文你能学到什么？ 在本文中，我们将学习到如何使用二八法则来省力轻松学习 linux 文本处理命令 awk。" />
 
 
 
@@ -41,28 +39,22 @@ Recently, while learning awk, I found that there are really many details." />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Using the 80/20 Rule to Learn awk Effortlessly" />
-<meta property="og:description" content="The length only accounts for 20%, but the effectiveness reaches 80% - 80/20 Rule
- What can you learn from this article? In this article, we will learn how to use the 80/20 rule to effortlessly learn the linux text processing command awk. After reading this article, you will learn a fast learning method, and how to use awk to process text and stdout.
-Recently, while learning awk, I found that there are really many details." />
+<meta property="og:title" content="使用二八法则省力地学习 awk" />
+<meta property="og:description" content="篇幅只占20%、然而有效性却达到80% -二八法则 本文你能学到什么？ 在本文中，我们将学习到如何使用二八法则来省力轻松学习 linux 文本处理命令 awk。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vim0.com/post/awk/" /><meta property="og:image" content="https://vim0.com/post/awk.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-06-29T22:14:09+08:00" />
-<meta property="article:modified_time" content="2023-10-08T20:52:20+08:00" /><meta property="og:site_name" content="xiantang - Self-discipline set me free." />
+<meta property="article:modified_time" content="2024-07-09T00:29:27+08:00" /><meta property="og:site_name" content="咸糖 - 自律者自由" />
 
-<meta itemprop="name" content="Using the 80/20 Rule to Learn awk Effortlessly">
-<meta itemprop="description" content="The length only accounts for 20%, but the effectiveness reaches 80% - 80/20 Rule
- What can you learn from this article? In this article, we will learn how to use the 80/20 rule to effortlessly learn the linux text processing command awk. After reading this article, you will learn a fast learning method, and how to use awk to process text and stdout.
-Recently, while learning awk, I found that there are really many details."><meta itemprop="datePublished" content="2022-06-29T22:14:09+08:00" />
-<meta itemprop="dateModified" content="2023-10-08T20:52:20+08:00" />
-<meta itemprop="wordCount" content="2577"><meta itemprop="image" content="https://vim0.com/post/awk.png">
-<meta itemprop="keywords" content="Chinese,Soft Skills,awk," /><meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="name" content="使用二八法则省力地学习 awk">
+<meta itemprop="description" content="篇幅只占20%、然而有效性却达到80% -二八法则 本文你能学到什么？ 在本文中，我们将学习到如何使用二八法则来省力轻松学习 linux 文本处理命令 awk。"><meta itemprop="datePublished" content="2022-06-29T22:14:09+08:00" />
+<meta itemprop="dateModified" content="2024-07-09T00:29:27+08:00" />
+<meta itemprop="wordCount" content="4022"><meta itemprop="image" content="https://vim0.com/post/awk.png">
+<meta itemprop="keywords" content="中文,软技能,awk," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://vim0.com/post/awk.png"/>
 
-<meta name="twitter:title" content="Using the 80/20 Rule to Learn awk Effortlessly"/>
-<meta name="twitter:description" content="The length only accounts for 20%, but the effectiveness reaches 80% - 80/20 Rule
- What can you learn from this article? In this article, we will learn how to use the 80/20 rule to effortlessly learn the linux text processing command awk. After reading this article, you will learn a fast learning method, and how to use awk to process text and stdout.
-Recently, while learning awk, I found that there are really many details."/>
+<meta name="twitter:title" content="使用二八法则省力地学习 awk"/>
+<meta name="twitter:description" content="篇幅只占20%、然而有效性却达到80% -二八法则 本文你能学到什么？ 在本文中，我们将学习到如何使用二八法则来省力轻松学习 linux 文本处理命令 awk。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -87,18 +79,18 @@ Recently, while learning awk, I found that there are really many details."/>
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/en/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/en/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/en/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/en/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/en/post/about/about_me/">
-        <li class="mobile-menu-item">AboutMe</li>
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/post/about/about_me/">
+        <li class="mobile-menu-item">关于我</li>
       </a><a href="https://www.google.com/search?q=site%3Avim0.com">
-        <li class="mobile-menu-item">Search</li>
+        <li class="mobile-menu-item">搜索</li>
       </a>
   </ul>
 
@@ -110,18 +102,18 @@ Recently, while learning awk, I found that there are really many details."/>
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/zh-cn/post/awk/">zh-cn</a>
+            <a href="https://vim0.com/post/awk/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/awk/">en</a>
+            <a href="https://vim0.com/en/post/awk/">en</a>
           
         </li>
       
@@ -145,18 +137,18 @@ Recently, while learning awk, I found that there are really many details."/>
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/zh-cn/post/awk/">zh-cn</a>
+            <a href="https://vim0.com/post/awk/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/awk/">en</a>
+            <a href="https://vim0.com/en/post/awk/">en</a>
           
         </li>
       
@@ -168,17 +160,17 @@ Recently, while learning awk, I found that there are really many details."/>
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/en/">Home</a>
+        <a class="menu-item-link" href="/">首页</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/post/">Archives</a>
+        <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/tags/">Tags</a>
+        <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/categories/">Categories</a>
+        <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/post/about/about_me/">AboutMe</a>
+        <a class="menu-item-link" href="/post/about/about_me/">关于我</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">Search</a>
+        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">搜索</a>
       </li>
   </ul>
 </nav>
@@ -191,40 +183,40 @@ Recently, while learning awk, I found that there are really many details."/>
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Using the 80/20 Rule to Learn awk Effortlessly</h1>
+      <h1 class="post-title">使用二八法则省力地学习 awk</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2022-06-29 </span>
         <div class="post-category">
-            <a href="/categories/chinese/"> Chinese </a>
+            <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
             <a href="/categories/awk/"> awk </a>
             </div>
-          <span class="more-meta"> 2577 words </span>
-          <span class="more-meta"> 13 mins read </span>
+          <span class="more-meta"> 约 4022 字 </span>
+          <span class="more-meta"> 预计阅读 9 分钟 </span>
         
       </div>
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#what-is-the-8020-rule">What is the 80/20 Rule?</a></li>
-    <li><a href="#how-to-use-the-8020-rule-to-learn">How to Use the 80/20 Rule to Learn?</a></li>
+    <li><a href="#什么是二八法则">什么是二八法则？</a></li>
+    <li><a href="#如何利用二八法则来学习">如何利用二八法则来学习？</a></li>
   </ul>
 
   <ul>
-    <li><a href="#find-the-most-common-use">Find the most common use</a></li>
-    <li><a href="#find-learning-resources">Find learning resources</a></li>
-    <li><a href="#setting-goals">Setting Goals</a></li>
-    <li><a href="#filtering-learning-resources">Filtering Learning Resources</a></li>
-    <li><a href="#skim-through-the-filtered-materials">Skim through the filtered materials</a></li>
-    <li><a href="#learning-to-use">Learning to Use</a>
+    <li><a href="#寻找最常用的用途">寻找最常用的用途</a></li>
+    <li><a href="#找到学习资源">找到学习资源</a></li>
+    <li><a href="#设定目标">设定目标</a></li>
+    <li><a href="#过滤学习资源">过滤学习资源</a></li>
+    <li><a href="#浅读筛选出的资料">浅读筛选出的资料</a></li>
+    <li><a href="#学以致用">学以致用</a>
       <ul>
-        <li><a href="#reproduce-the-examples-in-tldr">Reproduce the examples in tldr</a></li>
-        <li><a href="#implement-the-formatting-of-student-grades">Implement the formatting of student grades</a></li>
-        <li><a href="#use-awk-to-find-the-value-of-a-field-in-yaml">Use awk to find the value of a field in yaml</a></li>
+        <li><a href="#完成-tldr-中的示例的复现">完成 tldr 中的示例的复现</a></li>
+        <li><a href="#实现格式化学生的成绩">实现格式化学生的成绩</a></li>
+        <li><a href="#awk-来找到-yaml-中某一个字段的值">awk 来找到 yaml 中某一个字段的值</a></li>
       </ul>
     </li>
   </ul>
@@ -232,68 +224,78 @@ Recently, while learning awk, I found that there are really many details."/>
   </div>
 </div>
   <div class="post-outdated">
-    <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2023-10-08T20:52:20" title="October 8, 2023">October 8, 2023</span>. This article may have outdated content or subject matter.</p>
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2024-07-09T00:29:27" title="July 9, 2024">July 9, 2024</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
       <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <blockquote>
-<p>The length only accounts for 20%, but the effectiveness reaches 80% - 80/20 Rule</p>
+<p>篇幅只占20%、然而有效性却达到80%  -二八法则</p>
 </blockquote>
-<h1 id="what-can-you-learn-from-this-article">What can you learn from this article?</h1>
-<p>In this article, we will learn how to use the 80/20 rule to effortlessly learn the linux text processing command awk. After reading this article, you will learn a fast learning method,
-and how to use awk to process text and stdout.</p>
-<p>Recently, while learning awk, I found that there are really many details. It&rsquo;s impossible to grasp the most important part at the beginning, and I&rsquo;m troubled by the complicated syntax, which is quite difficult to understand.
-So I used the 80/20 rule I learned from &ldquo;Soft Skills: The Software Developer&rsquo;s Life Manual&rdquo; to practice the basic usage of awk, and found the effect to be very good.
-This article will introduce how I used the 80/20 rule to learn awk.</p>
-<h2 id="what-is-the-8020-rule">What is the 80/20 Rule?</h2>
-<p>At the beginning of the article, it was mentioned that &ldquo;the length only accounts for 20%, but the effectiveness reaches 80%&rdquo;, which is called the &ldquo;Pareto Principle&rdquo;. It points out that about 20% of the factors can affect 80% of the results.
-This is also very applicable to learning technology. The most used 20% of technical knowledge points can complete 80% of technical work. That is to say, we actually only need to focus on the most common
-cases for targeted learning, to prevent the truly important content from being buried in the details.</p>
-<h2 id="how-to-use-the-8020-rule-to-learn">How to Use the 80/20 Rule to Learn?</h2>
-<p>Since the 80/20 rule is so useful, how can it be practiced? &ldquo;Soft Skills: The Software Developer&rsquo;s Life Manual&rdquo; mainly summarizes 10 steps, that is, learning a new technology can be completed through the following ten steps:</p>
+<h1 id="本文你能学到什么">本文你能学到什么？</h1>
+<p>在本文中，我们将学习到如何使用二八法则来省力轻松学习 linux 文本处理命令 awk。读完本文你就会学习到一种快速学习的方法，
+以及使用 awk 来处理文本和 stdout。</p>
+<p>最近在学习 awk 发现真的有很多细节，没办法一开始就抓住最重要的部分，被繁杂的语法所困扰，比较难懂。
+于是使用从《软技能-代码之外的生存指南》中学习的二八法则，来实践学习一下 awk 的基本用法，发现效果十分不错。
+本文就介绍一下我是如何使用二八法则学习 awk 的。</p>
+<h2 id="什么是二八法则">什么是二八法则？</h2>
+<p>在文章的开篇中有提到 &ldquo;篇幅只占20%、然而有效性却达到80%&quot;，叫做 &ldquo;帕累托法则&rdquo;。指出约有 20% 的因素可以影响 80% 的结果。
+对于学习技术也是十分的适用，用得最多的 20% 的技术知识点，可以完成 80% 的技术工作。也就是说其实我们只需要专注最常用的
+case 来针对性学习，防止真正重要的内容会被埋没在细枝末节中。</p>
+<h2 id="如何利用二八法则来学习">如何利用二八法则来学习？</h2>
+<p>既然二八法则这么好用那如何来实践呢？ 《软技能-代码之外的生存指南》 主要总结了 10 步，也就是学习一个新的技术可以通过下面十步来完成：</p>
 <ul>
-<li>Step 1: How to start: What basic knowledge do I need to use it?</li>
-<li>Step 2: Scope of the subject: How big is the thing I&rsquo;m learning? What should I do?</li>
-<li>Step 3: Need to understand basic user cases, and common problems, know which 20% to learn to satisfy 80% of application scenarios</li>
-<li>Step 4: Find resources</li>
-<li>Step 5: Define goals</li>
-<li>Step 6: Filter resources</li>
-<li>Step 7: Start learning, taste and stop</li>
-<li>Step 8: Hands-on operation, learn while playing</li>
-<li>Step 9: Master it fully, learn to use it</li>
-<li>Step 10: Be a good teacher</li>
+<li>第一步： 如何开始： 想要用起来 需要哪些基本知识？</li>
+<li>第二步：学科范围：学的东西有多少大？我要怎么做？</li>
+<li>第三步：需要了解基本的用户案例，和常见问题，知道学哪 20% 满足 80% 应用场景</li>
+<li>第四步：寻找资源</li>
+<li>第五步：定义目标</li>
+<li>第六步： 筛选资源</li>
+<li>第七步：开始学习 浅尝即止</li>
+<li>第八步：动手操作 边学边玩</li>
+<li>第九步：全面掌握，学以致用</li>
+<li>第十步：好为人师</li>
 </ul>
-<p>We can divide these 10 steps into two major parts</p>
+<p>我们可以将这 10 步分为两大块</p>
 <ul>
-<li>The first part, from step one to step six, only needs to be executed once from start to finish</li>
-<li>The second part, from step seven to step ten, needs to be executed repeatedly</li>
+<li>第一块 第一步到第六步，只需要从头到尾执行一次</li>
+<li>第二块 第七步到第十步，需要反复执行</li>
 </ul>
-<p>The first part involves searching and filtering input resources, and defining targets. Here are some things to note:</p>
-<p>Find out what the <strong>main uses of the actual application</strong> are:
-For example, with sed, you&rsquo;ll find that its main use cases are for adding, deleting, modifying, and querying text and stream data. For these common cases, you can get a rough idea by scanning related materials. If you don&rsquo;t know how to effectively acquire information, you can read my article <a href="/post/softskills/how_do_i_acquire_knowledge_and_information/">How I Acquire Knowledge and Information</a></p>
-<p>Define an <strong>executable target</strong>:
-You need to define an executable target, for example, for sed, I need to rewrite all the use cases in <code>tldr sed</code>. For <code>awk</code>, my goal is to use <code>awk</code> to find the value of a certain field in yaml.</p>
-<p>Filter <strong>enough materials needed to achieve the target</strong>:
-When you find some good materials through a search engine, you can filter out the materials that will allow you to achieve your goal after reading, i.e., the most common use materials. Although they may be rough, you will find the materials you really need more precisely in your practice later.</p>
-<p>The second part is to <strong>practice while checking the documentation and output insights</strong>:
-In fact, my method for quickly learning technology has always been to do it hands-on and practice more. When I first graduated, I liked to learn a technical knowledge point in a &ldquo;from cover to cover&rdquo; way, but as time became less and less, I no longer had the energy to read a book from beginning to end.</p>
-<p>So, learning in a way that practices while checking the documentation is more efficient, and it also conforms to the idea of the learning pyramid.</p>
-<p><img src="/image/the_cone_of_learning.png" alt="Learning Pyramid"></p>
-<p>If you only read to learn a knowledge point, you can only absorb 10% of the content, but if you learn by teaching and playing, you can absorb 90% of the content. To give a simple example, when I was in high school, I played Hearthstone, which has 300+ classic cards, but I could recite 90% of the cards' stats and effects. I didn&rsquo;t deliberately remember them, but because I liked playing, I learned all these cards.</p>
-<p>So, it&rsquo;s very important to <strong>learn in a playful way</strong>, to practice rather than just read the documentation.
-Similarly, <strong>teaching is a better way to learn</strong>, because you can consolidate and confirm that your knowledge points are correct at the same time. I wrote this article to better consolidate my knowledge of the 80/20 rule and awk.</p>
-<p>After practicing the more useful 20% of the knowledge points, when you are practicing, you can use the documentation to use these features more accurately when you encounter some niche features, avoiding you getting lost in the complicated details.</p>
-<p>Below I will give two examples to illustrate this method:</p>
-<h1 id="learning-awk">Learning awk</h1>
-<p>First, we understand what kind of tool awk is by skimming the documentation:</p>
-<p><code>Awk is an extremely versatile programming language for working on files.</code></p>
-<p>Awk is actually a programming language for processing text, which can explain why when you try to solve text processing problems from stackoverflow, many answers give awk examples that are not so simple and clear, the reason is that it is a programming language, not like grep Just add a few command line parameters to search for text.</p>
-<h2 id="find-the-most-common-use">Find the most common use</h2>
-<p>I use <code>tldr</code> to find the most common use of this command. <code>tldr</code> simplifies the popular <code>man</code> pages through actual examples.
-His output is as follows:</p>
+<p>其中第一块查找筛选输入资源，定义目标中需要注意的是：</p>
+<p>找到<strong>实际的应用的主要用途</strong>是哪些：
+例如 sed 你会发现他的主要的应用的 case 是对文本和流数据行的增删改查。对于这些 common case
+你可以通过粗浅的扫一下相关的资料来了解到。 如果不知道如何有效的获取信息，可以看这一篇我的文章
+<a href="/post/softskills/how_do_i_acquire_knowledge_and_information/">我是如何获取知识与信息的</a></p>
+<p>定义出一个<strong>可执行的目标</strong>：
+你需要定义一个可执行的目标，比如对于 sed 我需要把 <code>tldr sed</code> 中所有用例重写一遍。对于<code>awk</code> 我的目标就是
+使用 <code>awk</code> 来查找 yaml 中的某个字段的值。</p>
+<p>筛选<strong>足够达成目标所需的资料</strong>：
+当你通过搜索引擎到一些比较好的资料时候，你就可以通过阅读大纲等筛选出阅读之后能让你达到目标的资料，也就是最常见用途的资料虽然可能比较粗略，
+但是之后在你实践的时候会更加精确的在其中找到真正你需要的资料。</p>
+<p>第二块<strong>边查文档边实践，输出见解</strong>：
+其实我对于如何快速学习技术的方法一直都是动手去做，多去实践。刚毕业的时候我很喜欢对于一个技术知识点采用&quot;从封面到封底&quot;的方式去学习，
+但是随着时间越来越少，已经没有精力把一本书从头到尾的精读完了。</p>
+<p>于是按照边查文档边实践的方式来学习的方式效率会更高，同时这也符合学习金字塔的思想。</p>
+<p><img src="/image/the_cone_of_learning.png" alt="学习金字塔"></p>
+<p>对于一个知识点如果你只采用读的方式去学习，那你只能吸收到 10% 的内容，但是你采用教学和玩的方式去学习，你可以吸收到 90% 的内容。
+举个很简单的例子，我当时高中的时候玩炉石传说，里面经典卡牌有 300+ 张，我却能够说出 90% 的牌的身材和效果，其实我没有刻意的去记住
+只是因为我玩的时候比较喜欢玩，所以我就把这些卡牌都学习了。</p>
+<p>所以很重要一点就是在<strong>学习的时候采用玩的方式</strong>，去实践而不是捧读文档。
+同样<strong>教学是更好的学习</strong>，因为你能在同时巩固和确定你的知识点的逻辑是正确的，我输出这篇文章也是为了更好的巩固关于二八法则与 awk 这些知识点。</p>
+<p>对于这比较有用的 20% 的知识点采用实践的方式去学习之后，当你正在实践的时候，遇到一些偏门的 feature 你就可以通过查阅文档的方式，更加精确得使用
+这些 feature 避免了你在繁杂的细节中迷失。</p>
+<p>下面我会举两个实例来说明这个方法：</p>
+<h1 id="学习-awk">学习 awk</h1>
+<p>首先我们通过浅读文档了解到 awk 是一个什么样的工具：</p>
+<p><code>Awk is an extremely versatile programming language for working on files. </code></p>
+<p>awk 其实是一种用于处理文本的编程语言，这就能解释当你从 stackoverflow 上尝试解决文本处理问题的时候，
+很多回答给出 awk 的示例没有那么简单明了，原因也就是他是一门编程语言，并不像 grep 一样只需要添加几个命令行参数就可以
+查找文本。</p>
+<h2 id="寻找最常用的用途">寻找最常用的用途</h2>
+<p>我这边是使用 <code>tldr</code> 来查找这个命令的最常用的用途，<code>tldr</code> 通过实际示例简化深受欢迎的 <code>man</code> 页面。
+他的输出如下：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -340,40 +342,41 @@ awk &#39;($10 == value)&#39;
 ...
 </code></pre></td></tr></table>
 </div>
-</div><p>Through these examples, I can know what the common uses of awk are, and what syntax and parameters are the most important.</p>
-<p>The main uses are:</p>
+</div><p>通过这些示例我就能知道 awk 的常用用途有哪些，以及就是哪些语法和参数是最重要的。</p>
+<p>用途主要有：</p>
 <ol>
-<li>Print a column in the file</li>
-<li>Find the corresponding row based on a certain value</li>
-<li>Split a row into multiple fields based on a field separator</li>
-<li>Print rows that meet certain conditions</li>
+<li>打印文件中的某一列</li>
+<li>根据某个值找到对应的行</li>
+<li>将某一行根据某个 field separator 切分成多个字段</li>
+<li>打印满足某个条件的行</li>
 </ol>
-<p>According to the example, we can understand that the -F parameter is quite useful, and the <code>print</code> keyword and variables starting with <code>$</code> are also quite useful.</p>
-<p>We also have some doubts:</p>
+<p>根据例子中我们能了解到 -F 这个参数是比较有用的， 同时 <code>print</code> 关键词和 <code>$</code> 开头的变量也比较有用。</p>
+<p>我们心中也产生了一些疑问：</p>
 <ul>
-<li>What does <code>'{print $5}'</code> syntax mean?</li>
-<li>Why does <code>'/foo/ {print $2}'</code> print the second column of the row containing &ldquo;foo&rdquo; in a space-separated file?</li>
+<li><code>'{print $5}'</code> 这种语法指的是什么？</li>
+<li><code>'/foo/ {print $2}'</code> 为什么在空格分隔的文件中打印包含“foo”的行的第二列?</li>
 </ul>
-<h2 id="find-learning-resources">Find learning resources</h2>
-<p>With these questions and the common cases we understand, we can find related resources through search engines:</p>
+<h2 id="找到学习资源">找到学习资源</h2>
+<p>带着这些问题和了解到的常用 case 我们就可以通过搜索引擎来找到相关的资源：</p>
 <ul>
-<li><a href="https://www.eriwen.com/tools/awk-is-a-beautiful-tool/">https://www.eriwen.com/tools/awk-is-a-beautiful-tool/</a> A short blog about awk, talking about some philosophy</li>
-<li><code>man awk</code> man manual</li>
+<li><a href="https://www.eriwen.com/tools/awk-is-a-beautiful-tool/">https://www.eriwen.com/tools/awk-is-a-beautiful-tool/</a> 一篇关于 awk 的短博客，讲了一些哲学</li>
+<li><code>man awk</code>  man 手册</li>
 <li><code>tldr awk</code> tldr awk</li>
 <li><a href="https://www.gnu.org/software/gawk/manual/gawk.html#Getting-Started">https://www.gnu.org/software/gawk/manual/gawk.html#Getting-Started</a></li>
 <li><a href="https://www.geeksforgeeks.org/awk-command-unixlinux-examples/">https://www.geeksforgeeks.org/awk-command-unixlinux-examples/</a> tutorial</li>
 <li><a href="https://www.runoob.com/linux/linux-comm-awk.html">https://www.runoob.com/linux/linux-comm-awk.html</a> tutorial</li>
-<li><a href="https://www.grymoire.com/Unix/Awk.html#toc-uh-13">Summary of AWK Commands</a> Brief introduction</li>
-<li><a href="https://sparky.rice.edu//~hartigan/awk.html">https://sparky.rice.edu//~hartigan/awk.html</a> How to use awk</li>
+<li><a href="https://www.grymoire.com/Unix/Awk.html#toc-uh-13">Summary of AWK Commands</a> 简明介绍</li>
+<li><a href="https://sparky.rice.edu//~hartigan/awk.html">https://sparky.rice.edu//~hartigan/awk.html</a>  如何使用 awk</li>
 </ul>
-<p>We found 8 related resources, including a very long user manual, but don&rsquo;t worry, we won&rsquo;t read it all, just skim through the structure to know what content is in which chapters. I will filter it later.</p>
-<h2 id="setting-goals">Setting Goals</h2>
-<p>Then it&rsquo;s about setting learning goals, note that this goal must be <strong>executable</strong>. If you have used OKR or GTD, then you will basically understand what it is like.
-The key result of OKR is a measurable result for this goal, or each small task of the GTD execution list, which is executable and measurable.</p>
-<p>In this example, I mainly set 3 goals:</p>
+<p>我们找到了 8 个相关资源，其中包含很长的用户手册，但是不必担心，我们不会读完它，只是扫一下结构知道哪些章节
+包含哪些内容就够了。后面我会对它进行筛选。</p>
+<h2 id="设定目标">设定目标</h2>
+<p>然后就是设定学习目标，注意这个目标一定要是 <strong>可执行的</strong>，如果你使用过 OKR 或者 GTD，那么你就会基本了解是怎么样的。
+类似 OKR 的 key result 就是对于这个目标的一个可衡量的结果，或者 GTD 的执行清单的每一个小 task，都是可执行的，可以衡量的。</p>
+<p>这个例子中我主要设定了 3 个目标：</p>
 <ul>
-<li>The first is to ensure that I can write out the examples in tldr by handwriting, because this example is the most commonly used case</li>
-<li>The second is to format the average total score of the students below:
+<li>首先就是对于 tldr 中的示例需要保证自己通过手写能写出来，因为这个示例是大多数常用的 case</li>
+<li>其次是格式化输出下面的学生的总分平均分：
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -390,7 +393,7 @@ Mike    2537 87 97 95
 Bob     2415 40 57 62
 </code></pre></td></tr></table>
 </div>
-</div>The result will be like this
+</div>结果会是这样的
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -418,26 +421,26 @@ AVERAGE:     63.80    78.60    70.00
 </code></pre></td></tr></table>
 </div>
 </div></li>
-<li>The last is to find the value of a field in yaml through awk, which is more difficult but interesting, <a href="https://unix.stackexchange.com/questions/608137/parse-a-yaml-section-using-shell">Parse a YAML section using shell</a></li>
+<li>最后是通过 awk 来找到 yaml 中某一个字段的值，这个难度较大但是比较有意思，<a href="https://unix.stackexchange.com/questions/608137/parse-a-yaml-section-using-shell">Parse a YAML section using shell</a></li>
 </ul>
-<p>You can see that these three goals are executable and the results are easy to measure.</p>
-<h2 id="filtering-learning-resources">Filtering Learning Resources</h2>
-<p>After setting the goals, we can filter out relevant resources based on the goals:</p>
-<p>I filtered out the following resources:
-<a href="https://www.eriwen.com/tools/awk-is-a-beautiful-tool/">awk is a beautiful tool</a>, man page,
-<a href="https://www.grymoire.com/Unix/Awk.html#toc-uh-2">Executing awk scripts</a>,<a href="https://www.grymoire.com/Unix/Awk.html#toc-uh-13">awk syntax</a>,
-<a href="https://www.grymoire.com/Unix/Awk.html#toc-uh-11">awk regular expression &amp;&amp; conditional expression</a></p>
-<h2 id="skim-through-the-filtered-materials">Skim through the filtered materials</h2>
-<p>First, we can skim through the filtered materials:</p>
-<p>I found that awk actually only operates one record at a time, this record is a line by default. At the same time, it will extract each string separated by spaces (default) in each line as each field.</p>
-<p>This can explain that <code>$5</code> in <code>'{print $5}'</code> is actually the 5th field separated by spaces in each line. And using <code>-F</code> can replace the string used for separation from space to the specified string.</p>
-<p><code>awk -F ','</code> This is to use a comma to separate fields.</p>
-<h2 id="learning-to-use">Learning to Use</h2>
-<h3 id="reproduce-the-examples-in-tldr">Reproduce the examples in tldr</h3>
-<p>At this time, you can open your command line and start playing with <code>awk</code>, you will find</p>
-<p><code>awk '/foo/ {print $2}' filename</code> This syntax is very interesting.</p>
-<p>By consulting the documentation, you actually find that /foo/ can be replaced with various regular expressions:</p>
-<p>For:</p>
+<p>可以看到这三个目标都是可以执行的，同时很好衡量结果。</p>
+<h2 id="过滤学习资源">过滤学习资源</h2>
+<p>设定了目标之后，我们就可以根据目标来筛选出相关的资源：</p>
+<p>我筛选出以下资源：
+<a href="https://www.eriwen.com/tools/awk-is-a-beautiful-tool/">awk is a beautiful tool</a>，man page,
+<a href="https://www.grymoire.com/Unix/Awk.html#toc-uh-2">执行 awk 脚本</a>,<a href="https://www.grymoire.com/Unix/Awk.html#toc-uh-13">awk 语法</a>,
+<a href="https://www.grymoire.com/Unix/Awk.html#toc-uh-11">awk 正则表达式 &amp;&amp; 条件表达式</a></p>
+<h2 id="浅读筛选出的资料">浅读筛选出的资料</h2>
+<p>首先我们可以浅读以下筛选出的资料：</p>
+<p>发现 awk 其实每次只会操作一个记录(record)，这个记录默认是一行。同时会提取每一行中通过空格（默认）分隔的字符串作为每一个字段(field)。</p>
+<p>这样就能解答 <code>'{print $5}'</code> 中 $5 其实就是每一行通过空格分隔的第 5 个字段。并且使用 -F 就能将分隔用的字符串从空格替换为指定的字符串。</p>
+<p><code>awk -F ','</code> 这就是使用逗号来分隔字段。</p>
+<h2 id="学以致用">学以致用</h2>
+<h3 id="完成-tldr-中的示例的复现">完成 tldr 中的示例的复现</h3>
+<p>这个时候你可以打开你的命令行开始把玩 <code>awk</code>， 你会发现</p>
+<p><code>awk '/foo/ {print $2}' filename</code> 这样的语法很有意思。</p>
+<p>通过查阅文档你发现其实 /foo/ 中的 可以换成各种正则表达式：</p>
+<p>对于：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -454,13 +457,13 @@ Mike	2537	87	97	95
 Bob	2415	40	57	62
 </code></pre></td></tr></table>
 </div>
-</div><p>You can use this method to print out lines containing /Bob/
+</div><p>可以使用这个方式打印出包含 /Bob/ 的行
 <code>awk '/Bob/ {print $0}'  sheet</code></p>
-<p>Using <code>awk '/m$/'</code> can print out lines with fields ending in m, that is, lines containing Tom.</p>
-<p>By reading the chapter on regular expressions in the man manual <code>Regular expressions</code></p>
-<p><code>awk '/m$/' {print $0}</code> is actually a shorthand for <code>awk $0 ~ '/m$/ {print $0}'</code>.</p>
-<p>It means that when the input record (default is line), if the fields match this expression, print out the current line.</p>
-<p>So we will find that the case in <code>tldr</code> is wrong</p>
+<p>使用 <code>awk '/m$/'</code> 能打印出包含 m 结尾的字段的行，也就是包含 Tom 的行。</p>
+<p>通过阅读 man 手册中关于正则表达式的一章 <code>Regular expressions</code></p>
+<p><code>awk '/m$/' {print $0}</code> 其实是 <code>awk $0 ~ '/m$/ {print $0}'</code> 的简写。</p>
+<p>表示当输入的记录（默认为行）的时候，如果字段（fields）匹配这个表达式就打印出当前行。</p>
+<p>所以我们会发现 <code>tldr</code> 中对于这个case是错误的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -481,13 +484,13 @@ bar foo ggg
 awk &#39;/foo/ {print $2}&#39; filename
 </code></pre></td></tr></table>
 </div>
-</div><p>The correct one should be <code>awk '$2 ~ /foo/ {print $2}'</code>, when <code>$2 ~ /foo/</code> matches, it will be assigned to 1, and when it does not match, it will be assigned to 0.
-That is, when it matches, this line of record processing will become <code>awk '1 {print $2}</code> , and when it does not match, it will become <code>awk '0 {print $2}</code> .</p>
-<h3 id="implement-the-formatting-of-student-grades">Implement the formatting of student grades</h3>
-<p>To implement the formatting of student grades, you need to introduce the <code>awk</code> script, which can be read from the filtered materials.
-To sum up, -f can specify the awk script, the first line of the file needs to be <code>#!/bin/awk -f</code>, and the subsequent script is the <code>awk</code> script.</p>
-<p>The keywords of awk can also be found in the filtered documents. Playing while reading the documents can really effectively find important resources.</p>
-<p><a href="https://www.grymoire.com/Unix/Awk.html#toc-uh-1">Basic Structure</a></p>
+</div><p>正确的应该是 <code>awk '$2 ~ /foo/ {print $2}'</code>，当 <code>$2 ~ /foo/</code> 匹配的时候会赋值成 1，不匹配的时候会赋值成 0。
+也就是当匹配的时候，这处理这一行记录就会变成 <code>awk '1 {print $2}</code> ，不匹配就会变成 <code>awk '0 {print $2}</code> 。</p>
+<h3 id="实现格式化学生的成绩">实现格式化学生的成绩</h3>
+<p>要实现将学生的成绩格式化，需要引入 <code>awk</code> 的脚本，可以从筛选出的资料中阅读。
+总结一下就是 -f 可以指定 awk 的脚本，文件的第一行需要是 <code>#!/bin/awk -f</code>， 之后的脚本就是 <code>awk</code> 的脚本。</p>
+<p>awk 的关键字也可以在筛选出的文档中找到，边玩边看文档，真的能很有效地找到重要的资源。</p>
+<p><a href="https://www.grymoire.com/Unix/Awk.html#toc-uh-1">基础结构</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -500,12 +503,12 @@ To sum up, -f can specify the awk script, the first line of the file needs to be
 <span class="nb">END</span>   <span class="p">{</span> <span class="kr">print</span> <span class="s2">&#34;STOP&#34;</span>  <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>From the above example, it can be seen that what is important about awk is that this pattern specifies the behavior to be executed with each line read as input.
-If the preceding expression is true, execute the code in <code>{ print }</code>.
-If there is no expression before, it will match the content in each line by default.
-In addition, BEGIN and END are two other important patterns.
-As you would expect, these two words specify the operations to be performed before reading any lines and after reading the last line.</p>
-<p>Understanding this can achieve this small goal:</p>
+</div><p>从上面的例子可以看出 awk 比较重要的是，该模式指定了以读取的每一行作为输入执行的行为。
+如果前边的表达式为真，则执行 <code>{ print }</code> 中的代码。
+如果前面没有表达式，就默认匹配到每一行中的内容。
+另外 BEGIN 和 END 也是另外两个重要的模式。
+如你所料，这两个词指定了在读取任何行之前和读取最后一行之后要执行的操作。</p>
+<p>了解这个就能实现一个这个小目标了：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -552,8 +555,8 @@ As you would expect, these two words specify the operations to be performed befo
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="use-awk-to-find-the-value-of-a-field-in-yaml">Use awk to find the value of a field in yaml</h3>
-<p>This answer on Stackoverflow is baffling:</p>
+</div><h3 id="awk-来找到-yaml-中某一个字段的值">awk 来找到 yaml 中某一个字段的值</h3>
+<p>Stackoverflow 上这个回答令人摸不到头脑:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -592,7 +595,7 @@ morestuff:
  - whatever
 </code></pre></td></tr></table>
 </div>
-</div><p>Need to get the value of pkg_a_1, output like this:</p>
+</div><p>需要拿到 pkg_a_1 的值，输出这样：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -609,11 +612,11 @@ pkg_b_1 Kjs6
 pkg_b_1 opsaa
 </code></pre></td></tr></table>
 </div>
-</div><p>The given answer is <code>awk '/^[^ ]/{ f=/^pkg:/; next } f{ if (sub(/:$/,&quot;&quot;)) pkg=$2; else print pkg, $2 }' file</code></p>
-<p>Just looking at the answer is a bit confusing, isn&rsquo;t it? Let&rsquo;s break down the input:</p>
+</div><p>所给到的解答是 <code>awk '/^[^ ]/{ f=/^pkg:/; next } f{ if (sub(/:$/,&quot;&quot;)) pkg=$2; else print pkg, $2 }' file</code></p>
+<p>刚看到答案一脸懵逼是吧，我们将输入拆分一下：</p>
 <ul>
-<li><code>/^[^ ]/</code> matches all non-empty lines.</li>
-<li><code>f=/^pkg:/</code> does a match on the current line, if it matches, f becomes 1, otherwise f becomes 0.
+<li><code>/^[^ ]/</code> 是匹配所有非空行。</li>
+<li><code>f=/^pkg:/</code>是在当前行做匹配，如果匹配到了，f 就会变成 1，否则 f 就会变成 0。
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -631,30 +634,32 @@ pkg_b_1 opsaa
 </code></pre></td></tr></table>
 </div>
 </div></li>
-<li>next means to skip the current line and continue parsing the following lines.</li>
-<li>The following f is a flag, if f is 1, perform the following behavior.</li>
-<li>The final assignment operation is self-explanatory.</li>
+<li>next 指的是跳过当前行，继续解析下面的行。</li>
+<li>下面的 f 是一个标志，如果 f 为 1，执行下面的行为。</li>
+<li>最后的赋值操作就不解释了。</li>
 </ul>
-<p>If I want to read the value of something.body, for example, this output</p>
+<p>如果我想要读取 something.body 的值，例如这样的输出</p>
 <p><code>something.body assets/footer.html</code></p>
-<p>You can use <code>awk '/^[^ ]/{ f=/^something/;sub(/:/,&quot;.&quot;,$0);prefix=$0;  next } f{ b=/body/;} f&amp;&amp;b{printf &quot;%s%s %s\n&quot;, prefix,$2,$3}' ymal</code></p>
+<p>可以使用 <code>awk '/^[^ ]/{ f=/^something/;sub(/:/,&quot;.&quot;,$0);prefix=$0;  next } f{ b=/body/;} f&amp;&amp;b{printf &quot;%s%s %s\n&quot;, prefix,$2,$3}' ymal</code></p>
 <p><code>something.body: assets/footer.html</code></p>
-<p>This way, we have achieved our three small goals for awk. Remember to practice while reviewing the documentation, and try different behaviors. Only when you try, you truly learn.</p>
-<h1 id="conclusion">Conclusion</h1>
-<p>This article explains how to find information and how to filter information by setting goals, as well as how to quickly learn knowledge through practice. It also gives an example of learning awk to practice this method. This method is applicable to 80% of learning scenarios. Don&rsquo;t forget to share after you have achieved something!</p>
+<p>这样我们就完成了对于 awk 的三个小目标，注意在实践的时候要一边实践一边回味文档，多去尝试一下不同的行为
+当你去尝试了，才是真正的学会了。</p>
+<h1 id="总结">总结</h1>
+<p>本文讲解了如何找到资料以及通过设定目标的方式来筛选资料，以及如何通过实践来快速的学习知识。
+并且举了个学习 awk 的例子来实践这个方法，这个方法适用于 80% 的学习场景，别忘了学有所成之后分享出来哦！</p>
 
     </div>
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">Author</span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">xiantang</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">LastMod</span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
-        2023-10-08
-        <a href="https://github.com/xiantang/xiantang.github.io/commit/05461cf5116804daddfccd754bde8183713e4e8c" title="use chatgpt to generate English version">(05461cf5)</a>
+        2024-07-09
+        <a href="https://github.com/xiantang/xiantang.github.io/commit/9ac8718e661b5ac74c6344a278e8b7e79f873ad7" title="english by default">(9ac8718e)</a>
     </span>
   </p>
   
@@ -662,33 +667,33 @@ pkg_b_1 opsaa
 </div>
 <div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
+  <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
     
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b3bbmwj30ha0hbq5e.jpg">
-        <span>wechat</span>
+        <span>微信打赏</span>
       </label>
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b4s82aj30ib0igad3.jpg">
-        <span>alipay</span>
+        <span>支付宝打赏</span>
       </label>
   </div>
 </div><footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/chinese/">Chinese</a>
-          <a href="/tags/soft-skills/">Soft Skills</a>
+          <a href="/tags/%E4%B8%AD%E6%96%87/">中文</a>
+          <a href="/tags/%E8%BD%AF%E6%8A%80%E8%83%BD/">软技能</a>
           <a href="/tags/awk/">awk</a>
           </div>
       <nav class="post-nav">
         <a class="prev" href="/post/shell_is_useful_tool/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Shell is a good productivity tool</span>
-            <span class="prev-text nav-mobile">Prev</span>
+            <span class="prev-text nav-default">shell 是一个不错的生产力工具</span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/singapore_3_month/">
-            <span class="next-text nav-default">Guide to Settling in Singapore After Physically Crossing the Wall</span>
-            <span class="next-text nav-mobile">Next</span>
+            <span class="next-text nav-default">肉身翻墙新加坡安顿指南</span>
+            <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -727,11 +732,11 @@ pkg_b_1 opsaa
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -757,7 +762,7 @@ pkg_b_1 opsaa
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
   <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>

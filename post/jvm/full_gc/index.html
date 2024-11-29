@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>What is Minor GC/Major GC - xiantang - Self-discipline set me free.</title>
+  <title>什么是 Minor GC/Major GC - 咸糖 - 自律者自由</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,9 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="xiantang" /><meta name="description" content="What is Minor GC/Major GC First, let&amp;rsquo;s popularize the classic heap layout of JVM:
-For the classic JVM heap layout, there are two clear areas, the first is the Young area, which generally stores young objects or objects that have just been created. The second is the Old area, also known as the old generation, which generally stores longer-lived objects or objects promoted from the young area.
-For the young area, we have three areas, one is the Eden area, and the other two are Survivor areas of equal size." />
+<meta name="author" content="xiantang" /><meta name="description" content="什么是 Minor GC/Major GC 首先我们先科普一下JVM 经典的堆布局: 对于经典的 JVM heap 布局，有两个区域比较清晰，首先是Young 区,一般会来存放年轻的对象或者刚被" />
 
 
 
@@ -41,28 +39,22 @@ For the young area, we have three areas, one is the Eden area, and the other two
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="What is Minor GC/Major GC" />
-<meta property="og:description" content="What is Minor GC/Major GC First, let&rsquo;s popularize the classic heap layout of JVM:
-For the classic JVM heap layout, there are two clear areas, the first is the Young area, which generally stores young objects or objects that have just been created. The second is the Old area, also known as the old generation, which generally stores longer-lived objects or objects promoted from the young area.
-For the young area, we have three areas, one is the Eden area, and the other two are Survivor areas of equal size." />
+<meta property="og:title" content="什么是 Minor GC/Major GC" />
+<meta property="og:description" content="什么是 Minor GC/Major GC 首先我们先科普一下JVM 经典的堆布局: 对于经典的 JVM heap 布局，有两个区域比较清晰，首先是Young 区,一般会来存放年轻的对象或者刚被" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vim0.com/post/jvm/full_gc/" /><meta property="og:image" content="https://vim0.com/post/main_cover.png"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-04-06T01:37:56+08:00" />
-<meta property="article:modified_time" content="2023-10-08T20:52:20+08:00" /><meta property="og:site_name" content="xiantang - Self-discipline set me free." />
+<meta property="article:modified_time" content="2024-07-09T00:29:27+08:00" /><meta property="og:site_name" content="咸糖 - 自律者自由" />
 
-<meta itemprop="name" content="What is Minor GC/Major GC">
-<meta itemprop="description" content="What is Minor GC/Major GC First, let&rsquo;s popularize the classic heap layout of JVM:
-For the classic JVM heap layout, there are two clear areas, the first is the Young area, which generally stores young objects or objects that have just been created. The second is the Old area, also known as the old generation, which generally stores longer-lived objects or objects promoted from the young area.
-For the young area, we have three areas, one is the Eden area, and the other two are Survivor areas of equal size."><meta itemprop="datePublished" content="2020-04-06T01:37:56+08:00" />
-<meta itemprop="dateModified" content="2023-10-08T20:52:20+08:00" />
-<meta itemprop="wordCount" content="388"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
+<meta itemprop="name" content="什么是 Minor GC/Major GC">
+<meta itemprop="description" content="什么是 Minor GC/Major GC 首先我们先科普一下JVM 经典的堆布局: 对于经典的 JVM heap 布局，有两个区域比较清晰，首先是Young 区,一般会来存放年轻的对象或者刚被"><meta itemprop="datePublished" content="2020-04-06T01:37:56+08:00" />
+<meta itemprop="dateModified" content="2024-07-09T00:29:27+08:00" />
+<meta itemprop="wordCount" content="600"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
 <meta itemprop="keywords" content="JVM," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://vim0.com/post/main_cover.png"/>
 
-<meta name="twitter:title" content="What is Minor GC/Major GC"/>
-<meta name="twitter:description" content="What is Minor GC/Major GC First, let&rsquo;s popularize the classic heap layout of JVM:
-For the classic JVM heap layout, there are two clear areas, the first is the Young area, which generally stores young objects or objects that have just been created. The second is the Old area, also known as the old generation, which generally stores longer-lived objects or objects promoted from the young area.
-For the young area, we have three areas, one is the Eden area, and the other two are Survivor areas of equal size."/>
+<meta name="twitter:title" content="什么是 Minor GC/Major GC"/>
+<meta name="twitter:description" content="什么是 Minor GC/Major GC 首先我们先科普一下JVM 经典的堆布局: 对于经典的 JVM heap 布局，有两个区域比较清晰，首先是Young 区,一般会来存放年轻的对象或者刚被"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -87,18 +79,18 @@ For the young area, we have three areas, one is the Eden area, and the other two
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/en/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/en/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/en/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/en/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/en/post/about/about_me/">
-        <li class="mobile-menu-item">AboutMe</li>
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/post/about/about_me/">
+        <li class="mobile-menu-item">关于我</li>
       </a><a href="https://www.google.com/search?q=site%3Avim0.com">
-        <li class="mobile-menu-item">Search</li>
+        <li class="mobile-menu-item">搜索</li>
       </a>
   </ul>
 
@@ -110,18 +102,18 @@ For the young area, we have three areas, one is the Eden area, and the other two
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/zh-cn/post/jvm/full_gc/">zh-cn</a>
+            <a href="https://vim0.com/post/jvm/full_gc/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/jvm/full_gc/">en</a>
+            <a href="https://vim0.com/en/post/jvm/full_gc/">en</a>
           
         </li>
       
@@ -145,18 +137,18 @@ For the young area, we have three areas, one is the Eden area, and the other two
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/zh-cn/post/jvm/full_gc/">zh-cn</a>
+            <a href="https://vim0.com/post/jvm/full_gc/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/jvm/full_gc/">en</a>
+            <a href="https://vim0.com/en/post/jvm/full_gc/">en</a>
           
         </li>
       
@@ -168,17 +160,17 @@ For the young area, we have three areas, one is the Eden area, and the other two
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/en/">Home</a>
+        <a class="menu-item-link" href="/">首页</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/post/">Archives</a>
+        <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/tags/">Tags</a>
+        <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/categories/">Categories</a>
+        <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/post/about/about_me/">AboutMe</a>
+        <a class="menu-item-link" href="/post/about/about_me/">关于我</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">Search</a>
+        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">搜索</a>
       </li>
   </ul>
 </nav>
@@ -191,90 +183,90 @@ For the young area, we have three areas, one is the Eden area, and the other two
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">What is Minor GC/Major GC</h1>
+      <h1 class="post-title">什么是 Minor GC/Major GC</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2020-04-06 </span>
         <div class="post-category">
-            <a href="/categories/chinese/"> Chinese </a>
+            <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
             <a href="/categories/jvm/"> JVM </a>
             </div>
-          <span class="more-meta"> 388 words </span>
-          <span class="more-meta"> 2 mins read </span>
+          <span class="more-meta"> 约 600 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#what-is-minor-gcmajor-gc">What is Minor GC/Major GC</a>
+    <li><a href="#什么是-minor-gcmajor-gc">什么是 Minor GC/Major GC</a>
       <ul>
         <li><a href="#minor-gc">Minor GC</a></li>
         <li><a href="#major-gc">Major GC</a></li>
       </ul>
     </li>
-    <li><a href="#when-does-major-gc-occur">When does Major GC occur</a></li>
-    <li><a href="#avoid-frequent-full-gc">Avoid frequent Full GC</a></li>
+    <li><a href="#什么时候发生major-gc">什么时候发生Major GC</a></li>
+    <li><a href="#避免频繁的full-gc">避免频繁的Full GC</a></li>
   </ul>
 </nav>
   </div>
 </div>
   <div class="post-outdated">
-    <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2023-10-08T20:52:20" title="October 8, 2023">October 8, 2023</span>. This article may have outdated content or subject matter.</p>
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2024-07-09T00:29:27" title="July 9, 2024">July 9, 2024</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
-      <h2 id="what-is-minor-gcmajor-gc">What is Minor GC/Major GC</h2>
-<p>First, let&rsquo;s popularize the classic heap layout of JVM:</p>
+      <h2 id="什么是-minor-gcmajor-gc">什么是 Minor GC/Major GC</h2>
+<p>首先我们先科普一下JVM 经典的堆布局:</p>
 <p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gdk3ifey1ej30lk08gwm5.jpg" alt="image-20200406155036951"></p>
-<p>For the classic JVM heap layout, there are two clear areas, the first is the Young area, which generally stores young objects or objects that have just been created. The second is the Old area, also known as the old generation, which generally stores longer-lived objects or objects promoted from the young area.</p>
-<p>For the young area, we have three areas, one is the Eden area, and the other two are Survivor areas of equal size.</p>
-<p>New objects are created in the Eden area.</p>
+<p>对于经典的 JVM heap 布局，有两个区域比较清晰，首先是Young 区,一般会来存放年轻的对象或者刚被创建没多久的对象。其次是 Old 区，也就是老年代，一般会来存放比较长寿的对象，或者从 young 区晋升的对象。</p>
+<p>对于young 区 我们又有三个区域，一个是 Eden 区，还有两个大小相等的 Survivor 区。</p>
+<p>新生的对象会在 Eden 区创建。</p>
 <h3 id="minor-gc">Minor GC</h3>
-<p>At this time, if the new object cannot be created in the Eden area (the Eden area cannot accommodate it), a Young GC will be triggered. At this time, the objects in the S0 area and the Eden area will be analyzed for reachability together, find out the active objects, copy them to the S1 area, and clear the objects in the S0 area and the Eden area, so that those unreachable objects are cleared, and the S0 area and the S1 area are swapped.</p>
-<p>But there is a problem here, Q: Why are there two Survivor areas?</p>
-<p>A: Because imagine that if there is only one Survivor area, then it is impossible to implement garbage collection for the S0 area and the promotion of generational age.</p>
+<p>此时如果新生的对象无法在 Eden 区创建（Eden 区无法容纳) 就会触发一次Young GC 此时会将 S0 区与Eden 区的对象一起进行可达性分析，找出活跃的对象，将它复制到 S1 区并且将S0区域和 Eden 区的对象给清空，这样那些不可达的对象进行清除，并且将S0 区 和 S1区交换。</p>
+<p>但是这里会产生一个问题，Q:为啥会有两个 Survivor 区？</p>
+<p>A: 因为假设设想一下只有一个 Survibor 区 那么就无法实现对于 S0 区的垃圾收集，以及分代年龄的提升。</p>
 <h3 id="major-gc">Major GC</h3>
-<p>GC that occurs in the old generation, basically a Major GC will trigger a Minor GC. And the speed of Major GC is often 10 times slower than Minor GC.</p>
-<h2 id="when-does-major-gc-occur">When does Major GC occur</h2>
-<p>Since we already know that Minor GC is triggered when the Eden area is almost full</p>
-<p>Q: What about Major GC?</p>
+<p>发生在老年代的GC ，基本上发生了一次Major GC 就会发生一次 Minor GC。并且Major GC 的速度往往会比 Minor GC 慢 10 倍。</p>
+<h2 id="什么时候发生major-gc">什么时候发生Major GC</h2>
+<p>既然我们已经知道了 Minor GC 是在 Eden 区快满的情况下才会触发</p>
+<p>Q:那么 Major GC  呢?</p>
 <p>A:</p>
 <ol>
-<li>For a large object, we will first try to create it in Eden. If it cannot be created, it will trigger Minor GC</li>
-<li>Then continue to try to store it in the Eden area, and find that it still cannot be put down</li>
-<li>Try to enter the old generation directly, and the old generation cannot put it down</li>
-<li>Trigger Major GC to clean up the space in the old generation
+<li>对于一个大对象，我们会首先在Eden 尝试创建，如果创建不了，就会触发Minor GC</li>
+<li>随后继续尝试在Eden区存放，发现仍然放不下</li>
+<li>尝试直接进入老年代，老年代也放不下</li>
+<li>触发 Major GC 清理老年代的空间
 <ol>
-<li>If it fits, it succeeds</li>
-<li>If it doesn&rsquo;t fit, OOM</li>
+<li>放的下 成功</li>
+<li>放不下 OOM</li>
 </ol>
 </li>
 </ol>
-<p>See the image below:</p>
+<p>详见下图:</p>
 <p><img src="https://tva1.sinaimg.cn/large/00831rSTly1gdk486fnmtj310b0u04ig.jpg" alt="image-20200406161521283"></p>
-<h2 id="avoid-frequent-full-gc">Avoid frequent Full GC</h2>
+<h2 id="避免频繁的full-gc">避免频繁的Full GC</h2>
 <ul>
-<li>Avoid defining overly large objects (arrays)</li>
-<li>Avoid defining overly large objects as static variables</li>
+<li>避免定义过大的对象(数组)</li>
+<li>避免将过大对象定义为静态变量</li>
 </ul>
 
     </div>
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">Author</span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">xiantang</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">LastMod</span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
-        2023-10-08
-        <a href="https://github.com/xiantang/xiantang.github.io/commit/05461cf5116804daddfccd754bde8183713e4e8c" title="use chatgpt to generate English version">(05461cf5)</a>
+        2024-07-09
+        <a href="https://github.com/xiantang/xiantang.github.io/commit/9ac8718e661b5ac74c6344a278e8b7e79f873ad7" title="english by default">(9ac8718e)</a>
     </span>
   </p>
   
@@ -282,16 +274,16 @@ For the young area, we have three areas, one is the Eden area, and the other two
 </div>
 <div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
+  <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
     
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b3bbmwj30ha0hbq5e.jpg">
-        <span>wechat</span>
+        <span>微信打赏</span>
       </label>
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b4s82aj30ib0igad3.jpg">
-        <span>alipay</span>
+        <span>支付宝打赏</span>
       </label>
   </div>
 </div><footer class="post-footer">
@@ -299,14 +291,14 @@ For the young area, we have three areas, one is the Eden area, and the other two
           <a href="/tags/jvm/">JVM</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/">
+        <a class="prev" href="/post/jvm/gc_root/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Implementing an AtomicInteger</span>
-            <span class="prev-text nav-mobile">Prev</span>
+            <span class="prev-text nav-default">GC root 在哪里？</span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/post/jvm/gc_root/">
-            <span class="next-text nav-default">Where is the GC root?</span>
-            <span class="next-text nav-mobile">Next</span>
+        <a class="next" href="/post/interview/%E6%BC%8F%E6%A1%B6%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%AE%9E%E7%8E%B0/">
+            <span class="next-text nav-default">漏桶算法的设计与实现</span>
+            <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -345,11 +337,11 @@ For the young area, we have three areas, one is the Eden area, and the other two
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -375,7 +367,7 @@ For the young area, we have three areas, one is the Eden area, and the other two
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
   <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>

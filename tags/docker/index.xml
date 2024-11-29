@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docker on xiantang - Self-discipline set me free.</title>
+    <title>Docker on 咸糖 - 自律者自由</title>
     <link>https://vim0.com/tags/docker/</link>
-    <description>Recent content in Docker on xiantang - Self-discipline set me free.</description>
+    <description>Recent content in Docker on 咸糖 - 自律者自由</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-cn</language>
     <lastBuildDate>Thu, 05 May 2022 22:08:34 +0800</lastBuildDate><atom:link href="https://vim0.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Using Docker Compose to Set Up Your Own Development Environment</title>
+      <title>使用 Docker Compose 建立你自己的开发环境</title>
       <link>https://vim0.com/post/docker-compose-dev/</link>
       <pubDate>Thu, 05 May 2022 22:08:34 +0800</pubDate>
       
       <guid>https://vim0.com/post/docker-compose-dev/</guid>
-      <description>Docker is not a new technology, but a tool that puts old wine in new bottles.
- Actually, I used Docker when I was in college, around 2017, when Docker was in its heyday. It was just used to start various lightweight applications, such as magnetic link downloaders, personal network disks, etc. Until recently, my understanding of Docker was still relatively vague. As I continued to encounter requirements at work, I also continued to understand Docker, so I decided to write an article to summarize my recent use of Docker.</description>
+      <description>Docker 其实并不是一种新技术，而是一个新瓶装旧酒的工具。 其实我在大学上学的时候就用过 Docker，那个时候还是 17 年左右，Docker 还是如日中天的</description>
     </item>
     
   </channel>

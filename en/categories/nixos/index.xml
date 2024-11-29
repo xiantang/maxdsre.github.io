@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NixOS on xiantang - Self-discipline set me free.</title>
+    <link>https://vim0.com/en/categories/nixos/</link>
+    <description>Recent content in NixOS on xiantang - Self-discipline set me free.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 08 Jul 2024 23:42:39 +0800</lastBuildDate><atom:link href="https://vim0.com/en/categories/nixos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nixos use old version software</title>
+      <link>https://vim0.com/en/post/nix_use_old_version/</link>
+      <pubDate>Mon, 08 Jul 2024 23:42:39 +0800</pubDate>
+      
+      <guid>https://vim0.com/en/post/nix_use_old_version/</guid>
+      <description>NixOS users often face situations where the latest software versions have issues, but the NixOS channel only offers the fixed versions. Here&amp;rsquo;s how to use an older version of software:
+According to the blog post How to use old versions of software in NixOS, you can follow these steps to use an older software version:
+Search for the old version of the software Use https://lazamar.co.uk/nix-versions/ to search for old packages.</description>
+    </item>
+    
+  </channel>
+</rss>

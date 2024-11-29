@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Analysis of Akka Source Code - xiantang - Self-discipline set me free.</title>
+  <title>Akka 源码解析 - 咸糖 - 自律者自由</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -39,21 +39,21 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Analysis of Akka Source Code" />
+<meta property="og:title" content="Akka 源码解析" />
 <meta property="og:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 object Main1 extends App { val system = ActorSystem(&#34;HelloSystem&#34;) val jazzListener = system.actorOf(Props[Listener]) val musicListener = system.actorOf(Props[Listener]) system.eventStream.subscribe(jazzListener, classOf[Jazz]) // jazzListener 订阅 Jazz 事件 system.eventStream.subscribe(musicListener, classOf[AllKindsOfMusic]) // musicListener 订阅 AllKindsOfMusic 以及它的子类 事件 // 只有 musicListener 接收到这个事件 system.eventStream.publish(Electronic(&#34;Parov Stelar&#34;)) // jazzListener" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vim0.com/post/scala/akka_source_code/" /><meta property="og:image" content="https://vim0.com/post/main_cover.png"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-01-15T17:26:53+08:00" />
-<meta property="article:modified_time" content="2023-10-08T21:02:03+08:00" /><meta property="og:site_name" content="xiantang - Self-discipline set me free." />
+<meta property="article:modified_time" content="2024-07-09T00:29:27+08:00" /><meta property="og:site_name" content="咸糖 - 自律者自由" />
 
-<meta itemprop="name" content="Analysis of Akka Source Code">
+<meta itemprop="name" content="Akka 源码解析">
 <meta itemprop="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 object Main1 extends App { val system = ActorSystem(&#34;HelloSystem&#34;) val jazzListener = system.actorOf(Props[Listener]) val musicListener = system.actorOf(Props[Listener]) system.eventStream.subscribe(jazzListener, classOf[Jazz]) // jazzListener 订阅 Jazz 事件 system.eventStream.subscribe(musicListener, classOf[AllKindsOfMusic]) // musicListener 订阅 AllKindsOfMusic 以及它的子类 事件 // 只有 musicListener 接收到这个事件 system.eventStream.publish(Electronic(&#34;Parov Stelar&#34;)) // jazzListener"><meta itemprop="datePublished" content="2020-01-15T17:26:53+08:00" />
-<meta itemprop="dateModified" content="2023-10-08T21:02:03+08:00" />
-<meta itemprop="wordCount" content="1222"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
+<meta itemprop="dateModified" content="2024-07-09T00:29:27+08:00" />
+<meta itemprop="wordCount" content="1482"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
 <meta itemprop="keywords" content="scala," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://vim0.com/post/main_cover.png"/>
 
-<meta name="twitter:title" content="Analysis of Akka Source Code"/>
+<meta name="twitter:title" content="Akka 源码解析"/>
 <meta name="twitter:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 object Main1 extends App { val system = ActorSystem(&#34;HelloSystem&#34;) val jazzListener = system.actorOf(Props[Listener]) val musicListener = system.actorOf(Props[Listener]) system.eventStream.subscribe(jazzListener, classOf[Jazz]) // jazzListener 订阅 Jazz 事件 system.eventStream.subscribe(musicListener, classOf[AllKindsOfMusic]) // musicListener 订阅 AllKindsOfMusic 以及它的子类 事件 // 只有 musicListener 接收到这个事件 system.eventStream.publish(Electronic(&#34;Parov Stelar&#34;)) // jazzListener"/>
 
 <!--[if lte IE 9]>
@@ -79,18 +79,18 @@
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/en/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/en/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/en/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/en/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/en/post/about/about_me/">
-        <li class="mobile-menu-item">AboutMe</li>
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/post/about/about_me/">
+        <li class="mobile-menu-item">关于我</li>
       </a><a href="https://www.google.com/search?q=site%3Avim0.com">
-        <li class="mobile-menu-item">Search</li>
+        <li class="mobile-menu-item">搜索</li>
       </a>
   </ul>
 
@@ -102,18 +102,18 @@
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/zh-cn/post/scala/akka_source_code/">zh-cn</a>
+            <a href="https://vim0.com/post/scala/akka_source_code/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/scala/akka_source_code/">en</a>
+            <a href="https://vim0.com/en/post/scala/akka_source_code/">en</a>
           
         </li>
       
@@ -137,18 +137,18 @@
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/zh-cn/post/scala/akka_source_code/">zh-cn</a>
+            <a href="https://vim0.com/post/scala/akka_source_code/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/scala/akka_source_code/">en</a>
+            <a href="https://vim0.com/en/post/scala/akka_source_code/">en</a>
           
         </li>
       
@@ -160,17 +160,17 @@
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/en/">Home</a>
+        <a class="menu-item-link" href="/">首页</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/post/">Archives</a>
+        <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/tags/">Tags</a>
+        <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/categories/">Categories</a>
+        <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/post/about/about_me/">AboutMe</a>
+        <a class="menu-item-link" href="/post/about/about_me/">关于我</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">Search</a>
+        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">搜索</a>
       </li>
   </ul>
 </nav>
@@ -183,39 +183,39 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Analysis of Akka Source Code</h1>
+      <h1 class="post-title">Akka 源码解析</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2020-01-15 </span>
         <div class="post-category">
-            <a href="/categories/chinese/"> Chinese </a>
+            <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
             <a href="/categories/scala/"> scala </a>
             <a href="/categories/akka/"> akka </a>
             </div>
-          <span class="more-meta"> 1222 words </span>
-          <span class="more-meta"> 3 mins read </span>
+          <span class="more-meta"> 约 1482 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
         
       </div>
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#logic-of-subscribe">Logic of subscribe</a></li>
-    <li><a href="#logic-of-publish">Logic of publish</a></li>
+    <li><a href="#subscribe-逻辑">subscribe 逻辑</a></li>
+    <li><a href="#publish-逻辑">publish 逻辑</a></li>
   </ul>
 
   <ul>
-    <li><a href="#implementation-of-tell">Implementation of Tell</a></li>
+    <li><a href="#tell-实现">Tell 实现</a></li>
   </ul>
 </nav>
   </div>
 </div>
   <div class="post-outdated">
-    <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2023-10-08T21:02:03" title="October 8, 2023">October 8, 2023</span>. This article may have outdated content or subject matter.</p>
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2024-07-09T00:29:27" title="July 9, 2024">July 9, 2024</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
@@ -253,8 +253,8 @@
 
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="logic-of-subscribe">Logic of subscribe</h2>
-<p>Synchronously add subscriber and to into subscriptions. The diff should be compared with the previous one to ensure that it will not be sent repeatedly?</p>
+</div><h2 id="subscribe-逻辑">subscribe 逻辑</h2>
+<p>同步地将 subcriber 和 to 加入到 subscriptions 中，diff 应该是和之前的一次比较保证不会重复发送？</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -273,18 +273,18 @@
 </div>
 </div><p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaxdi6sifoj312k06878y.jpg" alt="image-20200109114040999"></p>
 <p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaxdi7d0o9j30t40f2tho.jpg" alt="image-20200109131215939"></p>
-<p>There is an important method in addValue, which is to find the corresponding class from <code>subkeys</code>, that is, subscribe.</p>
-<p>You can imagine <code>subkeys</code> as a node in a multi-branch tree, where the key of the node is the type of subscription source, and the value is the corresponding subscriber Actor.</p>
-<p>Then this node also has its own <code>subkeys</code>. The keys of these subkeys are subclasses of the upper type, and the subscribers are extensions of the upper subscribers.</p>
+<p>addValue 中有个比较重要的方法，就是从 <code>subkeys</code> 也就是 subscribe 中到找对应的类。</p>
+<p>可以将 <code>subkeys</code> 想象为一个多叉树中的一个节点，节点的 key 为订阅源类型，value 为所对应的订阅者 Actor</p>
+<p>然后这个节点也有自己的 <code>subkeys</code> 这些 subkeys 为的 key 为上层类型的子类，同时订阅者是与是上层订阅者的拓展</p>
 <p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaxdi7rh9jj30ss0g0wit.jpg" alt="image-20200109140449787"></p>
-<p>For duplicate subscriptions, it will deduplicate once, similar to arc diff.</p>
-<p>For <code> system.eventStream.subscribe(jazzListener, classOf[Jazz])</code></p>
+<p>对于重复的订阅，他会做一次去重，类似于 arc diff</p>
+<p>对于 <code> system.eventStream.subscribe(jazzListener, classOf[Jazz])</code></p>
 <p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaxdi88df2j311m05gadr.jpg" alt="image-20200109120145086"></p>
-<p>It will generate a diff like this and add it to the cache.</p>
-<p>The data structure of the cache is a <code>private var cache = Map.empty[Classifier, Set[Subscriber]]</code> Map, which are the subscription source and the subscriber respectively.</p>
-<p>For <code>system.eventStream.subscribe(musicListener, classOf[AllKindsOfMusic]) </code></p>
+<p>会产生一个这样的 diff 然后加入到 cache 中</p>
+<p>cache 的数据结构是一个 <code>private var cache = Map.empty[Classifier, Set[Subscriber]]</code> Map 分别是订阅源和订阅者</p>
+<p>对于 <code>system.eventStream.subscribe(musicListener, classOf[AllKindsOfMusic]) </code></p>
 <p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaxdi8ptj5j31j804kjuu.jpg" alt="image-20200109120406852"></p>
-<h2 id="logic-of-publish">Logic of publish</h2>
+<h2 id="publish-逻辑">publish 逻辑</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -319,9 +319,9 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>The logic of publish is relatively simple. First, it will find the corresponding className from the event.</p>
-<p>Then it goes through the cache logic. If it does not exist in the cache, it will update the corresponding key to the subkeys multi-branch tree, find the corresponding subscriber, and update it to the cache.</p>
-<p>Finally, it traverses recv and calls the publish function.</p>
+</div><p>publish 逻辑较为简单，首先会从 event 中找出对应 className</p>
+<p>然后走缓存逻辑，如果不在缓存中存在，就将对应的 key 更新到 subkeys 多叉树中，找到对应的订阅者，并且更新到 cache 中。</p>
+<p>最后遍历 recv 调用 publish 函数。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -336,7 +336,7 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h1 id="actor-initialization">Actor Initialization</h1>
+</div><h1 id="actor-初始化">Actor 初始化</h1>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -347,7 +347,7 @@
 <span class="k">val</span> <span class="n">ponger</span> <span class="k">=</span> <span class="n">system</span><span class="o">.</span><span class="n">actorOf</span><span class="o">(</span><span class="nc">Props</span><span class="o">(</span><span class="n">classOf</span><span class="o">[</span><span class="kt">Ponger</span><span class="o">],</span> <span class="n">pinger</span><span class="o">),</span> <span class="s">&#34;ponger&#34;</span><span class="o">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>It will call the actorOf method in ActorSystem</p>
+</div><p>会调用 ActorSystem 中的 actorOf 方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -364,8 +364,8 @@
   <span class="s">&#34;cannot create top-level actor from the outside on ActorSystem with custom user guardian&#34;</span><span class="o">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>It will create a new Child Actor under the guard Actor</p>
-<p>It will call the following makeChild method:</p>
+</div><p>会从守卫 Actor 下面创建一个新的 Child Actor</p>
+<p>会调用下边的 makeChild 方法：</p>
 <p>Children.scala</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -407,7 +407,7 @@
 </span><span class="c1"></span><span class="n">actor</span>  <span class="c1">// 返回 actor ref
 </span></code></pre></td></tr></table>
 </div>
-</div><h2 id="implementation-of-tell">Implementation of Tell</h2>
+</div><h2 id="tell-实现">Tell 实现</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -418,11 +418,11 @@
   <span class="n">sendMessage</span><span class="o">(</span><span class="nc">Envelope</span><span class="o">(</span><span class="n">message</span><span class="o">,</span> <span class="n">sender</span><span class="o">,</span> <span class="n">system</span><span class="o">))</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Wrap the message as an envelope and call the sendMessage method of Cell</p>
-<p>This is because Cell has implemented</p>
+</div><p>将 message 包装为信封，调用 Cell 的 sendMessage 方法</p>
+<p>是因为 Cell 实现了</p>
 <p><img src="https://tva1.sinaimg.cn/large/006tNbRwgy1gaxdi95pdbj31kc09utcl.jpg" alt="image-20200109195143660"></p>
-<p>Dispatch Trait</p>
-<p>In fact, it is the sendMessage method in the Dispatch trait that is executed</p>
+<p>Dispatch 特质</p>
+<p>其实是执行的 Dispatch 特质中的 sendMessage 方法</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -445,8 +445,8 @@
     <span class="o">}</span> <span class="k">catch</span> <span class="n">handleException</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>But I still have a question, is the dispatcher my own defined dispatcher?</p>
-<p>Then call the dispatch function of the dispatcher corresponding to this Actor</p>
+</div><p>但是我仍然有个问题，dispatcher 是我自己规定的 dispather？</p>
+<p>再调用这个 Actor 所对应的 dispatcher 的 dispatch 函数</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -463,8 +463,8 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Throw the envelope into the mailbox of the corresponding receiver, and then pass the mbox as a parameter into registerForExecution to register in the thread pool.</p>
-<p>And this thread pool is the thread pool I preset, and the dispatcher is just a wrapper for this thread pool.</p>
+</div><p>将信封丢入对应接收者的 mailbox 中，然后将 mbox 作为参数传入 registerForExecution 注册到线程池中。</p>
+<p>而这个线程池就是我预设的线程池，dispacher 只是对这个线程池做一层封装。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -503,8 +503,8 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Use the internal thread pool to execute this MailBox object</p>
-<p>Since MailBox can be executed, it must have implemented the Runnable method. Let&rsquo;s take a look at its implementation:</p>
+</div><p>使用内部的线程池来执行这个 MailBox 对象</p>
+<p>既然 MailBox 可以被执行它一定实现了 Runnable 方法来看看他的实现：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -533,7 +533,7 @@
   <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Let&rsquo;s mainly look at the implementation of the processMailbox method</p>
+</div><p>来主要看一下 processMailbox 方法的实现吧</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -576,19 +576,19 @@
     <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Very simple implementation, using tail recursion,</p>
+</div><p>很简单的实现，使用了尾递归的方式，</p>
 <ol>
-<li>First calculate left, which is the throughput of the dispatcher</li>
-<li>Then dequeue an element from the queue</li>
-<li>Call the invoke method of the actor</li>
-<li>Continue to call down until left &lt; 1 or</li>
+<li>首先计算出 left 也就是分发器的吞吐量</li>
+<li>然后从队列里面出队一个元素</li>
+<li>调用 actor 的 invoke 方法</li>
+<li>继续向下调用直到 left &lt; 1 或者</li>
 </ol>
-<p>There are two key parameters,</p>
-<p>Throughput is the number of messages consumed by a single execution of <code>executorService.execute(mbox)</code>. Messages exceeding this number will be handed over to the next execution of this mbox.</p>
-<p><code>deadlineNs</code> is the deadline for sending throughput messages, ensuring that the throughput messages are completed within the deadline.</p>
-<p>The invoke method of calling the actor will call the receiveMessage method of ActorCell below</p>
+<p>有两个关键的参数，</p>
+<p>throughput 也就是单次执行 <code>executorService.execute(mbox)</code> 所消费消息的数量。超出这个数量的消息将会交给下次执行这个 mbox 的时候执行。</p>
+<p><code>deadlineNs</code> 发送 throughput 数量消息的截止时间，保证 throughput 的消息要在截止时间内完成。</p>
+<p>调用 actor 的 invoke 方法下面会调用 ActorCell 的 receiveMessage 方法</p>
 <p><code>actor.aroundReceive(behaviorStack.head, msg)</code></p>
-<p>Get the Receive partial function at the top of the stack and call aroundReceive to perform operations</p>
+<p>获得栈顶的 Receive 偏函数，调用 aroundReceive 来执行操作</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -607,7 +607,7 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>If <code>receive</code> does not match the corresponding message, the partial function&rsquo;s <code>applyOrElse</code> is used to capture the remaining value domain, and it is determined whether the return value is equal to <code>NotHandled</code>.</p>
+</div><p>如果 receive 没有 match 对应的 message，使用了偏函数的 applyOrElse 捕获剩下的值域，判断返回值是否和 NotHandled 相等。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -626,21 +626,21 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>A pattern match is made on the message, and if it is an unhandled message, it is sent out as a subscription.</p>
-<p>Here we can use a subscriber <code>system.eventStream.subscribe(listener, classOf[UnhandledMessage])</code> to subscribe to these messages for log output.</p>
+</div><p>对 message 做一次模式匹配，如果是没有 handle 的 message 就将它作为订阅发出。</p>
+<p>这里我们可以使用一个订阅者 <code>system.eventStream.subscribe(listener, classOf[UnhandledMessage]) </code> 来订阅这些消息，进行日志输出。</p>
 
     </div>
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">Author</span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">xiantang</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">LastMod</span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
-        2023-10-08
-        <a href="https://github.com/xiantang/xiantang.github.io/commit/049e9a9b902cc4103a27eb47305da3a164dab1c7" title="commit">(049e9a9b)</a>
+        2024-07-09
+        <a href="https://github.com/xiantang/xiantang.github.io/commit/9ac8718e661b5ac74c6344a278e8b7e79f873ad7" title="english by default">(9ac8718e)</a>
     </span>
   </p>
   
@@ -648,16 +648,16 @@
 </div>
 <div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
+  <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
     
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b3bbmwj30ha0hbq5e.jpg">
-        <span>wechat</span>
+        <span>微信打赏</span>
       </label>
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b4s82aj30ib0igad3.jpg">
-        <span>alipay</span>
+        <span>支付宝打赏</span>
       </label>
   </div>
 </div><footer class="post-footer">
@@ -667,12 +667,12 @@
       <nav class="post-nav">
         <a class="prev" href="/post/scala/future_in_actor/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">How Actor Handles Blocking Messages</span>
-            <span class="prev-text nav-mobile">Prev</span>
+            <span class="prev-text nav-default">Actor 如何处理阻塞消息</span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/scala/how_to_learn_scala/">
-            <span class="next-text nav-default">How to learn Scala</span>
-            <span class="next-text nav-mobile">Next</span>
+            <span class="next-text nav-default">How to learn scala</span>
+            <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -711,11 +711,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -741,7 +741,7 @@
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
   <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>

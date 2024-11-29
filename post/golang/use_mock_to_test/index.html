@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Using Mock and Interface for Golang Unit Testing - xiantang - Self-discipline set me free.</title>
+  <title>使用 Mock 和 Interface 进行 Golang 单测 - 咸糖 - 自律者自由</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="xiantang" /><meta name="description" content="Best practices for golang unit testing Go language Automated testing golang unit testing database golang unit testing mock golang unit testing standards" />
+<meta name="author" content="xiantang" /><meta name="description" content="golang单元测试最佳实践 Go 语言 自动化 测试 golang 单元测试 数据库 golang 单元测试 mock golang 单元测试规范" />
 
 
 
@@ -39,22 +39,22 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Using Mock and Interface for Golang Unit Testing" />
-<meta property="og:description" content="Best practices for golang unit testing Go language Automated testing golang unit testing database golang unit testing mock golang unit testing standards" />
+<meta property="og:title" content="使用 Mock 和 Interface 进行 Golang 单测" />
+<meta property="og:description" content="golang单元测试最佳实践 Go 语言 自动化 测试 golang 单元测试 数据库 golang 单元测试 mock golang 单元测试规范" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vim0.com/post/golang/use_mock_to_test/" /><meta property="og:image" content="https://vim0.com/post/golang/cover.png" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-01-07T01:37:56+08:00" />
-<meta property="article:modified_time" content="2023-10-08T20:52:20+08:00" /><meta property="og:site_name" content="xiantang - Self-discipline set me free." />
+<meta property="article:modified_time" content="2024-07-09T00:29:27+08:00" /><meta property="og:site_name" content="咸糖 - 自律者自由" />
 
-<meta itemprop="name" content="Using Mock and Interface for Golang Unit Testing">
-<meta itemprop="description" content="Best practices for golang unit testing Go language Automated testing golang unit testing database golang unit testing mock golang unit testing standards"><meta itemprop="datePublished" content="2022-01-07T01:37:56+08:00" />
-<meta itemprop="dateModified" content="2023-10-08T20:52:20+08:00" />
-<meta itemprop="wordCount" content="1788"><meta itemprop="image" content="https://vim0.com/post/golang/cover.png">
+<meta itemprop="name" content="使用 Mock 和 Interface 进行 Golang 单测">
+<meta itemprop="description" content="golang单元测试最佳实践 Go 语言 自动化 测试 golang 单元测试 数据库 golang 单元测试 mock golang 单元测试规范"><meta itemprop="datePublished" content="2022-01-07T01:37:56+08:00" />
+<meta itemprop="dateModified" content="2024-07-09T00:29:27+08:00" />
+<meta itemprop="wordCount" content="2840"><meta itemprop="image" content="https://vim0.com/post/golang/cover.png">
 <meta itemprop="keywords" content="Golang," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://vim0.com/post/golang/cover.png"/>
 
-<meta name="twitter:title" content="Using Mock and Interface for Golang Unit Testing"/>
-<meta name="twitter:description" content="Best practices for golang unit testing Go language Automated testing golang unit testing database golang unit testing mock golang unit testing standards"/>
+<meta name="twitter:title" content="使用 Mock 和 Interface 进行 Golang 单测"/>
+<meta name="twitter:description" content="golang单元测试最佳实践 Go 语言 自动化 测试 golang 单元测试 数据库 golang 单元测试 mock golang 单元测试规范"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -79,18 +79,18 @@
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/en/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/en/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/en/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/en/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/en/post/about/about_me/">
-        <li class="mobile-menu-item">AboutMe</li>
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/post/about/about_me/">
+        <li class="mobile-menu-item">关于我</li>
       </a><a href="https://www.google.com/search?q=site%3Avim0.com">
-        <li class="mobile-menu-item">Search</li>
+        <li class="mobile-menu-item">搜索</li>
       </a>
   </ul>
 
@@ -102,18 +102,18 @@
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/zh-cn/post/golang/use_mock_to_test/">zh-cn</a>
+            <a href="https://vim0.com/post/golang/use_mock_to_test/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/golang/use_mock_to_test/">en</a>
+            <a href="https://vim0.com/en/post/golang/use_mock_to_test/">en</a>
           
         </li>
       
@@ -137,18 +137,18 @@
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/zh-cn/post/golang/use_mock_to_test/">zh-cn</a>
+            <a href="https://vim0.com/post/golang/use_mock_to_test/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/golang/use_mock_to_test/">en</a>
+            <a href="https://vim0.com/en/post/golang/use_mock_to_test/">en</a>
           
         </li>
       
@@ -160,17 +160,17 @@
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/en/">Home</a>
+        <a class="menu-item-link" href="/">首页</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/post/">Archives</a>
+        <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/tags/">Tags</a>
+        <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/categories/">Categories</a>
+        <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/post/about/about_me/">AboutMe</a>
+        <a class="menu-item-link" href="/post/about/about_me/">关于我</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">Search</a>
+        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">搜索</a>
       </li>
   </ul>
 </nav>
@@ -183,36 +183,36 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Using Mock and Interface for Golang Unit Testing</h1>
+      <h1 class="post-title">使用 Mock 和 Interface 进行 Golang 单测</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2022-01-07 </span>
         <div class="post-category">
             <a href="/categories/golang/"> Golang </a>
             </div>
-          <span class="more-meta"> 1788 words </span>
-          <span class="more-meta"> 9 mins read </span>
+          <span class="more-meta"> 约 2840 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
         
       </div>
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#using-mock-and-interface-for-golang-unit-testing">Using Mock and Interface for Golang Unit Testing</a>
+    <li><a href="#使用-mock-和-interface-进行-golang-单测">使用 Mock 和 Interface 进行 Golang 单测</a>
       <ul>
-        <li><a href="#what-is-unit-testing-characteristics-of-unit-testing">What is unit testing? Characteristics of unit testing</a></li>
-        <li><a href="#what-is-mock">What is Mock?</a></li>
-        <li><a href="#what-is-interface">What is Interface?</a></li>
-        <li><a href="#some-other-examples">Some other examples</a></li>
+        <li><a href="#什么是单元测试单元测试的特点">什么是单元测试？单元测试的特点</a></li>
+        <li><a href="#什么是-mock">什么是 Mock？</a></li>
+        <li><a href="#什么是-interface">什么是 Interface？</a></li>
+        <li><a href="#其他的一些例子">其他的一些例子</a></li>
         <li><a href="#other-tips">other tips</a></li>
       </ul>
     </li>
-    <li><a href="#conclusion">Conclusion</a>
+    <li><a href="#总结">总结</a>
       <ul>
-        <li><a href="#interesting-link-recommendations">Interesting link recommendations</a></li>
+        <li><a href="#有趣的链接推荐">有趣的链接推荐</a></li>
       </ul>
     </li>
   </ul>
@@ -220,8 +220,8 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2023-10-08T20:52:20" title="October 8, 2023">October 8, 2023</span>. This article may have outdated content or subject matter.</p>
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2024-07-09T00:29:27" title="July 9, 2024">July 9, 2024</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
@@ -229,14 +229,14 @@
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <blockquote>
-<p>At work, I often find that many engineers' <code>Golang</code> unit tests are problematic, just simply calling code for output, and it will include various <code>IO</code> operations, making the unit test unable to run everywhere.</p>
+<p>在工作中我经常会发现很多工程师的 <code>Golang</code> 单测是写的有问题的，只是单纯的调用代码做输出，并且会包含各种 <code>IO</code> 操作，导致单测无法到处运行。</p>
 </blockquote>
-<h2 id="using-mock-and-interface-for-golang-unit-testing">Using Mock and Interface for Golang Unit Testing</h2>
-<p>This article will introduce how to do unit testing correctly in <code>Golang</code>.</p>
-<h3 id="what-is-unit-testing-characteristics-of-unit-testing">What is unit testing? Characteristics of unit testing</h3>
-<p>Unit testing is a very important part of quality assurance. Good unit tests can not only find problems in time, but also facilitate debugging and improve production efficiency. Therefore, many people think that writing unit tests requires extra time and will reduce production efficiency. This is the biggest prejudice and misunderstanding about unit testing.</p>
-<p>Unit tests will isolate the corresponding test modules for testing, so we should remove all related external dependencies as much as possible and only conduct unit tests on related modules.</p>
-<p>So what you see in the business code repository is that some of the unit tests that call <code>HTTP</code> in the <code>client</code> module are actually non-standard, because <code>HTTP</code> is an external dependency. If your target server has a fault, then your unit test will fail.</p>
+<h2 id="使用-mock-和-interface-进行-golang-单测">使用 Mock 和 Interface 进行 Golang 单测</h2>
+<p>本文将介绍 <code>Golang</code> 中如何正确的做单测。</p>
+<h3 id="什么是单元测试单元测试的特点">什么是单元测试？单元测试的特点</h3>
+<p>单元测试是质量保证十分重要的一环，好的单元测试不仅能及时地发现问题，更能够方便地调试，提高生产效率，所以很多人认为写单元测试是需要额外的时间，会降低生产效率，是对单元测试最大的偏见和误解。</p>
+<p>单测会将对应测试的模块隔离出来进行测试，所以我们要尽可能把所有相关的外部依赖都移除，只对相关的模块进行单测。</p>
+<p>所以大家看到的在业务代码仓库中的一些在 <code>client</code> 模块中调用 <code>HTTP</code> 的单测其实是不规范的，因为 <code>HTTP</code> 是外部依赖，你的目标服务器如果有故障，那么你的单测就会失败。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -255,22 +255,22 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>In the above example, when <code>DemoClient</code> does the <code>DoHTTPReq</code> method, it will call the <code>http.Get</code> method. This method contains external dependencies, which means it will request the local server. If a new colleague just got your code and there is no such server locally, then your unit test will fail.</p>
-<p>And in the above example, for the <code>DoHTTPReq</code> function, it just simply outputs, without checking the return value at all. If the internal logic is modified and the return value is changed, although your test can still <code>pass</code>, in fact, your unit test is not working.</p>
-<p>From the above examples, we can summarize two characteristics of unit tests:</p>
+</div><p>上面这个例子中 <code>DemoClient</code> 在做 <code>DoHTTPReq</code> 方法的时候，会调用 <code>http.Get</code> 方法，这个方法是中包含了外部依赖也就是说他会去请求本地的服务器，如果有一个新的同事刚拿到你的代码，并且本地是没有这个服务器的话，那么你的单测就会失败。</p>
+<p>并且上面这个例子中，对于 <code>DoHTTPReq</code> 这个函数只是简单的做了一个输出，没有对返回值做任何检查，如果内部逻辑修改并且返回值修改了，虽然你的测试还是能够 <code>pass</code> 但是其实你的单测是不起作用的。</p>
+<p>从上面的例子中我们可以总结出两个单测特点:</p>
 <ul>
-<li>They have no external dependencies, are as side-effect free as possible, and can run anywhere.</li>
-<li>They check the output.</li>
+<li>没有外部依赖，尽量无副作用，能够到处运行</li>
+<li>对输出进行检查</li>
 </ul>
-<p>Another point I want to mention is that the difficulty of writing unit tests is actually ranked:</p>
+<p>此外我还想提及的一点就是对于单测的编写难度其实是有排序的：</p>
 <p>UI &gt; Service &gt; Utils</p>
-<p>So when writing unit tests, we will prioritize unit tests for <code>Utils</code> because <code>Utils</code> will not have too many dependencies. Next is the unit test for <code>Service</code>, because the unit test for <code>Service</code> mainly depends on upstream services and databases, and only needs to separate dependencies to test logic.</p>
-<p>So how to separate dependencies? Let&rsquo;s move on to the next section, where we will introduce how to separate dependencies.</p>
-<h3 id="what-is-mock">What is Mock?</h3>
-<p>For <code>IO</code> dependencies, we can use <code>Mock</code> to simulate data, so we don&rsquo;t have to worry about unstable data sources.</p>
-<p>So what is <code>Mock</code>? And how do we <code>Mock</code>? Think about a scenario where you and your colleagues are developing a collaborative project. Your progress is relatively fast and you are almost done with your development, but your colleague&rsquo;s progress is slightly slower, and you also depend on his service. How do you not <code>block</code> your progress and continue development?</p>
-<p>Here you can use <code>Mock</code>, that is, you can agree with your colleague in advance on the data format to be interacted with. In your test code, you can write a client that can generate the corresponding data format, and these data are all fake, then you can continue to write your code. When your colleague has completed his part of the code, you only need to replace <code>Mock Clients</code> with real <code>Clients</code>. This is the role of <code>Mock</code>.</p>
-<p>Similarly, we can also use <code>Mock</code> to simulate the data that the module to be tested depends on. Here is an example:</p>
+<p>所以对于单测的编写，我们会优先考虑对 <code>Utils</code> 的单测, 因为 <code>Utils</code> 不会有太多的依赖。其次是对于 <code>Service</code> 的单测，因为 <code>Service</code> 的单测主要是对上游服务和数据库的依赖，只需要分离出依赖就可以进行逻辑的测试。</p>
+<p>那该如何分离出依赖呢？我们走到下一节，我们将会介绍如何分离出依赖。</p>
+<h3 id="什么是-mock">什么是 Mock？</h3>
+<p>对于 <code>IO</code> 的依赖，我们可以使用 <code>Mock</code> 来模拟数据，这样我们就可以不用担心数据源不稳定的问题了。</p>
+<p>那么什么是 <code>Mock</code> 呢？我们又该如何 <code>Mock</code> 呢？ 可以想想一个场景，就是你和你的同事正在进行合作的项目开发，你这边的进展比较快，已经快完成你的开发了，但是你的同事进展稍慢，并且你还依赖他的服务。你要怎么不 <code>block</code> 你的进展继续开发呢？</p>
+<p>这里就可以使用到 <code>Mock</code> 了，就是你可以和你的同事先制定好需要交互的数据格式，在你的测试代码中，你可以编写一个可以产生对应数据格式的客户端，并且这些数据都是虚假的，然后你就可以继续编写你的代码，等到你的同事完成了他那部分的代码，你就只需要将 <code>Mock Clients</code>替换为真实的 <code>Clients</code> 就可以了。这就是 <code>Mock</code> 的作用。</p>
+<p>同样的，我们也可以使用 <code>Mock</code> 来对需要测试模块所依赖的数据进行模拟。下面就是一个例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -321,20 +321,20 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>We will have a <code>MyApplication</code> and it also depends on a reporting <code>YoClient</code>. In the above code, we will replace the dependent <code>YoClient</code> with <code>TestYoClient</code>. So when the code calls <code>MyApplication.Yo</code>, what it actually executes is <code>TestYoClient.Send</code>, so we can customize the input and output of external dependencies.</p>
-<p>You can also find an interesting point, that is, we replace the <code>SendFunc</code> of <code>TestYoClient</code> with <code>func(string) error</code>, so we can control the input and output more flexibly. For different tests, we only need to change the value of <code>SendFunc</code>. In this way, we can control the input and output at will for each test.</p>
-<p>At this point, you may encounter another problem. If you want to successfully inject <code>TestYoClient</code> into <code>MyApplication</code>, the corresponding member variable needs to be the specific type <code>TestYoClient</code> or an interface type that satisfies the <code>Send()</code> method. However, if we use a specific type, we can&rsquo;t replace the real <code>Client</code> with the <code>Mock Client</code>.</p>
-<p>So we can use the interface type to replace it.</p>
-<h3 id="what-is-interface">What is Interface?</h3>
-<p>Interfaces in <code>Golang</code> may be different from the interfaces you have encountered in other languages. In <code>Golang</code>, an interface is a collection of functions. And <code>Golang</code> interfaces are implicit, no explicit definition is required.</p>
-<p>I personally agree with this design, because through multiple practices, I found that the pre-defined abstraction often cannot accurately describe the behavior of the specific implementation. So we need to abstract afterwards, instead of writing types to satisfy <code>interface</code>, we should write interfaces to meet usage requirements.</p>
+</div><p>我们会有一个 <code>MyApplication</code> 同时他又依赖了一个发送上报的 <code>YoClient</code>。上面的代码中我们会将依赖的 <code>YoClient</code> 替换为 <code>TestYoClient</code>，这样代码在调用 <code>MyApplication.Yo</code> 时，其实执行的是 <code>TestYoClient.Send</code>，这样我们就可以自定义外部依赖的输入和输出了。</p>
+<p>同样可以发现一个很有趣的地方，就是我们将 <code>TestYoClient</code> 的 <code>SendFunc</code> 替换为 <code>func(string) error</code>，这样我们就可以更加灵活的控制输入和输出了。对于不同的测试，我们只需要更改 <code>SendFunc</code> 的值就可以了。这样每个测试我们都可以随意的控制输入和输出。</p>
+<p>此时你会发现另外一个问题，就是如果想要将 <code>TestYoClient</code> 成功注入到 <code>MyApplication</code> 中，对应的成员变量就需要是 <code>TestYoClient</code> 这个具体类型或者是满足 <code>Send()</code> 方法的接口类型。但是如果我们使用具体类型的话，井没办法做到真实的 <code>Client</code> 与 <code>Mock Client</code> 的替换了。</p>
+<p>所以我们可以使用接口类型来替换。</p>
+<h3 id="什么是-interface">什么是 Interface？</h3>
+<p>在 <code>Golang</code> 中接口可能和你接触的其他语言的接口不同，在 <code>Golang</code> 中接口是一个函数的集合。并且 <code>Golang</code> 的接口是隐式的，不需要显式的定义。</p>
+<p>我个人也非常同意这种设计，因为经过多次的实践，我发现事先定义好的抽象往往都是无法很准确的描述具体实现的行为的。所以需要事后做抽象, 与其写类型来满足 <code>interface</code>，不如写接口来满足使用要求。</p>
 <blockquote>
 <p>Always <em>abstract</em> things when you actually need them, never when you just foresee that you need them.</p>
 </blockquote>
-<p>My personal recommendation is that for several similar processes, we can first organize the code by writing several structs, and then when we find that these structs have similar behaviors, we can abstract an interface to describe these behaviors, which is the most accurate.</p>
-<p>At the same time, the number of methods contained in the <code>Golang</code> interface also needs to be limited, not too many, 1-3 methods are enough. The reason is that if your interface contains too many methods, it will be troublesome to add a new implementation type code, and such code is not easy to maintain. Similarly, if your interface has many implementations and many methods, it will be difficult to add another function to the interface, you need to implement these methods in each struct.</p>
-<p>Back to the topic, for <code>YoClient</code>, if we didn&rsquo;t adopt the <code>TDD</code> method at the beginning, then what <code>MyApplication</code> depends on must be a formal specific type. At this time, we can write a <code>TestYoClient</code> type instance in the test code, extract the common functions to abstract the interface, and then replace the <code>YoClient</code> in <code>MyApplication</code> with the interface type.</p>
-<p>This can achieve our goal.</p>
+<p>我个人的推荐是对于几个相似的流程，我们可以先通过写几个结构体来组织代码，然后发现这些结构体有相似的行为之后，就可以抽象出一个接口来描述这些行为，这样才是最准确的。</p>
+<p>同时对于 <code>Golang</code> 中的接口所包含的方法数目也需要加以限制，不能太多，1-3 个方法就可以了。其中的原因是这样的，如果你的接口中包含太多方法，你新增一个实现类型的代码就会很麻烦，而且这样的代码也不好维护。同样如果你的接口有很多种实现，并且方法有很多，那么你再多添加一个函数加入接口也会很困难，你需要在每个结构体中都实现这些方法。</p>
+<p>回到主题，对于 <code>YoClient</code> 来说，最初如果我们不是采用 <code>TDD</code> 的方式，那么 <code>MyApplication</code> 的所依赖的一定是一个正式的具体类型，此时我们可以在测试代码中写一个 <code>TestYoClient</code> 类型的实例，提取出共有的函数抽出接口，然后再去将 <code>MyApplication</code> 中的 <code>YoClient</code> 替换为接口类型。</p>
+<p>这样就可以达成我们的目的了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -359,9 +359,9 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="some-other-examples">Some other examples</h3>
-<p>In addition, I have provided an example for reference, mainly found from the official production code, an example that masks sensitive information.</p>
-<p>This example is a <code>mock</code> of the external dependency <code>etcd</code>.</p>
+</div><h3 id="其他的一些例子">其他的一些例子</h3>
+<p>此外我还提供了一个例子供参考，主要是从正式生产的代码中找到的，屏蔽了敏感信息的例子。</p>
+<p>这个例子是对 <code>etcd</code> 这个外部依赖的 <code>mock</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -404,7 +404,7 @@
 
 </code></pre></td></tr></table>
 </div>
-</div><p>An example of a unit test:</p>
+</div><p>一个单测的例子:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -462,9 +462,9 @@
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="other-tips">other tips</h3>
-<p>I have some little tricks about testing that you might not know</p>
-<h4 id="golangs-internal-and-external-testing">golang&rsquo;s internal and external testing</h4>
-<p>For a package&rsquo;s exported methods and variables, you can create a <code>test</code> file in the same package to test, just change the package suffix to <code>_test</code>. This can achieve <code>black box testing</code>. The advantage is that you can describe your test from the perspective of the caller, rather than writing your test from the internal perspective. It can also serve as an example for users to see how to use it.</p>
+<p>关于测试我这边还有一些你可能不知道的小技巧</p>
+<h4 id="golang-的-interal-与-external-测试">golang 的 interal 与 external 测试</h4>
+<p>对于一个包的导出方法以及变量你可以在同一个包下建立 <code>test</code> 文件来测试，只需要将包名后缀改为 <code>_test</code> 即可。这样就可以做到 <code>black box testing</code>。好处是你可以以调用者的视角来描述你的测试，而不是以内部的视角来写你的测试。 也可以作为一个示例给使用者看一下如何使用。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -521,46 +521,45 @@
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>In addition, you can also test unexported methods and variables, you can create a file with a suffix of <code>_internal_test</code> to indicate that you want to test unexported methods and variables.</p>
-<h2 id="conclusion">Conclusion</h2>
+</div><p>另外你也可以对未导出的方法和变量进行测试，可以创建一个尾缀为 <code>_internal_test</code> 的文件来标识你是想要测试未导出的方法和变量的。</p>
+<h2 id="总结">总结</h2>
 <ul>
 <li>
-<p>Characteristics of <code>Golang</code> unit tests:</p>
+<p><code>Golang</code> 单测的特点：</p>
 <ul>
-<li>No external dependencies, try to have no side effects, can run everywhere</li>
-<li>Need to check the output</li>
-<li>Can serve as an example for users to see how to use</li>
+<li>没有外部依赖，尽量无副作用，能够到处运行</li>
+<li>需要对输出进行检查</li>
+<li>可以作为一个示例给使用者看一下如何使用</li>
 </ul>
 </li>
 <li>
-<p><code>Golang</code> can use interfaces to replace dependencies</p>
+<p><code>Golang</code> 可以使用接口来替换依赖</p>
 </li>
 </ul>
-<h3 id="interesting-link-recommendations">Interesting link recommendations</h3>
-<p>Finally, I would like to share with you the links I referred to, as well as some good articles I have been reading recently. Since I read them in a scattered way, I wrote them all for you, hoping that you can gain something.</p>
+<h3 id="有趣的链接推荐">有趣的链接推荐</h3>
+<p>最后最后和大家分享一下参考的链接，以及一些最近在看的好文,因为看的比较零散，一并写给大家，希望大家能够收获。</p>
 <ul>
-<li><a href="https://talks.golang.org/2012/10things.slide#8">How to mock file system</a></li>
-<li><a href="https://medium.com/@benbjohnson/structuring-tests-in-go-46ddee7a25c">How to write a mock struct</a> It&rsquo;s really convenient to reuse through function variables</li>
-<li><a href="https://splice.com/blog/lesser-known-features-go-test/">Lesser-known testing techniques</a></li>
-<li><a href="https://geekplux.com/newsletters/2">How to achieve financial freedom without trying</a> Making money is always the theme</li>
-<li><a href="https://github.com/enocom/gopher-reading-list">gopher-reading-list</a> I&rsquo;ve learned a lot from reading through it</li>
-<li><a href="https://medium.com/@cep21/what-accept-interfaces-return-structs-means-in-go-2fe879e25ee8">What “accept interfaces, return structs” means in Go</a> Always [abstract] things when you actually need them, not when you just foresee that you need them.</li>
-<li><a href="https://github.com/xiantang/kkndme_tianya">Discussion on house prices on Tianya</a></li>
+<li><a href="https://talks.golang.org/2012/10things.slide#8">如何 mock file system</a></li>
+<li><a href="https://medium.com/@benbjohnson/structuring-tests-in-go-46ddee7a25c">mock struct 要如何写</a> 通过函数变量来实现复用真的很方便</li>
+<li><a href="https://splice.com/blog/lesser-known-features-go-test/">不为人知的测试技巧</a></li>
+<li><a href="https://geekplux.com/newsletters/2">如何不努力也能财富自由</a> 赚钱永远是主题</li>
+<li><a href="https://github.com/enocom/gopher-reading-list">gopher-reading-list</a> 一路遍历下来收获很大的</li>
+<li><a href="https://medium.com/@cep21/what-accept-interfaces-return-structs-means-in-go-2fe879e25ee8">What “accept interfaces, return structs” means in Go</a>总是在你实际需要的时候[抽象]东西，而不是在你只是预见你需要它们的时候。</li>
+<li><a href="https://github.com/xiantang/kkndme_tianya">天涯讨论房价神贴</a></li>
 </ul>
-<p>Sure, please provide the Markdown content you want to translate.</p>
 
     </div>
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">Author</span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">xiantang</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">LastMod</span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
-        2023-10-08
-        <a href="https://github.com/xiantang/xiantang.github.io/commit/05461cf5116804daddfccd754bde8183713e4e8c" title="use chatgpt to generate English version">(05461cf5)</a>
+        2024-07-09
+        <a href="https://github.com/xiantang/xiantang.github.io/commit/9ac8718e661b5ac74c6344a278e8b7e79f873ad7" title="english by default">(9ac8718e)</a>
     </span>
   </p>
   
@@ -568,16 +567,16 @@
 </div>
 <div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
+  <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
     
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b3bbmwj30ha0hbq5e.jpg">
-        <span>wechat</span>
+        <span>微信打赏</span>
       </label>
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b4s82aj30ib0igad3.jpg">
-        <span>alipay</span>
+        <span>支付宝打赏</span>
       </label>
   </div>
 </div><footer class="post-footer">
@@ -587,12 +586,12 @@
       <nav class="post-nav">
         <a class="prev" href="/post/make_zero_value_useful/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Golang: Making Your Zero Values More Useful</span>
-            <span class="prev-text nav-mobile">Prev</span>
+            <span class="prev-text nav-default">Golang: 让你的零值更有用</span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/golang/about_slice/">
-            <span class="next-text nav-default">Some Details About Golang Slice</span>
-            <span class="next-text nav-mobile">Next</span>
+            <span class="next-text nav-default">关于 Golang Slice 的一些细节</span>
+            <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -631,11 +630,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -661,7 +660,7 @@
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
   <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>

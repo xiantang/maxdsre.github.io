@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Java Collection Expansion - xiantang - Self-discipline set me free.</title>
+  <title>Java 集合扩容 - 咸糖 - 自律者自由</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="xiantang" /><meta name="description" content="Collection Expansion ArrayList The default capacity of ArrayList is 10, so if you need to handle large amounts of data with ArrayList, you need to use the method of explicitly specifying the capacity. This can reduce unnecessary expansion operations. The main reason is that the expansion operation of ArrayList requires extra space, and it uses the Arrays.copyOf method for copying: 1 2 3 4 5 6 7 8 9 10" />
+<meta name="author" content="xiantang" /><meta name="description" content="集合扩容 ArrayList 对于 ArrayList 他默认的容量为 10，所以如果需要对 ArrayList 进行大数据量的处理的时候的话，就需要使用显式制定容量的方式进行处理。这样可以减少不必要的" />
 
 
 
@@ -39,22 +39,22 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Java Collection Expansion" />
-<meta property="og:description" content="Collection Expansion ArrayList The default capacity of ArrayList is 10, so if you need to handle large amounts of data with ArrayList, you need to use the method of explicitly specifying the capacity. This can reduce unnecessary expansion operations. The main reason is that the expansion operation of ArrayList requires extra space, and it uses the Arrays.copyOf method for copying: 1 2 3 4 5 6 7 8 9 10" />
+<meta property="og:title" content="Java 集合扩容" />
+<meta property="og:description" content="集合扩容 ArrayList 对于 ArrayList 他默认的容量为 10，所以如果需要对 ArrayList 进行大数据量的处理的时候的话，就需要使用显式制定容量的方式进行处理。这样可以减少不必要的" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vim0.com/post/collection/collection/" /><meta property="og:image" content="https://vim0.com/post/main_cover.png"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2018-12-07T01:37:56+08:00" />
-<meta property="article:modified_time" content="2023-10-08T20:52:20+08:00" /><meta property="og:site_name" content="xiantang - Self-discipline set me free." />
+<meta property="article:modified_time" content="2024-07-09T00:29:27+08:00" /><meta property="og:site_name" content="咸糖 - 自律者自由" />
 
-<meta itemprop="name" content="Java Collection Expansion">
-<meta itemprop="description" content="Collection Expansion ArrayList The default capacity of ArrayList is 10, so if you need to handle large amounts of data with ArrayList, you need to use the method of explicitly specifying the capacity. This can reduce unnecessary expansion operations. The main reason is that the expansion operation of ArrayList requires extra space, and it uses the Arrays.copyOf method for copying: 1 2 3 4 5 6 7 8 9 10"><meta itemprop="datePublished" content="2018-12-07T01:37:56+08:00" />
-<meta itemprop="dateModified" content="2023-10-08T20:52:20+08:00" />
-<meta itemprop="wordCount" content="526"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
+<meta itemprop="name" content="Java 集合扩容">
+<meta itemprop="description" content="集合扩容 ArrayList 对于 ArrayList 他默认的容量为 10，所以如果需要对 ArrayList 进行大数据量的处理的时候的话，就需要使用显式制定容量的方式进行处理。这样可以减少不必要的"><meta itemprop="datePublished" content="2018-12-07T01:37:56+08:00" />
+<meta itemprop="dateModified" content="2024-07-09T00:29:27+08:00" />
+<meta itemprop="wordCount" content="640"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
 <meta itemprop="keywords" content="Java," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://vim0.com/post/main_cover.png"/>
 
-<meta name="twitter:title" content="Java Collection Expansion"/>
-<meta name="twitter:description" content="Collection Expansion ArrayList The default capacity of ArrayList is 10, so if you need to handle large amounts of data with ArrayList, you need to use the method of explicitly specifying the capacity. This can reduce unnecessary expansion operations. The main reason is that the expansion operation of ArrayList requires extra space, and it uses the Arrays.copyOf method for copying: 1 2 3 4 5 6 7 8 9 10"/>
+<meta name="twitter:title" content="Java 集合扩容"/>
+<meta name="twitter:description" content="集合扩容 ArrayList 对于 ArrayList 他默认的容量为 10，所以如果需要对 ArrayList 进行大数据量的处理的时候的话，就需要使用显式制定容量的方式进行处理。这样可以减少不必要的"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -79,18 +79,18 @@
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/en/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/en/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/en/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/en/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/en/post/about/about_me/">
-        <li class="mobile-menu-item">AboutMe</li>
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/post/about/about_me/">
+        <li class="mobile-menu-item">关于我</li>
       </a><a href="https://www.google.com/search?q=site%3Avim0.com">
-        <li class="mobile-menu-item">Search</li>
+        <li class="mobile-menu-item">搜索</li>
       </a>
   </ul>
 
@@ -102,18 +102,18 @@
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/zh-cn/post/collection/collection/">zh-cn</a>
+            <a href="https://vim0.com/post/collection/collection/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/collection/collection/">en</a>
+            <a href="https://vim0.com/en/post/collection/collection/">en</a>
           
         </li>
       
@@ -137,18 +137,18 @@
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/zh-cn/post/collection/collection/">zh-cn</a>
+            <a href="https://vim0.com/post/collection/collection/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/collection/collection/">en</a>
+            <a href="https://vim0.com/en/post/collection/collection/">en</a>
           
         </li>
       
@@ -160,17 +160,17 @@
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/en/">Home</a>
+        <a class="menu-item-link" href="/">首页</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/post/">Archives</a>
+        <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/tags/">Tags</a>
+        <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/categories/">Categories</a>
+        <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/post/about/about_me/">AboutMe</a>
+        <a class="menu-item-link" href="/post/about/about_me/">关于我</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">Search</a>
+        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">搜索</a>
       </li>
   </ul>
 </nav>
@@ -183,25 +183,25 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Java Collection Expansion</h1>
+      <h1 class="post-title">Java 集合扩容</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2018-12-07 </span>
         <div class="post-category">
             <a href="/categories/java/"> Java </a>
             </div>
-          <span class="more-meta"> 526 words </span>
-          <span class="more-meta"> 2 mins read </span>
+          <span class="more-meta"> 约 640 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#collection-expansion">Collection Expansion</a>
+    <li><a href="#集合扩容">集合扩容</a>
       <ul>
         <li><a href="#arraylist">ArrayList</a></li>
         <li><a href="#hashmap">HashMap</a></li>
@@ -212,15 +212,15 @@
   </div>
 </div>
   <div class="post-outdated">
-    <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2023-10-08T20:52:20" title="October 8, 2023">October 8, 2023</span>. This article may have outdated content or subject matter.</p>
+    <div class="hint">
+      <p>【注意】最后更新于 <span class="timeago" datetime="2024-07-09T00:29:27" title="July 9, 2024">July 9, 2024</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
-      <h2 id="collection-expansion">Collection Expansion</h2>
+      <h2 id="集合扩容">集合扩容</h2>
 <h3 id="arraylist">ArrayList</h3>
-<p>The default capacity of ArrayList is 10, so if you need to handle large amounts of data with ArrayList, you need to use the method of explicitly specifying the capacity. This can reduce unnecessary expansion operations.</p>
-<p>The main reason is that the expansion operation of ArrayList requires extra space, and it uses the Arrays.copyOf method for copying:</p>
+<p>对于 ArrayList 他默认的容量为 10，所以如果需要对 ArrayList 进行大数据量的处理的时候的话，就需要使用显式制定容量的方式进行处理。这样可以减少不必要的扩容操作。</p>
+<p>主要是因为 ArrayList 的扩容操作需要额外开辟空间，他采用的是 Arrays.copyOf 的方式进行拷贝：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -249,10 +249,10 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>The Arrays.copyOf method uses the method of allocating space and then copying, which is very likely to cause OOM.</p>
+</div><p>Arrays.copyOf 的方式是采用开辟空间再复制的方式，很有可能会造成 OOM。</p>
 <h3 id="hashmap">HashMap</h3>
-<p>The default capacity of HashMap is 16, and its capacity must be a power of 2.</p>
-<p>If the specified capacity is not a power of 2, it will also find the power of 2 closest to the current capacity.</p>
+<p>HashMap 的默认容量为 16，并且他的容量一定是 2 的幂。</p>
+<p>如果指定的容量不是 2 次幂，他也会求出距离当前容量最近的 2 次幂。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -283,7 +283,7 @@
     <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>The reason why it is a power of 2 is because the masters of SUN found that when the capacity is 2^n, <code>(length - 1) &amp; hash</code> is faster than modulo operation.</p>
+</div><p>至于为什么是 2 的幂，是因为 SUN 的大师们发现，让容量为 2^n 时候，<code>(length - 1) &amp; hash</code> 快于模运算。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -326,25 +326,25 @@
     <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Use % time: 16
-Use &amp; time: 9</p>
-<p>We take length as 16 as an example</p>
-<p>When our hash is 17</p>
-<p>The reason is because the binary of 16 - 1 is 01111 and the binary of 17 is 1 0001<br>
-We only need to calculate the low bit, discard all the high bits, and perform &amp; operation on the low bit, the result is 1 and the result of 17 % 16 is exactly the same.</p>
+</div><p>使用%时间：16
+使用&amp;时间：9</p>
+<p>我们以 length 为 16 为例</p>
+<p>当我们的 hash 为17时</p>
+<p>原因是因为 16 - 1 的二进制为 01111 并且 17 的二进制为 1 0001<br>
+我们只需要计算低位，高位全部舍弃，低位进行 &amp; 运算，得出结果是 1 与 17 % 16 的结果完全相同。</p>
 
     </div>
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">Author</span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">xiantang</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">LastMod</span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
-        2023-10-08
-        <a href="https://github.com/xiantang/xiantang.github.io/commit/05461cf5116804daddfccd754bde8183713e4e8c" title="use chatgpt to generate English version">(05461cf5)</a>
+        2024-07-09
+        <a href="https://github.com/xiantang/xiantang.github.io/commit/9ac8718e661b5ac74c6344a278e8b7e79f873ad7" title="english by default">(9ac8718e)</a>
     </span>
   </p>
   
@@ -352,16 +352,16 @@ We only need to calculate the low bit, discard all the high bits, and perform &a
 </div>
 <div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
+  <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
     
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b3bbmwj30ha0hbq5e.jpg">
-        <span>wechat</span>
+        <span>微信打赏</span>
       </label>
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b4s82aj30ib0igad3.jpg">
-        <span>alipay</span>
+        <span>支付宝打赏</span>
       </label>
   </div>
 </div><footer class="post-footer">
@@ -371,8 +371,8 @@ We only need to calculate the low bit, discard all the high bits, and perform &a
       <nav class="post-nav">
         <a class="prev" href="/post/summary/2018_summary/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">2018 Year-end Summary</span>
-            <span class="prev-text nav-mobile">Prev</span>
+            <span class="prev-text nav-default">2018年年度总结</span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
         
       </nav>
@@ -411,11 +411,11 @@ We only need to calculate the low bit, discard all the high bits, and perform &a
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -441,7 +441,7 @@ We only need to calculate the low bit, discard all the high bits, and perform &a
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
   <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on xiantang - Self-discipline set me free.</title>
+    <title>Categories on 咸糖 - 自律者自由</title>
     <link>https://vim0.com/categories/</link>
-    <description>Recent content in Categories on xiantang - Self-discipline set me free.</description>
+    <description>Recent content in Categories on 咸糖 - 自律者自由</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-cn</language>
     <lastBuildDate>Thu, 11 Jul 2024 23:16:09 +0800</lastBuildDate><atom:link href="https://vim0.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>neovim</title>
@@ -13,15 +13,6 @@
       <pubDate>Thu, 11 Jul 2024 23:16:09 +0800</pubDate>
       
       <guid>https://vim0.com/categories/neovim/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NixOS</title>
-      <link>https://vim0.com/categories/nixos/</link>
-      <pubDate>Mon, 08 Jul 2024 23:42:39 +0800</pubDate>
-      
-      <guid>https://vim0.com/categories/nixos/</guid>
       <description></description>
     </item>
     
@@ -35,29 +26,20 @@
     </item>
     
     <item>
-      <title>Chinese</title>
-      <link>https://vim0.com/categories/chinese/</link>
+      <title>中文</title>
+      <link>https://vim0.com/categories/%E4%B8%AD%E6%96%87/</link>
       <pubDate>Wed, 29 Jun 2022 22:14:09 +0800</pubDate>
       
-      <guid>https://vim0.com/categories/chinese/</guid>
+      <guid>https://vim0.com/categories/%E4%B8%AD%E6%96%87/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>English</title>
-      <link>https://vim0.com/categories/english/</link>
+      <title>软技能</title>
+      <link>https://vim0.com/categories/%E8%BD%AF%E6%8A%80%E8%83%BD/</link>
       <pubDate>Sun, 12 Jun 2022 21:33:31 +0800</pubDate>
       
-      <guid>https://vim0.com/categories/english/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Soft Skills</title>
-      <link>https://vim0.com/categories/soft-skills/</link>
-      <pubDate>Sun, 12 Jun 2022 21:33:31 +0800</pubDate>
-      
-      <guid>https://vim0.com/categories/soft-skills/</guid>
+      <guid>https://vim0.com/categories/%E8%BD%AF%E6%8A%80%E8%83%BD/</guid>
       <description></description>
     </item>
     
@@ -71,20 +53,20 @@
     </item>
     
     <item>
-      <title>Notes</title>
-      <link>https://vim0.com/categories/notes/</link>
+      <title>笔记</title>
+      <link>https://vim0.com/categories/%E7%AC%94%E8%AE%B0/</link>
       <pubDate>Sun, 27 Feb 2022 23:15:45 +0800</pubDate>
       
-      <guid>https://vim0.com/categories/notes/</guid>
+      <guid>https://vim0.com/categories/%E7%AC%94%E8%AE%B0/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Procrastination</title>
-      <link>https://vim0.com/categories/procrastination/</link>
+      <title>拖延症</title>
+      <link>https://vim0.com/categories/%E6%8B%96%E5%BB%B6%E7%97%87/</link>
       <pubDate>Sun, 20 Feb 2022 21:17:20 +0800</pubDate>
       
-      <guid>https://vim0.com/categories/procrastination/</guid>
+      <guid>https://vim0.com/categories/%E6%8B%96%E5%BB%B6%E7%97%87/</guid>
       <description></description>
     </item>
     
@@ -98,29 +80,38 @@
     </item>
     
     <item>
-      <title>Pomodoro Technique</title>
-      <link>https://vim0.com/categories/pomodoro-technique/</link>
+      <title>番茄工作法</title>
+      <link>https://vim0.com/categories/%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95/</link>
       <pubDate>Thu, 03 Feb 2022 00:48:05 +0800</pubDate>
       
-      <guid>https://vim0.com/categories/pomodoro-technique/</guid>
+      <guid>https://vim0.com/categories/%E7%95%AA%E8%8C%84%E5%B7%A5%E4%BD%9C%E6%B3%95/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Principles</title>
-      <link>https://vim0.com/categories/principles/</link>
+      <title>原则</title>
+      <link>https://vim0.com/categories/%E5%8E%9F%E5%88%99/</link>
       <pubDate>Wed, 10 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://vim0.com/categories/principles/</guid>
+      <guid>https://vim0.com/categories/%E5%8E%9F%E5%88%99/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>algorithm</title>
-      <link>https://vim0.com/categories/algorithm/</link>
+      <title>英语</title>
+      <link>https://vim0.com/categories/%E8%8B%B1%E8%AF%AD/</link>
+      <pubDate>Thu, 14 Oct 2021 01:37:56 +0800</pubDate>
+      
+      <guid>https://vim0.com/categories/%E8%8B%B1%E8%AF%AD/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>算法</title>
+      <link>https://vim0.com/categories/%E7%AE%97%E6%B3%95/</link>
       <pubDate>Thu, 09 Apr 2020 01:37:56 +0800</pubDate>
       
-      <guid>https://vim0.com/categories/algorithm/</guid>
+      <guid>https://vim0.com/categories/%E7%AE%97%E6%B3%95/</guid>
       <description></description>
     </item>
     
@@ -143,11 +134,11 @@
     </item>
     
     <item>
-      <title>Design Patterns</title>
-      <link>https://vim0.com/categories/design-patterns/</link>
+      <title>设计模式</title>
+      <link>https://vim0.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Fri, 03 Apr 2020 01:37:56 +0800</pubDate>
       
-      <guid>https://vim0.com/categories/design-patterns/</guid>
+      <guid>https://vim0.com/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
       <description></description>
     </item>
     
@@ -179,11 +170,11 @@
     </item>
     
     <item>
-      <title>Year-end Summary</title>
-      <link>https://vim0.com/categories/year-end-summary/</link>
+      <title>年度总结</title>
+      <link>https://vim0.com/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</link>
       <pubDate>Sun, 30 Dec 2018 14:40:53 +0800</pubDate>
       
-      <guid>https://vim0.com/categories/year-end-summary/</guid>
+      <guid>https://vim0.com/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</guid>
       <description></description>
     </item>
     

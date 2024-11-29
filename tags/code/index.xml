@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>code on xiantang - Self-discipline set me free.</title>
+    <title>code on 咸糖 - 自律者自由</title>
     <link>https://vim0.com/tags/code/</link>
-    <description>Recent content in code on xiantang - Self-discipline set me free.</description>
+    <description>Recent content in code on 咸糖 - 自律者自由</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-cn</language>
     <lastBuildDate>Sun, 10 Apr 2022 23:08:16 +0800</lastBuildDate><atom:link href="https://vim0.com/tags/code/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Some Practices and Thoughts on Writing Maintainable Code</title>
+      <title>关于编写可维护的代码的一些实践与想法</title>
       <link>https://vim0.com/post/write_-maintainable_code/</link>
       <pubDate>Sun, 10 Apr 2022 23:08:16 +0800</pubDate>
       
       <guid>https://vim0.com/post/write_-maintainable_code/</guid>
-      <description>Some Practices and Thoughts on Writing Maintainable Code Recently, I have been modifying a piece of historical code that has a distinct style and has been handled by many hands. I found that there are many mistakes in the design of the code. This makes it very difficult for me to modify the code and add new features. This article is written with personal emotions, so there may be some subjectivity.</description>
+      <description>关于编写可维护的代码的一些实践与想法 最近在改一个代码风格迥异并且经历过很多手的历史代码，发现中间中了很多代码设计上的一些反模式的错误。导致我</description>
     </item>
     
   </channel>

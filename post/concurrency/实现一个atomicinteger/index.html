@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Implementing an AtomicInteger - xiantang - Self-discipline set me free.</title>
+  <title>实现一个AtomicInteger - 咸糖 - 自律者自由</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="xiantang" /><meta name="description" content="What is AtomicInteger As the name suggests, AtomicInteger is an Integer with atomic operations. The difference between AtomicInteger and a regular Integer is that AtomicInteger uses a CAS method to make Integer&amp;rsquo;s increment and other operations atomic. Knowledge needed before implementation First, let&amp;rsquo;s look at the increment operation of AtomicInteger: 1 2 3 4 5 6 7 8 public final int incrementAndGet() { for (;;) { int current = get();" />
+<meta name="author" content="xiantang" /><meta name="description" content="什么是 AtomicInteger AtomicInteger 顾名思义是一个具有原子化操作的 Integer，与普通的 Integer 的区别是 AtomicInteger 采用一个 CAS 的方式使 Integer 的自增等操作变成原子化操作。 实现的之前需要了" />
 
 
 
@@ -39,22 +39,22 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Implementing an AtomicInteger" />
-<meta property="og:description" content="What is AtomicInteger As the name suggests, AtomicInteger is an Integer with atomic operations. The difference between AtomicInteger and a regular Integer is that AtomicInteger uses a CAS method to make Integer&rsquo;s increment and other operations atomic. Knowledge needed before implementation First, let&rsquo;s look at the increment operation of AtomicInteger: 1 2 3 4 5 6 7 8 public final int incrementAndGet() { for (;;) { int current = get();" />
+<meta property="og:title" content="实现一个AtomicInteger" />
+<meta property="og:description" content="什么是 AtomicInteger AtomicInteger 顾名思义是一个具有原子化操作的 Integer，与普通的 Integer 的区别是 AtomicInteger 采用一个 CAS 的方式使 Integer 的自增等操作变成原子化操作。 实现的之前需要了" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vim0.com/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/" /><meta property="og:image" content="https://vim0.com/post/main_cover.png"/><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-04-06T16:33:34+08:00" />
-<meta property="article:modified_time" content="2020-04-06T16:33:34+08:00" /><meta property="og:site_name" content="xiantang - Self-discipline set me free." />
+<meta property="article:modified_time" content="2020-04-06T16:33:34+08:00" /><meta property="og:site_name" content="咸糖 - 自律者自由" />
 
-<meta itemprop="name" content="Implementing an AtomicInteger">
-<meta itemprop="description" content="What is AtomicInteger As the name suggests, AtomicInteger is an Integer with atomic operations. The difference between AtomicInteger and a regular Integer is that AtomicInteger uses a CAS method to make Integer&rsquo;s increment and other operations atomic. Knowledge needed before implementation First, let&rsquo;s look at the increment operation of AtomicInteger: 1 2 3 4 5 6 7 8 public final int incrementAndGet() { for (;;) { int current = get();"><meta itemprop="datePublished" content="2020-04-06T16:33:34+08:00" />
+<meta itemprop="name" content="实现一个AtomicInteger">
+<meta itemprop="description" content="什么是 AtomicInteger AtomicInteger 顾名思义是一个具有原子化操作的 Integer，与普通的 Integer 的区别是 AtomicInteger 采用一个 CAS 的方式使 Integer 的自增等操作变成原子化操作。 实现的之前需要了"><meta itemprop="datePublished" content="2020-04-06T16:33:34+08:00" />
 <meta itemprop="dateModified" content="2020-04-06T16:33:34+08:00" />
-<meta itemprop="wordCount" content="447"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
+<meta itemprop="wordCount" content="575"><meta itemprop="image" content="https://vim0.com/post/main_cover.png"/>
 <meta itemprop="keywords" content="concurrency," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://vim0.com/post/main_cover.png"/>
 
-<meta name="twitter:title" content="Implementing an AtomicInteger"/>
-<meta name="twitter:description" content="What is AtomicInteger As the name suggests, AtomicInteger is an Integer with atomic operations. The difference between AtomicInteger and a regular Integer is that AtomicInteger uses a CAS method to make Integer&rsquo;s increment and other operations atomic. Knowledge needed before implementation First, let&rsquo;s look at the increment operation of AtomicInteger: 1 2 3 4 5 6 7 8 public final int incrementAndGet() { for (;;) { int current = get();"/>
+<meta name="twitter:title" content="实现一个AtomicInteger"/>
+<meta name="twitter:description" content="什么是 AtomicInteger AtomicInteger 顾名思义是一个具有原子化操作的 Integer，与普通的 Integer 的区别是 AtomicInteger 采用一个 CAS 的方式使 Integer 的自增等操作变成原子化操作。 实现的之前需要了"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -79,18 +79,18 @@
 </div>
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
   <ul class="mobile-menu-list">
-    <a href="/en/">
-        <li class="mobile-menu-item">Home</li>
-      </a><a href="/en/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/en/tags/">
-        <li class="mobile-menu-item">Tags</li>
-      </a><a href="/en/categories/">
-        <li class="mobile-menu-item">Categories</li>
-      </a><a href="/en/post/about/about_me/">
-        <li class="mobile-menu-item">AboutMe</li>
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/post/about/about_me/">
+        <li class="mobile-menu-item">关于我</li>
       </a><a href="https://www.google.com/search?q=site%3Avim0.com">
-        <li class="mobile-menu-item">Search</li>
+        <li class="mobile-menu-item">搜索</li>
       </a>
   </ul>
 
@@ -102,18 +102,18 @@
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/zh-cn/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/">zh-cn</a>
+            <a href="https://vim0.com/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/">en</a>
+            <a href="https://vim0.com/en/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/">en</a>
           
         </li>
       
@@ -137,18 +137,18 @@
         
         
 
-        <li class="language-item ">
+        <li class="language-item active">
           
-            <a href="https://vim0.com/zh-cn/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/">zh-cn</a>
+            <a href="https://vim0.com/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/">zh-cn</a>
           
         </li>
       
         
         
 
-        <li class="language-item active">
+        <li class="language-item ">
           
-            <a href="https://vim0.com/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/">en</a>
+            <a href="https://vim0.com/en/post/concurrency/%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AAatomicinteger/">en</a>
           
         </li>
       
@@ -160,17 +160,17 @@
 <nav class="site-navbar">
   <ul id="menu" class="menu">
     <li class="menu-item">
-        <a class="menu-item-link" href="/en/">Home</a>
+        <a class="menu-item-link" href="/">首页</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/post/">Archives</a>
+        <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/tags/">Tags</a>
+        <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/categories/">Categories</a>
+        <a class="menu-item-link" href="/categories/">分类</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/en/post/about/about_me/">AboutMe</a>
+        <a class="menu-item-link" href="/post/about/about_me/">关于我</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">Search</a>
+        <a class="menu-item-link" href="https://www.google.com/search?q=site%3Avim0.com">搜索</a>
       </li>
   </ul>
 </nav>
@@ -183,42 +183,42 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Implementing an AtomicInteger</h1>
+      <h1 class="post-title">实现一个AtomicInteger</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2020-04-06 </span>
         <div class="post-category">
-            <a href="/categories/english/"> English </a>
+            <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
             <a href="/categories/java/"> java </a>
             </div>
-          <span class="more-meta"> 447 words </span>
-          <span class="more-meta"> 1 min read </span>
+          <span class="more-meta"> 约 575 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
         
       </div>
     </header>
 
     <div class="post-toc" id="post-toc">
-  <h2 class="post-toc-title">Contents</h2>
+  <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#what-is-atomicinteger">What is AtomicInteger</a></li>
-    <li><a href="#knowledge-needed-before-implementation">Knowledge needed before implementation</a></li>
-    <li><a href="#my-implementation">My implementation</a></li>
+    <li><a href="#什么是-atomicinteger">什么是 AtomicInteger</a></li>
+    <li><a href="#实现的之前需要了解的知识">实现的之前需要了解的知识</a></li>
+    <li><a href="#我的实现">我的实现</a></li>
   </ul>
 </nav>
   </div>
 </div>
   <div class="post-outdated">
     <div class="warn">
-      <p>[NOTE] Updated <span class="timeago" datetime="2020-04-06T16:33:34" title="April 6, 2020">April 6, 2020</span>. This article may have outdated content or subject matter.</p>
+      <p>【注意】最后更新于 <span class="timeago" datetime="2020-04-06T16:33:34" title="April 6, 2020">April 6, 2020</span>，文中内容可能已过时，请谨慎使用。</p>
     </div>
   </div>
     <div class="post-content">
-      <h2 id="what-is-atomicinteger">What is AtomicInteger</h2>
-<p>As the name suggests, AtomicInteger is an Integer with atomic operations. The difference between AtomicInteger and a regular Integer is that AtomicInteger uses a CAS method to make Integer&rsquo;s increment and other operations atomic.</p>
-<h2 id="knowledge-needed-before-implementation">Knowledge needed before implementation</h2>
-<p>First, let&rsquo;s look at the increment operation of AtomicInteger:</p>
+      <h2 id="什么是-atomicinteger">什么是 AtomicInteger</h2>
+<p>AtomicInteger 顾名思义是一个具有原子化操作的 Integer，与普通的 Integer 的区别是 AtomicInteger 采用一个 CAS 的方式使 Integer 的自增等操作变成原子化操作。</p>
+<h2 id="实现的之前需要了解的知识">实现的之前需要了解的知识</h2>
+<p>首先我们先观察 AotmicInteger 的自增操作：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -241,8 +241,8 @@
  <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>It uses a loop, and each time it loops, it gets the latest value, calculates the value after incrementing, uses compareAndSet to swap values, and checks the result. If it&rsquo;s true, it returns the value after incrementing. If it&rsquo;s false, it retries. This is a typical CAS operation.</p>
-<p>And this compareAndSet operation is actually very simple, it just calls the compareAndSwapInt of the unsafe object</p>
+</div><p>他采用了死循环，并且每次循环都获取最新的 value，通过这个值计算出自增后的值，使用 compareAndSet 来交换值，并且判断结果，如果是 true 就返回自增后的值，如果是 false 就进行重试，其实这就是一个典型的 CAS 操作。</p>
+<p>并且这个 compareAndSet 操作，其实很简单，就是调用 unsafe 对象的 compareAndSwapInt</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -255,8 +255,8 @@
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>compareAndSwapInt performs the CAS modification operation based on the offset of the object where the member that needs the CAS operation is located.</p>
-<p>Then let&rsquo;s look at the get() method:</p>
+</div><p>compareAndSwapInt 就是根据当前对象的所需要 CAS 操作的成员的所在对象的 offset 来进行 CAS 的修改操作。</p>
+<p>然后我们来看一下 get () 方法：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -273,9 +273,9 @@
 
 </code></pre></td></tr></table>
 </div>
-</div><p>It just returns the value modified by volatile, because getting this value is an atomic action, and volatile can ensure that this value is the latest.</p>
-<h2 id="my-implementation">My implementation</h2>
-<p>It should be noted that <code>Unsafe.getUnsafe</code> cannot be called directly, because it will determine whether it is a BootStap class loader or an Ext class loader. If not, it will throw an exception.</p>
+</div><p>就是返回 volatile 修饰的值，因为获取这个值是原子化行为，并且 volatile 能保证这个值是最新的。</p>
+<h2 id="我的实现">我的实现</h2>
+<p>需要注意的是 <code>Unsafe.getUnsafe</code> 是无法直接调用的，因为他会判断是否是 BootStap 的类加载器或者是 Ext 类加载器，如果不是就抛出异常。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -380,17 +380,16 @@
 
 </code></pre></td></tr></table>
 </div>
-</div><p>Sure, please provide the Markdown content you want to translate.</p>
-
+</div>
     </div>
 
     <div class="post-copyright">
   <p class="copyright-item">
-    <span class="item-title">Author</span>
+    <span class="item-title">文章作者</span>
     <span class="item-content">xiantang</span>
   </p>
   <p class="copyright-item">
-    <span class="item-title">LastMod</span>
+    <span class="item-title">上次更新</span>
     <span class="item-content">
         2020-04-06
         
@@ -401,16 +400,16 @@
 </div>
 <div class="post-reward">
   <input type="checkbox" name="reward" id="reward" hidden />
-  <label class="reward-button" for="reward">Reward</label>
+  <label class="reward-button" for="reward">赞赏支持</label>
   <div class="qr-code">
     
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b3bbmwj30ha0hbq5e.jpg">
-        <span>wechat</span>
+        <span>微信打赏</span>
       </label>
     <label class="qr-code-image" for="reward">
         <img class="image" src="https://tva1.sinaimg.cn/large/006tNbRwly1gba9b4s82aj30ib0igad3.jpg">
-        <span>alipay</span>
+        <span>支付宝打赏</span>
       </label>
   </div>
 </div><footer class="post-footer">
@@ -420,12 +419,12 @@
       <nav class="post-nav">
         <a class="prev" href="/post/interview/%E5%88%86%E5%B8%83%E5%BC%8F%E7%9A%84%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Implementation of Distributed Token Bucket Algorithm</span>
-            <span class="prev-text nav-mobile">Prev</span>
+            <span class="prev-text nav-default">分布式的令牌桶算法的实现</span>
+            <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/post/jvm/full_gc/">
-            <span class="next-text nav-default">What is Minor GC/Major GC</span>
-            <span class="next-text nav-mobile">Next</span>
+        <a class="next" href="/post/jvm/gc_root/">
+            <span class="next-text nav-default">GC root 在哪里？</span>
+            <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
       </nav>
@@ -464,11 +463,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -494,7 +493,7 @@
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.min.js" integrity="sha256-jwCP0NAdCBloaIWTWHmW4i3snUNMHUNO+jr9rYd2iOI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/timeago.js@3.0.2/dist/timeago.locales.min.js" integrity="sha256-ZwofwC1Lf/faQCzN7nZtfijVV6hSwxjQMwXL4gn9qU8=" crossorigin="anonymous"></script>
   <script><!-- NOTE: timeago.js uses the language code format like "zh_CN" (underscore and case sensitive) -->
-    var languageCode = "en".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
+    var languageCode = "zh-cn".replace(/-/g, '_').replace(/_(.*)/, function ($0, $1) {return $0.replace($1, $1.toUpperCase());});
     timeago().render(document.querySelectorAll('.timeago'), languageCode);
     timeago.cancel();  
   </script>
