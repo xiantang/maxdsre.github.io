@@ -54,8 +54,7 @@ Then refer to `myPkg` in `environment.systemPackages` of `configuration.nix`:
 environment.systemPackages = with pkgs; [
   # ...
   myPkg
-  # ...
-];
+  # ... ];
 ```
 
 Run `nixos-rebuild switch` to apply the changes.
