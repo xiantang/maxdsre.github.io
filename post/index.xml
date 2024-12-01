@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 咸糖 - 自律者自由</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 11 Jul 2024 23:16:09 +0800</lastBuildDate><atom:link href="https://vim0.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Dec 2024 15:31:25 +0800</lastBuildDate><atom:link href="https://vim0.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024 年终总结</title>
+      <link>https://vim0.com/post/2024/</link>
+      <pubDate>Sun, 01 Dec 2024 15:31:25 +0800</pubDate>
+      
+      <guid>https://vim0.com/post/2024/</guid>
+      <description>今天是 2024 即将收尾的最后一个月，我看到很多平台都有在发年度的 recap，像 reddit 啥的，我也想写一篇年度总结，记录一下这一年发生的事情。 2024 年终总结 一</description>
+    </item>
+    
     <item>
       <title>Neovim: No Crash Incremental Selection</title>
       <link>https://vim0.com/post/neovim_no_crash_incremental_selection/</link>
