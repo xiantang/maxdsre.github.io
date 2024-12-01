@@ -31,28 +31,35 @@
   
   <url>
     <loc>https://vim0.com/post/</loc>
-    <lastmod>2024-12-01T15:35:03+08:00</lastmod>
+    <lastmod>2024-12-01T17:23:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://vim0.com/tags/</loc>
-    <lastmod>2024-12-01T15:35:03+08:00</lastmod>
+    <lastmod>2024-12-01T17:23:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://vim0.com/</loc>
-    <lastmod>2024-12-01T15:35:03+08:00</lastmod>
+    <lastmod>2024-12-01T17:23:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://vim0.com/post/2022/</loc>
-    <lastmod>2024-07-09T00:29:27+08:00</lastmod>
+    <lastmod>2024-12-01T17:23:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://vim0.com/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</loc>
+    <lastmod>2024-12-01T17:23:31+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
